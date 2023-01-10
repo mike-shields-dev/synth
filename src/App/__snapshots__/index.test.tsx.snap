@@ -3,10 +3,17 @@
 exports[`App > matches snapshot 1`] = `
 <div
   class="App"
-  data-testid="app"
 >
   <div
     data-testid="synth"
-  />
+  >
+    <section>
+      <form
+        aria-label="filter"
+      >
+        children
+      </form>
+    </section>
+  </div>
 </div>
 `;

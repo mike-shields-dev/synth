@@ -5,7 +5,9 @@ describe('App', () => {
     beforeEach(() => { render(<App />) });
 
     it('matches snapshot', () => {
-        expect(screen.getByTestId(/app/i)).toMatchSnapshot();
+        const { container } = render(<App />);
+
+        expect(container.firstChild).toMatchSnapshot();
     });
 
     it('renders the Synth', () => {
