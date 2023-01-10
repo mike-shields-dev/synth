@@ -1,12 +1,14 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import App from './index'
+import App from './index';
 
 describe('App', () => {
-    it('matches snapshot', () => {
-        const app = render(<App />);
+    beforeEach(() => { render(<App />) });
 
-        expect(app).toMatchSnapshot();
+    it('matches snapshot', () => {
+        expect(screen.getByTestId(/app/i)).toMatchSnapshot();
+    });
+
+    it('renders the Synth', () => {
+        expect(screen.getByTestId(/synth/i)).toBeInTheDocument();
     });
 });
