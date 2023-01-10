@@ -1,4 +1,5 @@
 import React from "react";
+import css from './index.module.css';
 
 interface Props {
     groupName: string;
@@ -8,9 +9,12 @@ interface Props {
 
 function SynthParameterGroup({ groupName, handleFocus, children }: Props) {
   return (
-    <section>
-      <form aria-label={groupName} onFocus={handleFocus}>
-        { children }
+    <section className={css.SynthParameterGroup}>
+      <form
+        aria-label={groupName}
+        onFocus={handleFocus}
+      >
+          { children }
       </form>
     </section>
   )

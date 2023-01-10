@@ -1,0 +1,3 @@
+.SynthParameterGroup > form:focus-within {
+    border: 1px solid red;
+}
