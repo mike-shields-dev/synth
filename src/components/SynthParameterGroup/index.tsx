@@ -12,6 +12,7 @@ function SynthParameterGroup({ groupName, handleFocus, children }: Props) {
     <section className={css.SynthParameterGroup}>
       <form
         aria-label={groupName}
+        id={groupName}
         onFocus={handleFocus}
       >
           { children }

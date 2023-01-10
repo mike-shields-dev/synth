@@ -12,6 +12,7 @@ exports[`App > matches snapshot 1`] = `
     >
       <form
         aria-label="filter"
+        id="filter"
       >
         <input
           type="range"
@@ -23,6 +24,7 @@ exports[`App > matches snapshot 1`] = `
     >
       <form
         aria-label="filterEnvelope"
+        id="filterEnvelope"
       >
         <input
           type="range"

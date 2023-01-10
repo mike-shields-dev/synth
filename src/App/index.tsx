@@ -1,16 +1,24 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Synth } from '../components/Synth'
 import { SynthParameterGroup } from '../components/SynthParameterGroup'
 import './index.module.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [focus, setFocus] = useState("");
+
+  function useFocus(e: React.FocusEvent) {
+    const focusId = e.currentTarget.id;
+    setFocus(focusId);
+  }
 
   return (
     <div className="App">
       <Synth>
-        <SynthParameterGroup groupName="filter">
-          {"children"}
+        <SynthParameterGroup groupName="filter" handleFocus={useFocus}>
+          <input type="range" />
+        </SynthParameterGroup>
+        <SynthParameterGroup groupName="filterEnvelope" handleFocus={useFocus}>
+          <input type="range" />
         </SynthParameterGroup>
       </Synth> 
     </div>
