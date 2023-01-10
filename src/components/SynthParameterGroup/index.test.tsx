@@ -3,15 +3,22 @@ import { render, screen } from "@testing-library/react";
 import { SynthParameterGroup } from '.';
 
 const validProps = {
-    name: 'form-name'
+    groupName: 'form-name', 
+    children: <div>Child</div>
 }
 
 describe('SynthParameterGroup', () => {
-    it('renders a form with the give name prop', () => {
-        render(<SynthParameterGroup {...validProps} />);
+    beforeEach(() => {
+        render(< SynthParameterGroup {...validProps} />);
+    });
 
+    it(`renders a form with the name groupName`, () => {
         expect(
-            screen.getByRole('form', { name: validProps.name })
+            screen.getByRole('form', { name: validProps.groupName })
         ).toBeInTheDocument();
+    });
+
+    it('renders children', () => {
+        expect(screen.getByText(/child/i)).toBeInTheDocument();
     });
 });

@@ -1,11 +1,14 @@
 interface Props {
-    name: string;
+    groupName: string;
+    children: React.ReactNode;
 }
 
-function SynthParameterGroup({ name }: Props) {
+function SynthParameterGroup({ groupName, children }: Props) {
   return (
     <section>
-      <form aria-label={name}></form>
+      <form aria-label={groupName}>
+        { children }
+      </form>
     </section>
   )
 }
