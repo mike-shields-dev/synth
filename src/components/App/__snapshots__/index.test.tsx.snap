@@ -13,6 +13,11 @@ exports[`App > matches snapshot 1`] = `
         class="_SynthParameterGroup_f01a7f"
         id="oscillator"
       >
+        <header>
+          <h2>
+            Oscillator
+          </h2>
+        </header>
         <input
           type="range"
         />
@@ -24,6 +29,11 @@ exports[`App > matches snapshot 1`] = `
         class="_SynthParameterGroup_f01a7f"
         id="filter"
       >
+        <header>
+          <h2>
+            Filter
+          </h2>
+        </header>
         <input
           type="range"
         />
@@ -35,6 +45,11 @@ exports[`App > matches snapshot 1`] = `
         class="_SynthParameterGroup_f01a7f"
         id="filterEnvelope"
       >
+        <header>
+          <h2>
+            Filter Envelope
+          </h2>
+        </header>
         <input
           type="range"
         />
@@ -46,6 +61,11 @@ exports[`App > matches snapshot 1`] = `
         class="_SynthParameterGroup_f01a7f"
         id="envelope"
       >
+        <header>
+          <h2>
+            Amp Envelope
+          </h2>
+        </header>
         <input
           type="range"
         />

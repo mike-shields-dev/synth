@@ -14,7 +14,8 @@ function App() {
     <div className="App">
       <SynthUI>
         <SynthParameterGroup 
-          groupName="oscillator" 
+          groupName="oscillator"
+          headerName="Oscillator"
           updateFocus={updateFocus}
           isFocused={focus === "oscillator"}
         >
@@ -23,6 +24,7 @@ function App() {
 
         <SynthParameterGroup 
           groupName="filter"
+          headerName="Filter"
           updateFocus={updateFocus}
           isFocused={focus === "filter"}
         >
@@ -31,6 +33,7 @@ function App() {
 
         <SynthParameterGroup 
           groupName="filterEnvelope"
+          headerName="Filter Envelope"
           updateFocus={updateFocus}
           isFocused={focus === "filterEnvelope"}
         >
@@ -39,6 +42,7 @@ function App() {
 
         <SynthParameterGroup 
           groupName="envelope"
+          headerName="Amp Envelope"
           updateFocus={updateFocus}
           isFocused={focus === "envelope"}
         >

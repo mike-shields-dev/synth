@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { SynthParameterGroup } from '.';
 
 const validProps = {
@@ -9,7 +9,8 @@ const validProps = {
             <input id="parameter" type="range" />,
         </div>
     ),
-    groupName: 'form-name', 
+    groupName: 'groupName',
+    headerName: "Header Name",
     updateFocus: vi.fn(),
     isFocused: true,
 }
@@ -24,6 +25,13 @@ describe('SynthParameterGroup', () => {
         ).toBeInTheDocument();
     });
 
+    it('renders a heading within the form with the given header name', () => {
+        const header = screen.getByRole('heading');
+
+        expect(screen.getByRole('heading')).toBeInTheDocument();
+        expect(within(header).getByText(validProps.headerName)).toBeInTheDocument();
+    });
+
     it('renders children', () => {
         expect(
             screen.getByRole('slider', {name: /parameter/i})
@@ -31,8 +39,7 @@ describe('SynthParameterGroup', () => {
     });
 
     it('invokes updateFocus callback, when a child component is focused', () => {
-        const parameterInput = 
-            screen.getByRole('slider', { name: /parameter/i});
+        const parameterInput = screen.getByRole('slider', { name: /parameter/i });
 
         expect(validProps.updateFocus).toHaveBeenCalledTimes(0);
         
@@ -43,8 +50,7 @@ describe('SynthParameterGroup', () => {
     });
 
     it('invokes updateFocus when the user clicks anywhere within the component', () => {
-        const formElement =
-            screen.getByRole('form', { name: validProps.groupName });
+        const formElement = screen.getByRole('form', { name: validProps.groupName });
 
         expect(validProps.updateFocus).toHaveBeenCalledTimes(0);
         

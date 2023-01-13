@@ -4,12 +4,14 @@ import css from './index.module.css';
 interface Props {
   children: React.ReactNode;
   groupName: string;
+  headerName: string;
   isFocused: boolean;
   updateFocus: (id: string) => void;
 }
 
 function SynthParameterGroup({
   children,
+  headerName,
   groupName,
   isFocused,
   updateFocus,
@@ -38,6 +40,9 @@ function SynthParameterGroup({
         onClick={onClick}
         ref={form}
       >
+        <header>
+          <h2>{headerName}</h2>
+        </header>
           { children }
       </form>
     </section>
