@@ -7,11 +7,10 @@ exports[`App > matches snapshot 1`] = `
   <div
     data-testid="synth"
   >
-    <section
-      class="_SynthParameterGroup_f01a7f"
-    >
+    <section>
       <form
         aria-label="filter"
+        class="_SynthParameterGroup_f01a7f"
         id="filter"
       >
         <input
@@ -19,11 +18,10 @@ exports[`App > matches snapshot 1`] = `
         />
       </form>
     </section>
-    <section
-      class="_SynthParameterGroup_f01a7f"
-    >
+    <section>
       <form
         aria-label="filterEnvelope"
+        class="_SynthParameterGroup_f01a7f"
         id="filterEnvelope"
       >
         <input

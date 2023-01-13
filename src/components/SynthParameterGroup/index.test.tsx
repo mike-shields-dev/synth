@@ -10,13 +10,13 @@ const validProps = {
         </div>
     ),
     groupName: 'form-name', 
-    handleFocus: vi.fn(),
+    updateFocus: vi.fn(),
+    isFocused: true,
 }
 
 describe('SynthParameterGroup', () => {
-    beforeEach(() => {
-        render(< SynthParameterGroup {...validProps} />);
-    });
+    beforeEach(() => render(< SynthParameterGroup {...validProps} />));
+    afterEach(() => vi.restoreAllMocks());
 
     it(`renders a form with the name groupName`, () => {
         expect(
@@ -30,14 +30,27 @@ describe('SynthParameterGroup', () => {
         ).toBeInTheDocument();
     });
 
-    it('invokes handleFocus when a child component is focused', () => {
+    it('invokes updateFocus callback, when a child component is focused', () => {
         const parameterInput = 
             screen.getByRole('slider', { name: /parameter/i});
 
-        expect(validProps.handleFocus).not.toHaveBeenCalled();
+        expect(validProps.updateFocus).toHaveBeenCalledTimes(0);
         
         fireEvent.focus(parameterInput);
 
-        expect(validProps.handleFocus).toHaveBeenCalledTimes(1);
+        expect(validProps.updateFocus).toHaveBeenCalledTimes(1);
+        expect(validProps.updateFocus).toHaveBeenCalledWith(validProps.groupName);
+    });
+
+    it('invokes updateFocus when the user clicks anywhere within the component', () => {
+        const formElement =
+            screen.getByRole('form', { name: validProps.groupName });
+
+        expect(validProps.updateFocus).toHaveBeenCalledTimes(0);
+        
+        fireEvent.click(formElement);
+
+        expect(validProps.updateFocus).toHaveBeenCalledTimes(1);
+        expect(validProps.updateFocus).toHaveBeenCalledWith(validProps.groupName);
     });
 });
