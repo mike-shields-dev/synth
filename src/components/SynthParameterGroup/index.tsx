@@ -2,17 +2,17 @@ import React, { useRef } from "react";
 import css from './index.module.css';
 
 interface Props {
-  groupName: string;
   children: React.ReactNode;
-  updateFocus: (id: string) => void;
+  groupName: string;
   isFocused: boolean;
+  updateFocus: (id: string) => void;
 }
 
 function SynthParameterGroup({
   children,
   groupName,
-  updateFocus,
   isFocused,
+  updateFocus,
 }: Props) {
   const form = useRef<HTMLFormElement>(null);
 
@@ -27,17 +27,16 @@ function SynthParameterGroup({
   return (
     <section>
       <form
-        className={css[
-          `SynthParameterGroup${isFocused
-            ? "--focus"
-            : ""
+        className={
+          css[`SynthParameterGroup${
+            isFocused ? "--focus" : ""
           }`
         ]}
-        ref={form}
         aria-label={groupName}
         id={groupName}
         onFocus={onFocus}
         onClick={onClick}
+        ref={form}
       >
           { children }
       </form>
