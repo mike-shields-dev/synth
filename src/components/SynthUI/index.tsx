@@ -4,12 +4,12 @@ interface Props {
   children: React.ReactNode;
 }
 
-function Synth({ children}: Props) {
+function SynthUI({ children }: Props) {
   return (
-    <div data-testid="synth">
+    <div data-testid="SynthUI">
       { children }
     </div>
   )
 }
 
-export { Synth };
+export { SynthUI };

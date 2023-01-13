@@ -5,8 +5,19 @@ exports[`App > matches snapshot 1`] = `
   class="App"
 >
   <div
-    data-testid="synth"
+    data-testid="SynthUI"
   >
+    <section>
+      <form
+        aria-label="oscillator"
+        class="_SynthParameterGroup_f01a7f"
+        id="oscillator"
+      >
+        <input
+          type="range"
+        />
+      </form>
+    </section>
     <section>
       <form
         aria-label="filter"
@@ -23,6 +34,17 @@ exports[`App > matches snapshot 1`] = `
         aria-label="filterEnvelope"
         class="_SynthParameterGroup_f01a7f"
         id="filterEnvelope"
+      >
+        <input
+          type="range"
+        />
+      </form>
+    </section>
+    <section>
+      <form
+        aria-label="envelope"
+        class="_SynthParameterGroup_f01a7f"
+        id="envelope"
       >
         <input
           type="range"
