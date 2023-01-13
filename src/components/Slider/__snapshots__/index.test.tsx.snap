@@ -1,0 +1,17 @@
+// Vitest Snapshot v1
+
+exports[`Slider > matches snapshot 1`] = `
+<div
+  data-testid="Slider"
+>
+  <label
+    for="groupName:parameter"
+  >
+    displayName
+  </label>
+  <input
+    id="groupName:parameter"
+    type="range"
+  />
+</div>
+`;
