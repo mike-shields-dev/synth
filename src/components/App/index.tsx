@@ -1,4 +1,5 @@
 import { useSessionStorage } from '../../hooks/useSessionStorage';
+import { Slider } from '../Slider';
 import { SynthParameterGroup } from '../SynthParameterGroup';
 import { SynthUI } from '../SynthUI';
 import './index.module.css';
@@ -28,7 +29,9 @@ function App() {
           updateFocus={updateFocus}
           isFocused={focus === "filter"}
         >
-          <input type="range" />
+          <Slider groupName="filter" displayName='frequency' parameter='frequency' />
+          <Slider groupName="filter" displayName="resonance" parameter="Q" />
+          <Slider groupName="filter" displayName="slope" parameter="rolloff" />
         </SynthParameterGroup>
 
         <SynthParameterGroup 
@@ -37,7 +40,10 @@ function App() {
           updateFocus={updateFocus}
           isFocused={focus === "filterEnvelope"}
         >
-          <input type="range" />
+          <Slider groupName="filterEnvelope" displayName="Attack" parameter="attack" />
+          <Slider groupName="filterEnvelope" displayName="Decay" parameter="decay" />
+          <Slider groupName="filterEnvelope" displayName="Sustain" parameter="sustain" />
+          <Slider groupName="filterEnvelope" displayName="Release" parameter="release" />
         </SynthParameterGroup>
 
         <SynthParameterGroup 
@@ -46,7 +52,10 @@ function App() {
           updateFocus={updateFocus}
           isFocused={focus === "envelope"}
         >
-          <input type="range" />
+          <Slider groupName="envelope" displayName="Attack" parameter="attack" />
+          <Slider groupName="envelope" displayName="Decay" parameter="decay" />
+          <Slider groupName="envelope" displayName="Sustain" parameter="sustain" />
+          <Slider groupName="envelope" displayName="Release" parameter="release" />
         </SynthParameterGroup>
       </SynthUI> 
     </div>

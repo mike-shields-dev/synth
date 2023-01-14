@@ -34,9 +34,45 @@ exports[`App > matches snapshot 1`] = `
             Filter
           </h2>
         </header>
-        <input
-          type="range"
-        />
+        <div
+          data-testid="Slider"
+        >
+          <label
+            for="filter:frequency"
+          >
+            frequency
+          </label>
+          <input
+            id="filter:frequency"
+            type="range"
+          />
+        </div>
+        <div
+          data-testid="Slider"
+        >
+          <label
+            for="filter:Q"
+          >
+            resonance
+          </label>
+          <input
+            id="filter:Q"
+            type="range"
+          />
+        </div>
+        <div
+          data-testid="Slider"
+        >
+          <label
+            for="filter:rolloff"
+          >
+            slope
+          </label>
+          <input
+            id="filter:rolloff"
+            type="range"
+          />
+        </div>
       </form>
     </section>
     <section>
@@ -50,9 +86,58 @@ exports[`App > matches snapshot 1`] = `
             Filter Envelope
           </h2>
         </header>
-        <input
-          type="range"
-        />
+        <div
+          data-testid="Slider"
+        >
+          <label
+            for="filterEnvelope:attack"
+          >
+            Attack
+          </label>
+          <input
+            id="filterEnvelope:attack"
+            type="range"
+          />
+        </div>
+        <div
+          data-testid="Slider"
+        >
+          <label
+            for="filterEnvelope:decay"
+          >
+            Decay
+          </label>
+          <input
+            id="filterEnvelope:decay"
+            type="range"
+          />
+        </div>
+        <div
+          data-testid="Slider"
+        >
+          <label
+            for="filterEnvelope:sustain"
+          >
+            Sustain
+          </label>
+          <input
+            id="filterEnvelope:sustain"
+            type="range"
+          />
+        </div>
+        <div
+          data-testid="Slider"
+        >
+          <label
+            for="filterEnvelope:release"
+          >
+            Release
+          </label>
+          <input
+            id="filterEnvelope:release"
+            type="range"
+          />
+        </div>
       </form>
     </section>
     <section>
@@ -66,9 +151,58 @@ exports[`App > matches snapshot 1`] = `
             Amp Envelope
           </h2>
         </header>
-        <input
-          type="range"
-        />
+        <div
+          data-testid="Slider"
+        >
+          <label
+            for="envelope:attack"
+          >
+            Attack
+          </label>
+          <input
+            id="envelope:attack"
+            type="range"
+          />
+        </div>
+        <div
+          data-testid="Slider"
+        >
+          <label
+            for="envelope:decay"
+          >
+            Decay
+          </label>
+          <input
+            id="envelope:decay"
+            type="range"
+          />
+        </div>
+        <div
+          data-testid="Slider"
+        >
+          <label
+            for="envelope:sustain"
+          >
+            Sustain
+          </label>
+          <input
+            id="envelope:sustain"
+            type="range"
+          />
+        </div>
+        <div
+          data-testid="Slider"
+        >
+          <label
+            for="envelope:release"
+          >
+            Release
+          </label>
+          <input
+            id="envelope:release"
+            type="range"
+          />
+        </div>
       </form>
     </section>
   </div>
