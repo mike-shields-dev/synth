@@ -16,6 +16,9 @@ function Slider({
             </label> 
             <input
                 id={`${groupName}:${parameter}`}
+                max={127}
+                min={0}
+                step={0.05}
                 type="range"
             />
         </div>

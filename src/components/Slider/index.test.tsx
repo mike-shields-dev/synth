@@ -20,8 +20,16 @@ describe("Slider", () => {
         expect(screen.getByTestId("Slider")).toBeInTheDocument();
     });
 
-    it('renders a single input with the type "range"', () => {
+    it('renders a single range input', () => {
         expect(screen.getAllByRole("slider")).toHaveLength(1);
+    });
+
+    it('renders a range input with a min value of 0', () => {
+        expect(screen.getByRole('slider').getAttribute('min')).toEqual('0');
+    });
+
+    it('renders a range input with a max value of 127', () => {
+        expect(screen.getByRole('slider').getAttribute('max')).toEqual('127');
     });
 
     it('renders an associated input label with the given displayName', () => {
