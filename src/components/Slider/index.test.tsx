@@ -1,10 +1,12 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { vi } from "vitest";
 import { Slider } from ".";
 
 const validProps = {
-    groupName: "groupName",
-    parameter: "parameter",
     displayName: "displayName",
+    groupName: "groupName",
+    onChange: vi.fn(),
+    parameter: "parameter",
 }
 
 describe("Slider", () => {
@@ -34,5 +36,16 @@ describe("Slider", () => {
 
     it('renders an associated input label with the given displayName', () => {
         expect(screen.getByRole("slider", { name: validProps.displayName })).toBeInTheDocument();
+    });
+
+    it('the range input invokes the given onChange event handler', () => {
+        expect(validProps.onChange).toHaveBeenCalledTimes(0);
+        
+        fireEvent.change(
+            screen.getByRole("slider", { name: validProps.displayName }),
+            { target: { value: 60 } }
+        );
+
+        expect(validProps.onChange).toHaveBeenCalledTimes(1);
     });
 });

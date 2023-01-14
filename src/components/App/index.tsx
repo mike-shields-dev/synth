@@ -1,3 +1,4 @@
+import React from 'react';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
 import { Slider } from '../Slider';
 import { SynthParameterGroup } from '../SynthParameterGroup';
@@ -9,7 +10,12 @@ function App() {
 
   function updateFocus(id: string) {
     setFocus(id);
-  } 
+  }
+  
+  function onChange(e: React.ChangeEvent) {
+    const { value } = e.target as HTMLInputElement;
+    console.log(value);
+  }
 
   return (
     <div className="App">
@@ -17,8 +23,8 @@ function App() {
         <SynthParameterGroup 
           groupName="oscillator"
           headerName="Oscillator"
-          updateFocus={updateFocus}
           isFocused={focus === "oscillator"}
+          updateFocus={updateFocus}
         >
           <input type="range" />
         </SynthParameterGroup>
@@ -26,36 +32,91 @@ function App() {
         <SynthParameterGroup 
           groupName="filter"
           headerName="Filter"
-          updateFocus={updateFocus}
           isFocused={focus === "filter"}
+          updateFocus={updateFocus}
         >
-          <Slider groupName="filter" displayName='frequency' parameter='frequency' />
-          <Slider groupName="filter" displayName="resonance" parameter="Q" />
-          <Slider groupName="filter" displayName="slope" parameter="rolloff" />
+          <Slider 
+            displayName='frequency' 
+            groupName="filter" 
+            onChange={onChange} 
+            parameter='frequency'
+          />
+          <Slider 
+            displayName="resonance" 
+            groupName="filter" 
+            onChange={onChange} 
+            parameter="Q"
+          />
+          <Slider 
+            displayName="slope" 
+            groupName="filter" 
+            onChange={onChange} 
+            parameter="rolloff"
+          />
         </SynthParameterGroup>
 
         <SynthParameterGroup 
           groupName="filterEnvelope"
           headerName="Filter Envelope"
-          updateFocus={updateFocus}
           isFocused={focus === "filterEnvelope"}
+          updateFocus={updateFocus}
         >
-          <Slider groupName="filterEnvelope" displayName="Attack" parameter="attack" />
-          <Slider groupName="filterEnvelope" displayName="Decay" parameter="decay" />
-          <Slider groupName="filterEnvelope" displayName="Sustain" parameter="sustain" />
-          <Slider groupName="filterEnvelope" displayName="Release" parameter="release" />
+          <Slider 
+            displayName="Attack" 
+            groupName="filterEnvelope" 
+            onChange={onChange} 
+            parameter="attack"
+          />
+          <Slider 
+            displayName="Decay" 
+            groupName="filterEnvelope" 
+            onChange={onChange} 
+            parameter="decay"
+          />
+          <Slider 
+            displayName="Sustain" 
+            groupName="filterEnvelope" 
+            onChange={onChange} 
+            parameter="sustain"
+          />
+          <Slider 
+            displayName="Release" 
+            groupName="filterEnvelope" 
+            onChange={onChange} 
+            parameter="release"
+          />
         </SynthParameterGroup>
 
         <SynthParameterGroup 
           groupName="envelope"
           headerName="Amp Envelope"
-          updateFocus={updateFocus}
           isFocused={focus === "envelope"}
+          updateFocus={updateFocus}
         >
-          <Slider groupName="envelope" displayName="Attack" parameter="attack" />
-          <Slider groupName="envelope" displayName="Decay" parameter="decay" />
-          <Slider groupName="envelope" displayName="Sustain" parameter="sustain" />
-          <Slider groupName="envelope" displayName="Release" parameter="release" />
+          <Slider 
+            displayName="Attack" 
+            groupName="envelope" 
+            onChange={onChange} 
+            parameter="attack"
+          />
+          <Slider 
+            displayName="Decay" 
+            groupName="envelope" 
+            onChange={onChange} 
+            parameter="decay"
+          />
+          <Slider 
+            displayName="Sustain" 
+            groupName="envelope" 
+            onChange={onChange} 
+            parameter="sustain"
+          />
+          <Slider 
+            displayName="Release" 
+            groupName="envelope" 
+            onChange={onChange} 
+            parameter="release"
+          />
         </SynthParameterGroup>
       </SynthUI> 
     </div>

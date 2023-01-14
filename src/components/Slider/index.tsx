@@ -1,13 +1,17 @@
+import React from "react";
+
 interface Props {
-    groupName: string;
-    parameter: string;
     displayName: string;
+    groupName: string;
+    onChange: (e: React.ChangeEvent) => void;
+    parameter: string;
 }
 
 function Slider({
+    displayName, 
     groupName,
+    onChange,
     parameter,
-    displayName
 }: Props) {
     return (
         <div data-testid="Slider">
@@ -18,6 +22,7 @@ function Slider({
                 id={`${groupName}:${parameter}`}
                 max={127}
                 min={0}
+                onChange={onChange}
                 step={0.05}
                 type="range"
             />
