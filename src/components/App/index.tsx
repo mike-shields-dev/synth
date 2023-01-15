@@ -33,7 +33,8 @@ function App() {
           isFocused={focus === "filter"}
           updateFocus={updateFocus}
         >
-          <Slider 
+          <Slider
+            controlChangeNumber={70}  
             displayName='frequency'
             groupName="filterEnvelope"
             initVal={+synthConfig.filterEnvelope.baseFrequency}
@@ -44,7 +45,8 @@ function App() {
                 in: scalers.filterFrequencyToControlChange,
             }}
           />
-          <Slider 
+          <Slider
+            controlChangeNumber={71}  
             displayName="resonance" 
             groupName="filter"
             initVal={+synthConfig.filter.Q}
@@ -64,28 +66,19 @@ function App() {
           updateFocus={updateFocus}
         >
           <Slider 
-            displayName="Amount" 
-            groupName="filterEnvelope" 
-            initVal={+synthConfig.filterEnvelope.octaves}
-            onParameterChange={onParameterChange} 
-            parameter="octaves"
-            scalers={{
-              out: scalers.controlChangeToEnvelopeAmount,
-              in: scalers.envelopeAmountToControlChange,
-            }}
-          />
-          <Slider 
-            displayName="Attack" 
-            groupName="filterEnvelope" 
+            controlChangeNumber={70}
+            displayName="Attack"
+            groupName="filterEnvelope"
             initVal={+synthConfig.filterEnvelope.attack}
-            onParameterChange={onParameterChange} 
+            onParameterChange={onParameterChange}
             parameter="attack"
             scalers={{
               out: scalers.controlChangeToEnvelopeAttack,
               in: scalers.envelopeAttackToControlChange,
             }}
           />
-          <Slider 
+          <Slider
+            controlChangeNumber={70}
             displayName="Decay" 
             groupName="filterEnvelope" 
             initVal={+synthConfig.filterEnvelope.decay}
@@ -96,7 +89,8 @@ function App() {
               in: scalers.envelopeDecayToControlChange,
             }}
           />
-          <Slider 
+          <Slider
+            controlChangeNumber={71}  
             displayName="Sustain" 
             groupName="filterEnvelope" 
             initVal={+synthConfig.filterEnvelope.sustain}
@@ -107,7 +101,8 @@ function App() {
               in: scalers.envelopeSustainToControlChange,
             }}
           />
-          <Slider 
+          <Slider
+            controlChangeNumber={72}  
             displayName="Release" 
             groupName="filterEnvelope" 
             initVal={+synthConfig.filterEnvelope.release}
@@ -118,6 +113,18 @@ function App() {
               in: scalers.envelopeReleaseToControlChange,
             }}
           />
+          <Slider 
+            controlChangeNumber={73}
+            displayName="Amount" 
+            groupName="filterEnvelope" 
+            initVal={+synthConfig.filterEnvelope.octaves}
+            onParameterChange={onParameterChange} 
+            parameter="octaves"
+            scalers={{
+              out: scalers.controlChangeToEnvelopeAmount,
+              in: scalers.envelopeAmountToControlChange,
+            }}
+          />
         </SynthParameterGroup>
 
         <SynthParameterGroup 
@@ -126,7 +133,8 @@ function App() {
           isFocused={focus === "envelope"}
           updateFocus={updateFocus}
         >
-          <Slider 
+          <Slider
+            controlChangeNumber={70}
             displayName="Attack" 
             groupName="envelope" 
             initVal={+synthConfig.envelope.attack}
@@ -138,6 +146,7 @@ function App() {
             }}
           />
           <Slider 
+            controlChangeNumber={71}
             displayName="Decay" 
             groupName="envelope" 
             initVal={+synthConfig.envelope.decay}
@@ -149,6 +158,7 @@ function App() {
             }}
           />
           <Slider 
+            controlChangeNumber={72}
             displayName="Sustain" 
             groupName="envelope"
             initVal={+synthConfig.envelope.sustain}
@@ -159,7 +169,8 @@ function App() {
               in: scalers.envelopeSustainToControlChange,
             }}
           />
-          <Slider 
+          <Slider
+            controlChangeNumber={73}  
             displayName="Release" 
             groupName="envelope" 
             initVal={+synthConfig.envelope.release}

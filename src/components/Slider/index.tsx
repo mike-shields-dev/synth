@@ -5,6 +5,7 @@ interface ParameterChange {
     value: number;
 }
 interface Props {
+    controlChangeNumber: number;
     displayName: string;
     groupName: string;
     initVal: number;
@@ -17,6 +18,7 @@ interface Props {
 }
 
 function Slider({
+    controlChangeNumber,
     displayName, 
     groupName,
     initVal,
