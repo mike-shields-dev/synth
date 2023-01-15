@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSessionStorage } from "usehooks-ts";
 
 interface ParameterChange {
     parameter: string;
@@ -26,8 +27,11 @@ function Slider({
     parameter,
     scalers,
 }: Props) {
+    const [focus] = useSessionStorage('focus', '');
     const [inputVal, setInputVal] = useState(scalers.in(initVal));
     const outputVal = scalers.out(inputVal)
+
+    console.log(focus)
 
     function onChange(e: React.ChangeEvent) {
         const { value } = e.target as HTMLInputElement;
