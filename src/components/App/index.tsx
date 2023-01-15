@@ -1,9 +1,8 @@
-import React from 'react';
 import { useSessionStorage } from '../../hooks/useSessionStorage';
+import * as scalers from '../../utils/Scalers';
 import { Slider } from '../Slider';
 import { SynthParameterGroup } from '../SynthParameterGroup';
 import { SynthUI } from '../SynthUI';
-import * as scalers from '../../utils/Scalers';
 import './index.module.css';
 
 function App() {
@@ -13,9 +12,8 @@ function App() {
     setFocus(id);
   }
   
-  function onChange(e: React.ChangeEvent) {
-    const { value } = e.target as HTMLInputElement;
-    console.log(value);
+  function onParameterChange(parameterChange: any) {
+    console.log(parameterChange.parameter, parameterChange.value);
   }
 
   return (
@@ -39,7 +37,7 @@ function App() {
             displayName='frequency'
             groupName="filter"
             initVal={+synthConfig.filterEnvelope.baseFrequency}
-            onChange={onChange}
+            onParameterChange={onParameterChange}
             parameter='frequency'
             scalers={{
                 out: scalers.controlChangeToFilterFrequency,
@@ -50,7 +48,7 @@ function App() {
             displayName="resonance" 
             groupName="filter"
             initVal={+synthConfig.filter.Q}
-            onChange={onChange} 
+            onParameterChange={onParameterChange} 
             parameter="Q"
             scalers={{
               out: scalers.controlChangeToFilterQ,
@@ -69,7 +67,7 @@ function App() {
             displayName="Attack" 
             groupName="filterEnvelope" 
             initVal={+synthConfig.filterEnvelope.attack}
-            onChange={onChange} 
+            onParameterChange={onParameterChange} 
             parameter="attack"
             scalers={{
               out: scalers.controlChangeToEnvelopeAttack,
@@ -80,7 +78,7 @@ function App() {
             displayName="Decay" 
             groupName="filterEnvelope" 
             initVal={+synthConfig.filterEnvelope.decay}
-            onChange={onChange} 
+            onParameterChange={onParameterChange} 
             parameter="decay"
             scalers={{
               out: scalers.controlChangeToEnvelopeDecay,
@@ -91,7 +89,7 @@ function App() {
             displayName="Sustain" 
             groupName="filterEnvelope" 
             initVal={+synthConfig.filterEnvelope.sustain}
-            onChange={onChange} 
+            onParameterChange={onParameterChange} 
             parameter="sustain"
             scalers={{
               out: scalers.controlChangeToEnvelopeSustain,
@@ -102,7 +100,7 @@ function App() {
             displayName="Release" 
             groupName="filterEnvelope" 
             initVal={+synthConfig.filterEnvelope.release}
-            onChange={onChange} 
+            onParameterChange={onParameterChange} 
             parameter="release"
             scalers={{
               out: scalers.controlChangeToEnvelopeRelease,
@@ -121,7 +119,7 @@ function App() {
             displayName="Attack" 
             groupName="envelope" 
             initVal={+synthConfig.envelope.attack}
-            onChange={onChange} 
+            onParameterChange={onParameterChange} 
             parameter="attack"
             scalers={{
               out: scalers.controlChangeToEnvelopeAttack,
@@ -132,7 +130,7 @@ function App() {
             displayName="Decay" 
             groupName="envelope" 
             initVal={+synthConfig.envelope.decay}
-            onChange={onChange} 
+            onParameterChange={onParameterChange} 
             parameter="decay"
             scalers={{
               out: scalers.controlChangeToEnvelopeDecay,
@@ -143,7 +141,7 @@ function App() {
             displayName="Sustain" 
             groupName="envelope"
             initVal={+synthConfig.envelope.sustain}
-            onChange={onChange} 
+            onParameterChange={onParameterChange} 
             parameter="sustain"
             scalers={{
               out: scalers.controlChangeToEnvelopeSustain,
@@ -154,7 +152,7 @@ function App() {
             displayName="Release" 
             groupName="envelope" 
             initVal={+synthConfig.envelope.release}
-            onChange={onChange} 
+            onParameterChange={onParameterChange} 
             parameter="release"
             scalers={{
               out: scalers.controlChangeToEnvelopeRelease,
