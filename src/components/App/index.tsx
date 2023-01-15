@@ -78,7 +78,7 @@ function App() {
             }}
           />
           <Slider
-            controlChangeNumber={70}
+            controlChangeNumber={71}
             displayName="Decay" 
             groupName="filterEnvelope" 
             initVal={+synthConfig.filterEnvelope.decay}
@@ -90,7 +90,7 @@ function App() {
             }}
           />
           <Slider
-            controlChangeNumber={71}  
+            controlChangeNumber={72}  
             displayName="Sustain" 
             groupName="filterEnvelope" 
             initVal={+synthConfig.filterEnvelope.sustain}
@@ -102,7 +102,7 @@ function App() {
             }}
           />
           <Slider
-            controlChangeNumber={72}  
+            controlChangeNumber={73}  
             displayName="Release" 
             groupName="filterEnvelope" 
             initVal={+synthConfig.filterEnvelope.release}
@@ -114,7 +114,7 @@ function App() {
             }}
           />
           <Slider 
-            controlChangeNumber={73}
+            controlChangeNumber={74}
             displayName="Amount" 
             groupName="filterEnvelope" 
             initVal={+synthConfig.filterEnvelope.octaves}
