@@ -176,6 +176,28 @@ exports[`App > matches snapshot 1`] = `
             0.9999999999999999
           </output>
         </div>
+        <div
+          data-testid="Slider"
+        >
+          <label
+            for="filterEnvelope::octaves"
+          >
+            Amount
+          </label>
+          <input
+            id="filterEnvelope::octaves"
+            max="127"
+            min="0"
+            step="0.05"
+            type="range"
+            value="25.400000000000002"
+          />
+          <output
+            for="filterEnvelope::octaves"
+          >
+            2
+          </output>
+        </div>
       </form>
     </section>
     <section>
