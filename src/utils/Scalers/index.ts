@@ -61,4 +61,5 @@ export {
     controlChangeToEnvelopeRelease,
     envelopeReleaseToControlChange,
     controlChangeToEnvelopeAmount,
+    envelopeAmountToControlChange,
 }

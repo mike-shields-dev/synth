@@ -64,6 +64,17 @@ function App() {
           updateFocus={updateFocus}
         >
           <Slider 
+            displayName="Amount" 
+            groupName="filterEnvelope" 
+            initVal={+synthConfig.filterEnvelope.octaves}
+            onParameterChange={onParameterChange} 
+            parameter="octaves"
+            scalers={{
+              out: scalers.controlChangeToEnvelopeAmount,
+              in: scalers.envelopeAmountToControlChange,
+            }}
+          />
+          <Slider 
             displayName="Attack" 
             groupName="filterEnvelope" 
             initVal={+synthConfig.filterEnvelope.attack}
