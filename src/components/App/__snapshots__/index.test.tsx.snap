@@ -35,12 +35,12 @@ exports[`App > matches snapshot 1`] = `
           data-testid="Slider"
         >
           <label
-            for="filter::frequency"
+            for="filterEnvelope::baseFrequency"
           >
             frequency
           </label>
           <input
-            id="filter::frequency"
+            id="filterEnvelope::baseFrequency"
             max="127"
             min="0"
             step="0.05"
@@ -48,7 +48,7 @@ exports[`App > matches snapshot 1`] = `
             value="71.25595213027319"
           />
           <output
-            for="filter::frequency"
+            for="filterEnvelope::baseFrequency"
           >
             1999.9999999999998
           </output>

@@ -35,10 +35,10 @@ function App() {
         >
           <Slider 
             displayName='frequency'
-            groupName="filter"
+            groupName="filterEnvelope"
             initVal={+synthConfig.filterEnvelope.baseFrequency}
             onParameterChange={onParameterChange}
-            parameter='frequency'
+            parameter='baseFrequency'
             scalers={{
                 out: scalers.controlChangeToFilterFrequency,
                 in: scalers.filterFrequencyToControlChange,
