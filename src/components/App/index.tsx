@@ -3,6 +3,7 @@ import { useSessionStorage } from '../../hooks/useSessionStorage';
 import { Slider } from '../Slider';
 import { SynthParameterGroup } from '../SynthParameterGroup';
 import { SynthUI } from '../SynthUI';
+import * as scalers from '../../utils/Scalers';
 import './index.module.css';
 
 function App() {
@@ -26,7 +27,6 @@ function App() {
           isFocused={focus === "oscillator"}
           updateFocus={updateFocus}
         >
-          <input type="range" />
         </SynthParameterGroup>
 
         <SynthParameterGroup 
@@ -36,22 +36,26 @@ function App() {
           updateFocus={updateFocus}
         >
           <Slider 
-            displayName='frequency' 
-            groupName="filter" 
-            onChange={onChange} 
+            displayName='frequency'
+            groupName="filter"
+            initVal={+synthConfig.filterEnvelope.baseFrequency}
+            onChange={onChange}
             parameter='frequency'
+            scalers={{
+                out: scalers.controlChangeToFilterFrequency,
+                in: scalers.filterFrequencyToControlChange,
+            }}
           />
           <Slider 
             displayName="resonance" 
-            groupName="filter" 
+            groupName="filter"
+            initVal={+synthConfig.filter.Q}
             onChange={onChange} 
             parameter="Q"
-          />
-          <Slider 
-            displayName="slope" 
-            groupName="filter" 
-            onChange={onChange} 
-            parameter="rolloff"
+            scalers={{
+              out: scalers.controlChangeToFilterQ,
+              in: scalers.filterQToControlChange,
+            }}
           />
         </SynthParameterGroup>
 
@@ -64,26 +68,46 @@ function App() {
           <Slider 
             displayName="Attack" 
             groupName="filterEnvelope" 
+            initVal={+synthConfig.filterEnvelope.attack}
             onChange={onChange} 
             parameter="attack"
+            scalers={{
+              out: scalers.controlChangeToEnvelopeAttack,
+              in: scalers.envelopeAttackToControlChange,
+            }}
           />
           <Slider 
             displayName="Decay" 
             groupName="filterEnvelope" 
+            initVal={+synthConfig.filterEnvelope.decay}
             onChange={onChange} 
             parameter="decay"
+            scalers={{
+              out: scalers.controlChangeToEnvelopeDecay,
+              in: scalers.envelopeDecayToControlChange,
+            }}
           />
           <Slider 
             displayName="Sustain" 
             groupName="filterEnvelope" 
+            initVal={+synthConfig.filterEnvelope.sustain}
             onChange={onChange} 
             parameter="sustain"
+            scalers={{
+              out: scalers.controlChangeToEnvelopeSustain,
+              in: scalers.envelopeSustainToControlChange,
+            }}
           />
           <Slider 
             displayName="Release" 
             groupName="filterEnvelope" 
+            initVal={+synthConfig.filterEnvelope.release}
             onChange={onChange} 
             parameter="release"
+            scalers={{
+              out: scalers.controlChangeToEnvelopeRelease,
+              in: scalers.envelopeReleaseToControlChange,
+            }}
           />
         </SynthParameterGroup>
 
@@ -96,26 +120,46 @@ function App() {
           <Slider 
             displayName="Attack" 
             groupName="envelope" 
+            initVal={+synthConfig.envelope.attack}
             onChange={onChange} 
             parameter="attack"
+            scalers={{
+              out: scalers.controlChangeToEnvelopeAttack,
+              in: scalers.envelopeAttackToControlChange,
+            }}
           />
           <Slider 
             displayName="Decay" 
             groupName="envelope" 
+            initVal={+synthConfig.envelope.decay}
             onChange={onChange} 
             parameter="decay"
+            scalers={{
+              out: scalers.controlChangeToEnvelopeDecay,
+              in: scalers.envelopeDecayToControlChange,
+            }}
           />
           <Slider 
             displayName="Sustain" 
-            groupName="envelope" 
+            groupName="envelope"
+            initVal={+synthConfig.envelope.sustain}
             onChange={onChange} 
             parameter="sustain"
+            scalers={{
+              out: scalers.controlChangeToEnvelopeSustain,
+              in: scalers.envelopeSustainToControlChange,
+            }}
           />
           <Slider 
             displayName="Release" 
             groupName="envelope" 
+            initVal={+synthConfig.envelope.release}
             onChange={onChange} 
             parameter="release"
+            scalers={{
+              out: scalers.controlChangeToEnvelopeRelease,
+              in: scalers.envelopeReleaseToControlChange,
+            }}
           />
         </SynthParameterGroup>
       </SynthUI> 

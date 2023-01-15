@@ -5,8 +5,13 @@ import { Slider } from ".";
 const validProps = {
     displayName: "displayName",
     groupName: "groupName",
+    initVal: 240,
     onChange: vi.fn(),
     parameter: "parameter",
+    scalers: {
+        in: vi.fn((n) => n / 2),
+        out: vi.fn((n) => n * 2),
+    }
 }
 
 describe("Slider", () => {
@@ -17,6 +22,7 @@ describe("Slider", () => {
     });
 
     beforeEach(() => render(< Slider {...validProps} />));
+    afterEach(() => vi.resetAllMocks());
 
     it('renders a Slider component', () => {
         expect(screen.getByTestId("Slider")).toBeInTheDocument();
@@ -38,14 +44,21 @@ describe("Slider", () => {
         expect(screen.getByRole("slider", { name: validProps.displayName })).toBeInTheDocument();
     });
 
-    it('the range input invokes the given onChange event handler', () => {
-        expect(validProps.onChange).toHaveBeenCalledTimes(0);
-        
-        fireEvent.change(
-            screen.getByRole("slider", { name: validProps.displayName }),
-            { target: { value: 60 } }
-        );
+    it('renders an output element', () => {
+        expect(screen.getByRole('status')).toBeInTheDocument();
+    });
 
-        expect(validProps.onChange).toHaveBeenCalledTimes(1);
+    it('renders an output element associated with the input element', ()=> {
+        expect(screen.getByRole('status').getAttribute('for'))
+            .toBe(`${validProps.groupName}::${validProps.parameter}`);
+    });
+
+    it(`changing the input element's value invokes the given scalers.out function`, async () => {
+        // todo
+    });
+
+    it(`changing the input elements value updates the output element's text content,
+        with the result of invoking the scalers.out function with the input's value`, async () => {
+        // todo 
     });
 });

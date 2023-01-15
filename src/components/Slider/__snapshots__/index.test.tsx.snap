@@ -5,16 +5,22 @@ exports[`Slider > matches snapshot 1`] = `
   data-testid="Slider"
 >
   <label
-    for="groupName:parameter"
+    for="groupName::parameter"
   >
     displayName
   </label>
   <input
-    id="groupName:parameter"
+    id="groupName::parameter"
     max="127"
     min="0"
     step="0.05"
     type="range"
+    value="120"
   />
+  <output
+    for="groupName::parameter"
+  >
+    240
+  </output>
 </div>
 `;
