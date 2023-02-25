@@ -1,12 +1,7 @@
 import PubSub from "pubsub-js";
 import { useEffect, useState } from "react";
+import { MIDIMessage } from '../../types/MIDIMessage';
 
-
-interface MIDIMessage {
-    statusByte: number;
-    dataByte1: number;
-    dataByte2: number;
-}
 interface Props {
     isFocused: boolean;
     controlChangeNumber: number;
