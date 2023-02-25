@@ -18,8 +18,6 @@ function SynthParameterGroup({
 }: Props) {
   const formRef = useRef<HTMLFormElement>(null);
 
-  console.log({parameterGroup})
-
   return (
     <section>
       <form

@@ -14,8 +14,6 @@ function App() {
     setFocus(id);
   }
 
-  useEffect(() => console.log({ focus }), [focus]);
-
   return (
     <div className="App">
       <SynthUI>
