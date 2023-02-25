@@ -3,6 +3,8 @@ import { vi } from 'vitest';
 import { Slider } from '.';
 
 const validProps = {
+    controlChangeNumber: 70,
+    isFocused: true,
     displayName: 'displayName',
     groupName: 'groupName',
     initVal: 240,
@@ -59,18 +61,6 @@ describe('Slider', () => {
         expect(screen.getByRole('status')
             .getAttribute('for'))
             .toBe('groupName::parameter');
-    });
-
-    it(`changing the input element's value invokes the given onParameterChange function`, async () => {
-        expect(validProps.onParameterChange).not.toHaveBeenCalled();
-
-        fireEvent.change(screen.getByRole(
-            'slider',
-            { name: 'displayName' }),
-            { target: { value: 0 }}
-        );
-        
-        expect(validProps.onParameterChange).toHaveBeenCalledTimes(1);
     });
 
     it(`changing the input elements value updates the output element's text content,

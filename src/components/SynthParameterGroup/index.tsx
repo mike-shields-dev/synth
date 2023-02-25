@@ -2,8 +2,8 @@ import React, { useRef } from "react";
 import css from './index.module.css';
 
 interface Props {
-  children: React.ReactNode;
-  groupName: string;
+  children?: (isFocused: boolean) => JSX.Element;
+  parameterGroup: string;
   headerName: string;
   isFocused: boolean;
   updateFocus: (id: string) => void;
@@ -12,19 +12,13 @@ interface Props {
 function SynthParameterGroup({
   children,
   headerName,
-  groupName,
+  parameterGroup,
   isFocused,
   updateFocus,
 }: Props) {
-  const form = useRef<HTMLFormElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  function onFocus(e: React.FocusEvent) {
-    updateFocus(e.currentTarget?.id);
-  }
-
-  function onClick(e: React.MouseEvent) {
-    updateFocus(e.currentTarget.id);
-  }
+  console.log({parameterGroup})
 
   return (
     <section>
@@ -34,16 +28,16 @@ function SynthParameterGroup({
             isFocused ? "--focus" : ""
           }`
         ]}
-        aria-label={groupName}
-        id={groupName}
-        onFocus={onFocus}
-        onClick={onClick}
-        ref={form}
+        aria-label={parameterGroup}
+        id={parameterGroup}
+        onFocus={(e) => updateFocus(e.currentTarget.id)}
+        onClick={(e => updateFocus(e.currentTarget.id))}
+        ref={formRef}
       >
         <header>
           <h2>{headerName}</h2>
         </header>
-          { children }
+        { children && children(isFocused) }
       </form>
     </section>
   )

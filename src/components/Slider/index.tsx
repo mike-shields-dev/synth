@@ -1,16 +1,18 @@
-import React, { useState } from "react";
-import { useSessionStorage } from "usehooks-ts";
+import PubSub from "pubsub-js";
+import { useEffect, useState } from "react";
 
-interface ParameterChange {
-    parameter: string;
-    value: number;
+
+interface MIDIMessage {
+    statusByte: number;
+    dataByte1: number;
+    dataByte2: number;
 }
 interface Props {
+    isFocused: boolean;
     controlChangeNumber: number;
     displayName: string;
     groupName: string;
     initVal: number;
-    onParameterChange: (p: ParameterChange) => void;
     parameter: string;
     scalers: {
         out: (n: number) => number;
@@ -20,44 +22,59 @@ interface Props {
 
 function Slider({
     controlChangeNumber,
-    displayName, 
+    isFocused,
+    displayName,
     groupName,
     initVal,
-    onParameterChange,
     parameter,
     scalers,
 }: Props) {
-    const [focus] = useSessionStorage('focus', '');
-    const [inputVal, setInputVal] = useState(scalers.in(initVal));
-    const outputVal = scalers.out(inputVal)
+    const [value, setValue] = useState(scalers.in(initVal));
 
-    console.log(focus)
 
-    function onChange(e: React.ChangeEvent) {
-        const { value } = e.target as HTMLInputElement;
-        setInputVal(+value);
-        onParameterChange({
-            parameter: `${groupName}::${parameter}`,
-            value: outputVal,
-        });
+    useEffect(() => {
+        PubSub.publish('uiControlChange', {
+            controlChangeNumber,
+            value,
+        })
+    }, [value]);
+
+    function onMidiMessage(message: string, payload: MIDIMessage) {
+        if (!isFocused) return;
+        
+        const {
+            statusByte,
+            dataByte1: controlChange,
+            dataByte2: value
+        } = payload;
+        
+        if (statusByte === 176 && controlChange === controlChangeNumber) {
+            console.log("onMidiMessage", parameter)
+            setValue(value);
+        }
     }
-    
+
+    useEffect(() => {
+        const sub = PubSub.subscribe('midiMessage', onMidiMessage);
+        return () => { PubSub.unsubscribe(sub) };
+    }, [isFocused])
+
     return (
         <div data-testid="Slider">
             <label htmlFor={`${groupName}::${parameter}`}>
                 {displayName}
-            </label> 
-                <input
-                    id={`${groupName}::${parameter}`}
-                    max={127}
-                    min={0}
-                    onChange={onChange}
-                    step={0.05}
-                    type="range"
-                    value={inputVal}
-                />
+            </label>
+            <input
+                id={`${groupName}::${parameter}`}
+                max={127}
+                min={0}
+                onChange={(e) => setValue(+e.currentTarget.value)}
+                step={0.05}
+                type="range"
+                value={value}
+            />
             <output htmlFor={`${groupName}::${parameter}`}>
-                {scalers.out(inputVal)}
+                {scalers.out(value)}
             </output>
         </div>
     )
