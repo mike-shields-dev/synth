@@ -5,8 +5,7 @@ import * as scalers from "../../utils/Scalers";
 
 interface Props { 
   focus: string;
-  group: string;
-    updateFocus: (id: string) => void;
+  updateFocus: (id: string) => void;
 }
 
 function Filter({ focus, updateFocus }: Props) {
