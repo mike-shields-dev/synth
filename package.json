@@ -34,6 +34,7 @@
     "matchers": "link:@testing-library/jest-dom/matchers",
     "typescript": "^4.9.3",
     "vite": "^4.0.0",
-    "vitest": "^0.27.0"
+    "vitest": "^0.27.0",
+    "web-midi-test": "^1.2.3"
   }
 }

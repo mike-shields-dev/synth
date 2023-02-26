@@ -1,18 +1,18 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import css from './index.module.css';
 
 interface Props {
-  children?: (isFocused: boolean) => JSX.Element;
-  parameterGroup: string;
-  headerName: string;
+  children: (isFocused: boolean) => JSX.Element | JSX.Element[];
+  group: string;
+  title: string;
   isFocused: boolean;
   updateFocus: (id: string) => void;
 }
 
 function SynthParameterGroup({
-  children,
-  headerName,
-  parameterGroup,
+  children = (isFocused: boolean) => <></>,
+  title: headerName,
+  group,
   isFocused,
   updateFocus,
 }: Props) {
@@ -26,8 +26,8 @@ function SynthParameterGroup({
             isFocused ? "--focus" : ""
           }`
         ]}
-        aria-label={parameterGroup}
-        id={parameterGroup}
+        aria-label={group}
+        id={group}
         onFocus={(e) => updateFocus(e.currentTarget.id)}
         onClick={(e => updateFocus(e.currentTarget.id))}
         ref={formRef}

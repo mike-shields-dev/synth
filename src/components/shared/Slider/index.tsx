@@ -1,6 +1,6 @@
 import PubSub from "pubsub-js";
 import { useEffect, useState } from "react";
-import { MIDIMessage } from '../../types/MIDIMessage';
+import { MIDIMessage } from '../../../types/MIDIMessage';
 
 interface Props {
     isFocused: boolean;
