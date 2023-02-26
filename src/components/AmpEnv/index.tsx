@@ -12,7 +12,7 @@ function AmpEnvelope({ focus, updateFocus }: Props) {
     return (
         <SynthParameterGroup
         group="ampEnvelope"
-        isFocused={focus === "envelope"}
+        isFocused={focus === "ampEnvelope"}
         updateFocus={updateFocus}
       >
         {(isFocused: boolean) => <>
