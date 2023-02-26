@@ -14,7 +14,7 @@ const ValidChild = () => <div>valid child</div>;
 describe('SynthParameterGroup', () => {
     beforeEach(() => render(
         <SynthParameterGroup {...validProps}>
-            { (isFocused) => <ValidChild />}
+            { (isFocused) => <ValidChild /> }
         </SynthParameterGroup>)
     );
 
