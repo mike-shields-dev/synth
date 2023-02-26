@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 function useMidiAccess() {
     const [isRequesting, setIsRequesting] = useState(true);
     const [midiAccess, setMidiAccess] = useState<WebMidi.MIDIAccess>();
-    const [midiAccessError, setMidiAccessError] = useState();
+    const [midiAccessError, setMidiAccessError] = useState<DOMException>();
     const [midiInputs, setMidiInputs] = useState<WebMidi.MIDIInputMap>();
     const [midiOutputs, setMidiOutputs] = useState<WebMidi.MIDIOutputMap>();
 
@@ -49,4 +49,4 @@ function useMidiAccess() {
     return { isRequesting, midiAccess, midiAccessError, midiInputs, midiOutputs };
 }
 
-export default useMidiAccess;
+export { useMidiAccess };
