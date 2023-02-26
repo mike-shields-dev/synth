@@ -3,15 +3,15 @@ import { useEffect, useState } from "react";
 import { MIDIMessage } from '../../../types/MIDIMessage';
 
 interface Props {
-    isFocused: boolean;
     controlChangeNumber: number;
     displayName: string;
     groupName: string;
     initVal: number;
+    isFocused: boolean;
     parameter: string;
     scalers: {
-        out: (n: number) => number;
         in: (n: number) => number;
+        out: (n: number) => number;
     };
 }
 
@@ -44,7 +44,6 @@ function Slider({
         } = payload;
         
         if (statusByte === 176 && controlChange === controlChangeNumber) {
-            console.log("onMidiMessage", parameter)
             setValue(value);
         }
     }
@@ -55,7 +54,7 @@ function Slider({
     }, [isFocused])
 
     return (
-        <div data-testid="Slider">
+        <div>
             <label htmlFor={`${groupName}::${parameter}`}>
                 {displayName}
             </label>
@@ -64,11 +63,15 @@ function Slider({
                 max={127}
                 min={0}
                 onChange={(e) => setValue(+e.currentTarget.value)}
+                onInput={(e) => setValue(+e.currentTarget.value)}
                 step={0.05}
                 type="range"
                 value={value}
             />
-            <output htmlFor={`${groupName}::${parameter}`}>
+            <output 
+                aria-label={`${groupName}::${parameter}`}
+                htmlFor={`${groupName}::${parameter}`}
+            >
                 {scalers.out(value)}
             </output>
         </div>

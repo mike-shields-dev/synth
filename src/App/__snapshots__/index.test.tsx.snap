@@ -31,9 +31,7 @@ exports[`App > matches snapshot 1`] = `
             Filter
           </h2>
         </header>
-        <div
-          data-testid="Slider"
-        >
+        <div>
           <label
             for="filterEnvelope::baseFrequency"
           >
@@ -48,14 +46,13 @@ exports[`App > matches snapshot 1`] = `
             value="71.25595213027319"
           />
           <output
+            aria-label="filterEnvelope::baseFrequency"
             for="filterEnvelope::baseFrequency"
           >
             1999.9999999999998
           </output>
         </div>
-        <div
-          data-testid="Slider"
-        >
+        <div>
           <label
             for="filter::Q"
           >
@@ -70,6 +67,7 @@ exports[`App > matches snapshot 1`] = `
             value="31.75"
           />
           <output
+            aria-label="filter::Q"
             for="filter::Q"
           >
             6
@@ -88,9 +86,7 @@ exports[`App > matches snapshot 1`] = `
             Filter Envelope
           </h2>
         </header>
-        <div
-          data-testid="Slider"
-        >
+        <div>
           <label
             for="filterEnvelope::attack"
           >
@@ -105,14 +101,13 @@ exports[`App > matches snapshot 1`] = `
             value="63.5"
           />
           <output
+            aria-label="filterEnvelope::attack"
             for="filterEnvelope::attack"
           >
             0.5
           </output>
         </div>
-        <div
-          data-testid="Slider"
-        >
+        <div>
           <label
             for="filterEnvelope::decay"
           >
@@ -127,14 +122,13 @@ exports[`App > matches snapshot 1`] = `
             value="31.75"
           />
           <output
+            aria-label="filterEnvelope::decay"
             for="filterEnvelope::decay"
           >
             0.5
           </output>
         </div>
-        <div
-          data-testid="Slider"
-        >
+        <div>
           <label
             for="filterEnvelope::sustain"
           >
@@ -149,14 +143,13 @@ exports[`App > matches snapshot 1`] = `
             value="127"
           />
           <output
+            aria-label="filterEnvelope::sustain"
             for="filterEnvelope::sustain"
           >
             1
           </output>
         </div>
-        <div
-          data-testid="Slider"
-        >
+        <div>
           <label
             for="filterEnvelope::release"
           >
@@ -171,14 +164,13 @@ exports[`App > matches snapshot 1`] = `
             value="25.397967959359185"
           />
           <output
+            aria-label="filterEnvelope::release"
             for="filterEnvelope::release"
           >
             0.9999999999999999
           </output>
         </div>
-        <div
-          data-testid="Slider"
-        >
+        <div>
           <label
             for="filterEnvelope::octaves"
           >
@@ -193,6 +185,7 @@ exports[`App > matches snapshot 1`] = `
             value="25.400000000000002"
           />
           <output
+            aria-label="filterEnvelope::octaves"
             for="filterEnvelope::octaves"
           >
             2
@@ -211,9 +204,7 @@ exports[`App > matches snapshot 1`] = `
             Amp Envelope
           </h2>
         </header>
-        <div
-          data-testid="Slider"
-        >
+        <div>
           <label
             for="envelope::attack"
           >
@@ -228,14 +219,13 @@ exports[`App > matches snapshot 1`] = `
             value="0.8980256121069153"
           />
           <output
+            aria-label="envelope::attack"
             for="envelope::attack"
           >
             0.0001
           </output>
         </div>
-        <div
-          data-testid="Slider"
-        >
+        <div>
           <label
             for="envelope::decay"
           >
@@ -250,14 +240,13 @@ exports[`App > matches snapshot 1`] = `
             value="31.75"
           />
           <output
+            aria-label="envelope::decay"
             for="envelope::decay"
           >
             0.5
           </output>
         </div>
-        <div
-          data-testid="Slider"
-        >
+        <div>
           <label
             for="envelope::sustain"
           >
@@ -272,14 +261,13 @@ exports[`App > matches snapshot 1`] = `
             value="127"
           />
           <output
+            aria-label="envelope::sustain"
             for="envelope::sustain"
           >
             1
           </output>
         </div>
-        <div
-          data-testid="Slider"
-        >
+        <div>
           <label
             for="envelope::release"
           >
@@ -294,6 +282,7 @@ exports[`App > matches snapshot 1`] = `
             value="25.397967959359185"
           />
           <output
+            aria-label="envelope::release"
             for="envelope::release"
           >
             0.9999999999999999

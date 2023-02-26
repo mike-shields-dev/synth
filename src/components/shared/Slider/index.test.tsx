@@ -4,11 +4,10 @@ import { Slider } from '.';
 
 const validProps = {
     controlChangeNumber: 70,
-    isFocused: true,
     displayName: 'displayName',
     groupName: 'groupName',
     initVal: 240,
-    onParameterChange: vi.fn(),
+    isFocused: true,
     parameter: 'parameter',
     scalers: {
         in: vi.fn((n) => n / 2),
@@ -27,7 +26,7 @@ describe('Slider', () => {
     afterEach(() => vi.resetAllMocks());
 
     it('renders a Slider component', () => {
-        expect(screen.getByTestId('Slider')).toBeInTheDocument();
+        expect(screen.getByRole('slider', { name: validProps.displayName })).toBeInTheDocument();
     });
 
     it('renders a single range input', () => {
@@ -46,13 +45,6 @@ describe('Slider', () => {
             .toEqual('127');
     });
 
-    it('renders an associated input label with the given displayName', () => {
-        expect(screen.getByRole(
-            'slider',
-            { name: 'displayName' }
-        )).toBeInTheDocument();
-    });
-
     it('renders an output element', () => {
         expect(screen.getByRole('status')).toBeInTheDocument();
     });
@@ -60,11 +52,10 @@ describe('Slider', () => {
     it('renders an output element associated with the input element', ()=> {
         expect(screen.getByRole('status')
             .getAttribute('for'))
-            .toBe('groupName::parameter');
+            .toBe(`${validProps.groupName}::${validProps.parameter}`);
     });
 
-    it(`changing the input elements value updates the output element's text content,
-        with the result of invoking the scalers.out function with the input's value`, async () => {
-        // todo 
+    it('renders an output element that has a scaled value', () => {
+        // to do...
     });
 });
