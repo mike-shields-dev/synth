@@ -9,10 +9,12 @@ const validProps = {
     isFocused: true,
 }
 
+const ValidChild = () => <div>valid child</div>;
+
 describe('SynthParameterGroup', () => {
     beforeEach(() => render(
         <SynthParameterGroup {...validProps}>
-            { (validProps.isFocused) => <></>}
+            { (isFocused) => <ValidChild />}
         </SynthParameterGroup>)
     );
 
@@ -33,16 +35,16 @@ describe('SynthParameterGroup', () => {
 
     it('renders children', () => {
         expect(
-            screen.getByRole('slider', {name: /parameter/i})
+            screen.getByText(/valid child/i)
         ).toBeInTheDocument();
     });
 
     it('invokes updateFocus callback, when a child component is focused', () => {
-        const parameterInput = screen.getByRole('slider', { name: /parameter/i });
+        const child = screen.getByText(/valid child/i);
 
         expect(validProps.updateFocus).toHaveBeenCalledTimes(0);
         
-        fireEvent.focus(parameterInput);
+        fireEvent.focus(child);
 
         expect(validProps.updateFocus).toHaveBeenCalledTimes(1);
         expect(validProps.updateFocus).toHaveBeenCalledWith(validProps.group);
