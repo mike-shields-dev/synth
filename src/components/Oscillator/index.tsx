@@ -9,7 +9,6 @@ function Oscillator({focus, updateFocus}: Props) {
     return (
         <SynthParameterGroup
             group="oscillator"
-            title="Oscillator"
             isFocused={focus === "oscillator"}
             updateFocus={updateFocus}
         >

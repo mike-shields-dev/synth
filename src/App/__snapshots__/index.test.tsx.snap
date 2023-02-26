@@ -4,12 +4,18 @@ exports[`App > matches snapshot 1`] = `
 <div
   class="App"
 >
+  <div>
+    Requesting
+  </div>
+  <div>
+    No Error
+  </div>
   <div
     data-testid="SynthUI"
   >
     <section>
       <form
-        aria-label="oscillator"
+        aria-label="Oscillator"
         class="_SynthParameterGroup--focus_bd1b4b"
         id="oscillator"
       >
@@ -22,7 +28,7 @@ exports[`App > matches snapshot 1`] = `
     </section>
     <section>
       <form
-        aria-label="filter"
+        aria-label="Filter"
         class="_SynthParameterGroup_bd1b4b"
         id="filter"
       >
@@ -33,12 +39,12 @@ exports[`App > matches snapshot 1`] = `
         </header>
         <div>
           <label
-            for="filterEnvelope::baseFrequency"
+            for="filter::frequency"
           >
             frequency
           </label>
           <input
-            id="filterEnvelope::baseFrequency"
+            id="filter::frequency"
             max="127"
             min="0"
             step="0.05"
@@ -46,8 +52,8 @@ exports[`App > matches snapshot 1`] = `
             value="71.25595213027319"
           />
           <output
-            aria-label="filterEnvelope::baseFrequency"
-            for="filterEnvelope::baseFrequency"
+            aria-label="filter::frequency"
+            for="filter::frequency"
           >
             1999.9999999999998
           </output>
@@ -77,7 +83,7 @@ exports[`App > matches snapshot 1`] = `
     </section>
     <section>
       <form
-        aria-label="filterEnvelope"
+        aria-label="Filter Envelope"
         class="_SynthParameterGroup_bd1b4b"
         id="filterEnvelope"
       >
@@ -195,9 +201,9 @@ exports[`App > matches snapshot 1`] = `
     </section>
     <section>
       <form
-        aria-label="envelope"
+        aria-label="Amp Envelope"
         class="_SynthParameterGroup_bd1b4b"
-        id="envelope"
+        id="ampEnvelope"
       >
         <header>
           <h2>

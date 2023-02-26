@@ -12,7 +12,6 @@ function Filter({ focus, updateFocus }: Props) {
     return (
 <SynthParameterGroup
           group="filter"
-          title="Filter"
           isFocused={focus === "filter"}
           updateFocus={updateFocus}
         >
@@ -21,9 +20,9 @@ function Filter({ focus, updateFocus }: Props) {
               isFocused={isFocused}
               controlChangeNumber={70}
               displayName='frequency'
-              groupName="filterEnvelope"
+              groupName="filter"
               initVal={+synthConfig.filterEnvelope.baseFrequency}
-              parameter='baseFrequency'
+              parameter='frequency'
               scalers={{
                 out: scalers.controlChangeToFilterFrequency,
                 in: scalers.filterFrequencyToControlChange,

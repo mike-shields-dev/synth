@@ -19,22 +19,22 @@ describe('App', () => {
     });
 
     it('renders a SynthParameterGroup for the oscillator', () => {
-        expect(screen.getByRole('form', { name: 'oscillator' })).toBeInTheDocument();
+        expect(screen.getByRole('form', { name: 'Oscillator' })).toBeInTheDocument();
     });
 
     it('renders a SynthParameterGroup for the filter', () => {
-        expect(screen.getByRole('form', { name: 'filter' })).toBeInTheDocument();
+        expect(screen.getByRole('form', { name: 'Filter' })).toBeInTheDocument();
     });
 
     it('renders a SynthParameterGroup for the filter', () => {
-        expect(screen.getByRole('form', { name: 'filterEnvelope' })).toBeInTheDocument();
+        expect(screen.getByRole('form', { name: 'Filter' })).toBeInTheDocument();
     });
 
     it('renders a SynthParameterGroup for the filter', () => {
-        expect(screen.getByRole('form', { name: 'envelope' })).toBeInTheDocument();
+        expect(screen.getByRole('form', { name: 'Filter Envelope' })).toBeInTheDocument();
     });
 
     it('renders a SynthParameterGroup form the (amp) envelope', () => {
-        expect(screen.getByRole('form', { name: 'envelope' })).toBeInTheDocument();
+        expect(screen.getByRole('form', { name: 'Amp Envelope' })).toBeInTheDocument();
     })
 });

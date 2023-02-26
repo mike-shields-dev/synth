@@ -3,8 +3,7 @@ import { fireEvent, render, screen, within } from "@testing-library/react";
 import { SynthParameterGroup } from '.';
 
 const validProps = {
-    group: 'groupName',
-    title: "title",
+    group: 'Group Name',
     updateFocus: vi.fn(),
     isFocused: true,
 }
@@ -30,7 +29,7 @@ describe('SynthParameterGroup', () => {
         const header = screen.getByRole('heading');
 
         expect(screen.getByRole('heading')).toBeInTheDocument();
-        expect(within(header).getByText(validProps.title)).toBeInTheDocument();
+        expect(within(header).getByText(validProps.group)).toBeInTheDocument();
     });
 
     it('renders children', () => {
@@ -40,7 +39,7 @@ describe('SynthParameterGroup', () => {
     });
 
     it('invokes updateFocus callback, when a child component is focused', () => {
-        const child = screen.getByText(/valid child/i);
+        const child = screen.getByText(validProps.group);
 
         expect(validProps.updateFocus).toHaveBeenCalledTimes(0);
         

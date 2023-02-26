@@ -1,17 +1,16 @@
-import { useRef } from "react";
+import { useRef, ReactNode } from "react";
 import css from './index.module.css';
+import { camelCaseToTitleCase } from "../../../utils/camelCaseToTitleCase";
 
 interface Props {
-  children: (isFocused: boolean) => JSX.Element | JSX.Element[];
+  children: (isFocused: boolean) => ReactNode;
   group: string;
-  title: string;
   isFocused: boolean;
   updateFocus: (id: string) => void;
 }
 
 function SynthParameterGroup({
   children = (isFocused: boolean) => <></>,
-  title: headerName,
   group,
   isFocused,
   updateFocus,
@@ -26,14 +25,14 @@ function SynthParameterGroup({
             isFocused ? "--focus" : ""
           }`
         ]}
-        aria-label={group}
+        aria-label={camelCaseToTitleCase(group)}
         id={group}
         onFocus={(e) => updateFocus(e.currentTarget.id)}
         onClick={(e => updateFocus(e.currentTarget.id))}
         ref={formRef}
       >
         <header>
-          <h2>{headerName}</h2>
+          <h2>{camelCaseToTitleCase(group)}</h2>
         </header>
         { children && children(isFocused) }
       </form>

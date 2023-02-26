@@ -12,7 +12,6 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
     return (
         <SynthParameterGroup
         group="filterEnvelope"
-        title="Filter Envelope"
         isFocused={focus === "filterEnvelope"}
         updateFocus={updateFocus}
       >

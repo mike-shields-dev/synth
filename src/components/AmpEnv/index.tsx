@@ -11,8 +11,7 @@ interface Props {
 function AmpEnvelope({ focus, updateFocus }: Props) {
     return (
         <SynthParameterGroup
-        group="envelope"
-        title="Amp Envelope"
+        group="ampEnvelope"
         isFocused={focus === "envelope"}
         updateFocus={updateFocus}
       >
