@@ -1,11 +1,10 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { vi } from 'vitest';
 import { Slider } from '.';
 
 const validProps = {
     controlChangeNumber: 70,
-    displayName: 'displayName',
-    groupName: 'groupName',
+    group: 'groupName',
     initVal: 240,
     isFocused: true,
     parameter: 'parameter',
@@ -26,7 +25,7 @@ describe('Slider', () => {
     afterEach(() => vi.resetAllMocks());
 
     it('renders a Slider component', () => {
-        expect(screen.getByRole('slider', { name: validProps.displayName })).toBeInTheDocument();
+        expect(screen.getByRole('slider', { name: 'Parameter' })).toBeInTheDocument();
     });
 
     it('renders a single range input', () => {
@@ -52,7 +51,7 @@ describe('Slider', () => {
     it('renders an output element associated with the input element', ()=> {
         expect(screen.getByRole('status')
             .getAttribute('for'))
-            .toBe(`${validProps.groupName}::${validProps.parameter}`);
+            .toBe(`${validProps.group}-${validProps.parameter}`);
     });
 
     it('renders an output element that has a scaled value', () => {

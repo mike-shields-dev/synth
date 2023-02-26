@@ -3,12 +3,12 @@
 exports[`Slider > matches snapshot 1`] = `
 <div>
   <label
-    for="groupName::parameter"
+    for="groupName-parameter"
   >
-    displayName
+    Parameter
   </label>
   <input
-    id="groupName::parameter"
+    id="groupName-parameter"
     max="127"
     min="0"
     step="0.05"
@@ -16,8 +16,8 @@ exports[`Slider > matches snapshot 1`] = `
     value="120"
   />
   <output
-    aria-label="groupName::parameter"
-    for="groupName::parameter"
+    aria-label="Group Name parameter"
+    for="groupName-parameter"
   >
     240
   </output>

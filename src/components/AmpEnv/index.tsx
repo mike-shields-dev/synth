@@ -19,8 +19,7 @@ function AmpEnvelope({ focus, updateFocus }: Props) {
           <Slider
             isFocused={isFocused}
             controlChangeNumber={70}
-            displayName="Attack"
-            groupName="envelope"
+            group="envelope"
             initVal={+synthConfig.envelope.attack}
             parameter="attack"
             scalers={{
@@ -31,8 +30,7 @@ function AmpEnvelope({ focus, updateFocus }: Props) {
           <Slider
             isFocused={isFocused}
             controlChangeNumber={71}
-            displayName="Decay"
-            groupName="envelope"
+            group="envelope"
             initVal={+synthConfig.envelope.decay}
             parameter="decay"
             scalers={{
@@ -43,8 +41,7 @@ function AmpEnvelope({ focus, updateFocus }: Props) {
           <Slider
             isFocused={isFocused}
             controlChangeNumber={72}
-            displayName="Sustain"
-            groupName="envelope"
+            group="envelope"
             initVal={+synthConfig.envelope.sustain}
             parameter="sustain"
             scalers={{
@@ -55,8 +52,7 @@ function AmpEnvelope({ focus, updateFocus }: Props) {
           <Slider
             isFocused={isFocused}
             controlChangeNumber={73}
-            displayName="Release"
-            groupName="envelope"
+            group="envelope"
             initVal={+synthConfig.envelope.release}
             parameter="release"
             scalers={{

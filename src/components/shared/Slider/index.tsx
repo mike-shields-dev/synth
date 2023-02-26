@@ -1,11 +1,10 @@
 import PubSub from "pubsub-js";
 import { useEffect, useState } from "react";
 import { MIDIMessage } from '../../../types/MIDIMessage';
-
+import { camelCaseToTitleCase } from "../../../utils/camelCaseToTitleCase";
 interface Props {
     controlChangeNumber: number;
-    displayName: string;
-    groupName: string;
+    group: string;
     initVal: number;
     isFocused: boolean;
     parameter: string;
@@ -17,20 +16,20 @@ interface Props {
 
 function Slider({
     controlChangeNumber,
-    isFocused,
-    displayName,
-    groupName,
     initVal,
+    group,
+    isFocused,
     parameter,
     scalers,
 }: Props) {
     const [value, setValue] = useState(scalers.in(initVal));
-
+    const outputValue = scalers.out(value);
 
     useEffect(() => {
         PubSub.publish('uiControlChange', {
-            controlChangeNumber,
-            value,
+            group,
+            parameter,
+            value: outputValue,
         })
     }, [value]);
 
@@ -55,11 +54,11 @@ function Slider({
 
     return (
         <div>
-            <label htmlFor={`${groupName}::${parameter}`}>
-                {displayName}
+            <label htmlFor={`${group}-${parameter}`}>
+                {camelCaseToTitleCase(parameter)}
             </label>
             <input
-                id={`${groupName}::${parameter}`}
+                id={`${group}-${parameter}`}
                 max={127}
                 min={0}
                 onChange={(e) => setValue(+e.currentTarget.value)}
@@ -69,8 +68,8 @@ function Slider({
                 value={value}
             />
             <output 
-                aria-label={`${groupName}::${parameter}`}
-                htmlFor={`${groupName}::${parameter}`}
+                aria-label={`${camelCaseToTitleCase(group)} ${parameter}`}
+                htmlFor={`${group}-${parameter}`}
             >
                 {scalers.out(value)}
             </output>

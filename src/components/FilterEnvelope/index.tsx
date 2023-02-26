@@ -19,8 +19,7 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
           <Slider
             isFocused={isFocused}
             controlChangeNumber={70}
-            displayName="Attack"
-            groupName="filterEnvelope"
+            group="filterEnvelope"
             initVal={+synthConfig.filterEnvelope.attack}
             parameter="attack"
             scalers={{
@@ -30,8 +29,7 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
           />
           <Slider
             controlChangeNumber={71}
-            displayName="Decay"
-            groupName="filterEnvelope"
+            group="filterEnvelope"
             initVal={+synthConfig.filterEnvelope.decay}
             isFocused={isFocused}
             parameter="decay"
@@ -42,8 +40,7 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
           />
           <Slider
             controlChangeNumber={72}
-            displayName="Sustain"
-            groupName="filterEnvelope"
+            group="filterEnvelope"
             isFocused={isFocused}
             initVal={+synthConfig.filterEnvelope.sustain}
             parameter="sustain"
@@ -54,8 +51,7 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
           />
           <Slider
             controlChangeNumber={73}
-            displayName="Release"
-            groupName="filterEnvelope"
+            group="filterEnvelope"
             initVal={+synthConfig.filterEnvelope.release}
             isFocused={isFocused}
             parameter="release"
@@ -66,11 +62,10 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
           />
           <Slider
             controlChangeNumber={74}
-            displayName="Amount"
-            groupName="filterEnvelope"
+            group="filterEnvelope"
             initVal={+synthConfig.filterEnvelope.octaves}
             isFocused={isFocused}
-            parameter="octaves"
+            parameter="amount"
             scalers={{
               out: scalers.controlChangeToEnvelopeAmount,
               in: scalers.envelopeAmountToControlChange,

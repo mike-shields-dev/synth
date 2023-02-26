@@ -39,12 +39,12 @@ exports[`App > matches snapshot 1`] = `
         </header>
         <div>
           <label
-            for="filter::frequency"
+            for="filter-frequency"
           >
-            frequency
+            Frequency
           </label>
           <input
-            id="filter::frequency"
+            id="filter-frequency"
             max="127"
             min="0"
             step="0.05"
@@ -52,20 +52,20 @@ exports[`App > matches snapshot 1`] = `
             value="71.25595213027319"
           />
           <output
-            aria-label="filter::frequency"
-            for="filter::frequency"
+            aria-label="Filter frequency"
+            for="filter-frequency"
           >
             1999.9999999999998
           </output>
         </div>
         <div>
           <label
-            for="filter::Q"
+            for="filter-resonance"
           >
-            resonance
+            Resonance
           </label>
           <input
-            id="filter::Q"
+            id="filter-resonance"
             max="127"
             min="0"
             step="0.05"
@@ -73,8 +73,8 @@ exports[`App > matches snapshot 1`] = `
             value="31.75"
           />
           <output
-            aria-label="filter::Q"
-            for="filter::Q"
+            aria-label="Filter resonance"
+            for="filter-resonance"
           >
             6
           </output>
@@ -94,12 +94,12 @@ exports[`App > matches snapshot 1`] = `
         </header>
         <div>
           <label
-            for="filterEnvelope::attack"
+            for="filterEnvelope-attack"
           >
             Attack
           </label>
           <input
-            id="filterEnvelope::attack"
+            id="filterEnvelope-attack"
             max="127"
             min="0"
             step="0.05"
@@ -107,20 +107,20 @@ exports[`App > matches snapshot 1`] = `
             value="63.5"
           />
           <output
-            aria-label="filterEnvelope::attack"
-            for="filterEnvelope::attack"
+            aria-label="Filter Envelope attack"
+            for="filterEnvelope-attack"
           >
             0.5
           </output>
         </div>
         <div>
           <label
-            for="filterEnvelope::decay"
+            for="filterEnvelope-decay"
           >
             Decay
           </label>
           <input
-            id="filterEnvelope::decay"
+            id="filterEnvelope-decay"
             max="127"
             min="0"
             step="0.05"
@@ -128,20 +128,20 @@ exports[`App > matches snapshot 1`] = `
             value="31.75"
           />
           <output
-            aria-label="filterEnvelope::decay"
-            for="filterEnvelope::decay"
+            aria-label="Filter Envelope decay"
+            for="filterEnvelope-decay"
           >
             0.5
           </output>
         </div>
         <div>
           <label
-            for="filterEnvelope::sustain"
+            for="filterEnvelope-sustain"
           >
             Sustain
           </label>
           <input
-            id="filterEnvelope::sustain"
+            id="filterEnvelope-sustain"
             max="127"
             min="0"
             step="0.05"
@@ -149,20 +149,20 @@ exports[`App > matches snapshot 1`] = `
             value="127"
           />
           <output
-            aria-label="filterEnvelope::sustain"
-            for="filterEnvelope::sustain"
+            aria-label="Filter Envelope sustain"
+            for="filterEnvelope-sustain"
           >
             1
           </output>
         </div>
         <div>
           <label
-            for="filterEnvelope::release"
+            for="filterEnvelope-release"
           >
             Release
           </label>
           <input
-            id="filterEnvelope::release"
+            id="filterEnvelope-release"
             max="127"
             min="0"
             step="0.05"
@@ -170,20 +170,20 @@ exports[`App > matches snapshot 1`] = `
             value="25.397967959359185"
           />
           <output
-            aria-label="filterEnvelope::release"
-            for="filterEnvelope::release"
+            aria-label="Filter Envelope release"
+            for="filterEnvelope-release"
           >
             0.9999999999999999
           </output>
         </div>
         <div>
           <label
-            for="filterEnvelope::octaves"
+            for="filterEnvelope-amount"
           >
             Amount
           </label>
           <input
-            id="filterEnvelope::octaves"
+            id="filterEnvelope-amount"
             max="127"
             min="0"
             step="0.05"
@@ -191,8 +191,8 @@ exports[`App > matches snapshot 1`] = `
             value="25.400000000000002"
           />
           <output
-            aria-label="filterEnvelope::octaves"
-            for="filterEnvelope::octaves"
+            aria-label="Filter Envelope amount"
+            for="filterEnvelope-amount"
           >
             2
           </output>
@@ -212,12 +212,12 @@ exports[`App > matches snapshot 1`] = `
         </header>
         <div>
           <label
-            for="envelope::attack"
+            for="envelope-attack"
           >
             Attack
           </label>
           <input
-            id="envelope::attack"
+            id="envelope-attack"
             max="127"
             min="0"
             step="0.05"
@@ -225,20 +225,20 @@ exports[`App > matches snapshot 1`] = `
             value="0.8980256121069153"
           />
           <output
-            aria-label="envelope::attack"
-            for="envelope::attack"
+            aria-label="Envelope attack"
+            for="envelope-attack"
           >
             0.0001
           </output>
         </div>
         <div>
           <label
-            for="envelope::decay"
+            for="envelope-decay"
           >
             Decay
           </label>
           <input
-            id="envelope::decay"
+            id="envelope-decay"
             max="127"
             min="0"
             step="0.05"
@@ -246,20 +246,20 @@ exports[`App > matches snapshot 1`] = `
             value="31.75"
           />
           <output
-            aria-label="envelope::decay"
-            for="envelope::decay"
+            aria-label="Envelope decay"
+            for="envelope-decay"
           >
             0.5
           </output>
         </div>
         <div>
           <label
-            for="envelope::sustain"
+            for="envelope-sustain"
           >
             Sustain
           </label>
           <input
-            id="envelope::sustain"
+            id="envelope-sustain"
             max="127"
             min="0"
             step="0.05"
@@ -267,20 +267,20 @@ exports[`App > matches snapshot 1`] = `
             value="127"
           />
           <output
-            aria-label="envelope::sustain"
-            for="envelope::sustain"
+            aria-label="Envelope sustain"
+            for="envelope-sustain"
           >
             1
           </output>
         </div>
         <div>
           <label
-            for="envelope::release"
+            for="envelope-release"
           >
             Release
           </label>
           <input
-            id="envelope::release"
+            id="envelope-release"
             max="127"
             min="0"
             step="0.05"
@@ -288,8 +288,8 @@ exports[`App > matches snapshot 1`] = `
             value="25.397967959359185"
           />
           <output
-            aria-label="envelope::release"
-            for="envelope::release"
+            aria-label="Envelope release"
+            for="envelope-release"
           >
             0.9999999999999999
           </output>

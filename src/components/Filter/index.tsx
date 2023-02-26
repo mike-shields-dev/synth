@@ -4,7 +4,8 @@ import { synthConfig } from "../../config";
 import * as scalers from "../../utils/Scalers";
 
 interface Props { 
-    focus: string;
+  focus: string;
+  group: string;
     updateFocus: (id: string) => void;
 }
 
@@ -19,8 +20,7 @@ function Filter({ focus, updateFocus }: Props) {
             <Slider
               isFocused={isFocused}
               controlChangeNumber={70}
-              displayName='frequency'
-              groupName="filter"
+              group="filter"
               initVal={+synthConfig.filterEnvelope.baseFrequency}
               parameter='frequency'
               scalers={{
@@ -31,10 +31,9 @@ function Filter({ focus, updateFocus }: Props) {
             <Slider
               isFocused={isFocused}
               controlChangeNumber={71}
-              displayName="resonance"
-              groupName="filter"
+              group="filter"
               initVal={+synthConfig.filter.Q}
-              parameter="Q"
+              parameter="resonance"
               scalers={{
                 out: scalers.controlChangeToFilterQ,
                 in: scalers.filterQToControlChange,
