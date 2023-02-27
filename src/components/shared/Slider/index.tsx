@@ -1,7 +1,6 @@
 import PubSub from "pubsub-js";
 import { useEffect, useState } from "react";
-import { MidiControlChangeSubscriber } from "../../../../PubSub/MidiControlChange";
-import { MidiControlChange } from "../../../../PubSub/MidiControlChange/types";
+import { MidiControlChange, MidiControlChangeSubscriber } from "../../../../PubsNSubs";
 import { camelCaseToTitleCase } from "../../../utils/camelCaseToTitleCase";
 interface Props {
     controlChangeNumber: number;
