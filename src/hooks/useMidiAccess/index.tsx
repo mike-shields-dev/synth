@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { publishMidiNoteOn } from "../../utils/PubSub/MidiNoteOn";
+import { publishMidiNoteOff } from "../../utils/PubSub/MidiNoteOff";
 import { publishMidiControlChange } from "../../utils/PubSub/MidiControlChange";
 
 function useMidiAccess() {
@@ -47,13 +49,16 @@ function useMidiAccess() {
             })
         }
 
-        PubSub.publish('midiMessage', {
-            statusByte,
-            dataByte1, 
-            dataByte2,
-        });
-    }
+        if (statusByte >= 144 && statusByte <= 159) {
+            publishMidiNoteOn({
+                noteNumber: dataByte1,
+                velocity: dataByte2,
+            });
+        }
 
+        if (statusByte >= 128 && statusByte <= 143) {
+            publishMidiNoteOff({ noteNumber: dataByte1 })
+        }
     }
 
     return {
