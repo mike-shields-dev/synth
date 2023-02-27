@@ -6,9 +6,9 @@ interface Props {
 
 function SynthUI({ children }: Props) {
   return (
-    <div data-testid="SynthUI">
+    <form aria-label="synth user interface">
       { children }
-    </div>
+    </form>
   )
 }
 

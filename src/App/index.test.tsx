@@ -15,26 +15,23 @@ describe('App', () => {
     });
 
     it('renders the SynthUI', () => {
-        expect(screen.getByTestId(/SynthUI/i)).toBeInTheDocument();
+        console.log(screen.getAllByRole('form'));
+        expect(screen.getByRole('form', {name: 'synth user interface'})).toBeInTheDocument();
     });
 
     it('renders a SynthParameterGroup for the oscillator', () => {
-        expect(screen.getByRole('form', { name: 'Oscillator' })).toBeInTheDocument();
+        expect(screen.getByRole('region', { name: 'Oscillator' })).toBeInTheDocument();
     });
 
     it('renders a SynthParameterGroup for the filter', () => {
-        expect(screen.getByRole('form', { name: 'Filter' })).toBeInTheDocument();
+        expect(screen.getByRole('region', { name: 'Filter' })).toBeInTheDocument();
     });
 
     it('renders a SynthParameterGroup for the filter', () => {
-        expect(screen.getByRole('form', { name: 'Filter' })).toBeInTheDocument();
-    });
-
-    it('renders a SynthParameterGroup for the filter', () => {
-        expect(screen.getByRole('form', { name: 'Filter Envelope' })).toBeInTheDocument();
+        expect(screen.getByRole('region', { name: 'Filter Envelope' })).toBeInTheDocument();
     });
 
     it('renders a SynthParameterGroup form the (amp) envelope', () => {
-        expect(screen.getByRole('form', { name: 'Amp Envelope' })).toBeInTheDocument();
+        expect(screen.getByRole('region', { name: 'Amp Envelope' })).toBeInTheDocument();
     })
 });

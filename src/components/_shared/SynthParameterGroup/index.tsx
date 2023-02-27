@@ -18,8 +18,7 @@ function SynthParameterGroup({
   const formRef = useRef<HTMLFormElement>(null);
 
   return (
-    <section>
-      <form
+      <section
         className={
           css[`SynthParameterGroup${
             isFocused ? "--focus" : ""
@@ -35,8 +34,7 @@ function SynthParameterGroup({
           <h2>{camelCaseToTitleCase(group)}</h2>
         </header>
         { children && children(isFocused) }
-      </form>
-    </section>
+      </section>
   )
 }
 

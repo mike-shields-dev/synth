@@ -21,7 +21,7 @@ describe('SynthParameterGroup', () => {
 
     it(`renders a form with the name groupName`, () => {
         expect(
-            screen.getByRole('form', { name: validProps.group })
+            screen.getByRole('region', { name: validProps.group })
         ).toBeInTheDocument();
     });
 
@@ -50,7 +50,7 @@ describe('SynthParameterGroup', () => {
     });
 
     it('invokes updateFocus when the user clicks anywhere within the component', () => {
-        const formElement = screen.getByRole('form', { name: validProps.group });
+        const formElement = screen.getByRole('region', { name: validProps.group });
 
         expect(validProps.updateFocus).toHaveBeenCalledTimes(0);
         
