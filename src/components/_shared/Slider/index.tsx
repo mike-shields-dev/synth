@@ -27,7 +27,7 @@ function Slider({
     useEffect(() => {
         publishMidiControlChange({
             controlChangeNumber,
-            value: outputValue,
+            value,
         });
     }, [value]);
 

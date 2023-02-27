@@ -10,7 +10,7 @@ exports[`App > matches snapshot 1`] = `
     <section>
       <form
         aria-label="Oscillator"
-        class="_SynthParameterGroup--focus_bd1b4b"
+        class="_SynthParameterGroup--focus_fd9329"
         id="oscillator"
       >
         <header>
@@ -23,7 +23,7 @@ exports[`App > matches snapshot 1`] = `
     <section>
       <form
         aria-label="Filter"
-        class="_SynthParameterGroup_bd1b4b"
+        class="_SynthParameterGroup_fd9329"
         id="filter"
       >
         <header>
@@ -78,7 +78,7 @@ exports[`App > matches snapshot 1`] = `
     <section>
       <form
         aria-label="Filter Envelope"
-        class="_SynthParameterGroup_bd1b4b"
+        class="_SynthParameterGroup_fd9329"
         id="filterEnvelope"
       >
         <header>
@@ -196,7 +196,7 @@ exports[`App > matches snapshot 1`] = `
     <section>
       <form
         aria-label="Amp Envelope"
-        class="_SynthParameterGroup_bd1b4b"
+        class="_SynthParameterGroup_fd9329"
         id="ampEnvelope"
       >
         <header>
