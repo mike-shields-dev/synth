@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { MidiControlChange, MidiControlChangeSubscriber, publishMidiControlChange } from "../../../../PubsNSubs";
+import { publishUiControlChange } from "../../../../PubsNSubs";
 import { camelCaseToTitleCase } from "../../../utils/camelCaseToTitleCase";
 interface Props {
     controlChangeNumber: number;
@@ -25,9 +26,10 @@ function Slider({
     const outputValue = scalers.out(value);
 
     useEffect(() => {
-        publishMidiControlChange({
-            controlChangeNumber,
-            value,
+        publishUiControlChange({
+            group,
+            parameter,
+            value: outputValue,
         });
     }, [value]);
 
@@ -35,21 +37,20 @@ function Slider({
         message: string,
         payload: MidiControlChange
     ) {
-        if (!isFocused) return;
-
         if (payload.controlChangeNumber === controlChangeNumber) {
             setValue(payload.value);
         }
     };
 
     useEffect(() => {
+        if (!isFocused) return;
+
         const midiControlChangeSubscription =
             new MidiControlChangeSubscriber(onMidiControlChange)
 
         return () => {
             midiControlChangeSubscription.unsubscribe()
         };
-
     }, [isFocused]);
 
     return (
@@ -71,7 +72,7 @@ function Slider({
                 aria-label={`${camelCaseToTitleCase(group)} ${parameter}`}
                 htmlFor={`${group}-${parameter}`}
             >
-                {scalers.out(value)}
+                {outputValue}
             </output>
         </div>
     );
