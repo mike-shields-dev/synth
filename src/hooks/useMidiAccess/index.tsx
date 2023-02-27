@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { publishMidiControlChange } from "../../utils/PubSub/MidiControlChange";
 
 function useMidiAccess() {
     const [isRequesting, setIsRequesting] = useState(true);
@@ -36,7 +37,15 @@ function useMidiAccess() {
     };
 
     function emitMidiMessage(midiMessage: WebMidi.MIDIMessageEvent) {
+
         const [statusByte, dataByte1, dataByte2] = midiMessage.data;
+
+        if (statusByte >= 176 && statusByte <= 191) {
+            publishMidiControlChange({
+                controlChangeNumber: dataByte1,
+                value: dataByte2,
+            })
+        }
 
         PubSub.publish('midiMessage', {
             statusByte,
@@ -45,8 +54,15 @@ function useMidiAccess() {
         });
     }
 
+    }
 
-    return { isRequesting, midiAccess, midiAccessError, midiInputs, midiOutputs };
+    return {
+        isRequesting,
+        midiAccess,
+        midiAccessError,
+        midiInputs,
+        midiOutputs
+    };
 }
 
 export { useMidiAccess };

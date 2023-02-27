@@ -1,7 +1,8 @@
 import PubSub from "pubsub-js";
 import { useEffect, useState } from "react";
-import { MIDIMessage } from '../../../types/MIDIMessage';
 import { camelCaseToTitleCase } from "../../../utils/camelCaseToTitleCase";
+import { MidiControlChangeSubscriber } from "../../../utils/PubSub/MidiControlChange";
+import { MidiControlChange } from "../../../utils/PubSub/MidiControlChange/types";
 interface Props {
     controlChangeNumber: number;
     group: string;
@@ -33,23 +34,25 @@ function Slider({
         })
     }, [value]);
 
-    function onMidiMessage(message: string, payload: MIDIMessage) {
+    function onMidiControlChange(
+        message: string, 
+        payload: MidiControlChange
+    ) {
         if (!isFocused) return;
         
-        const {
-            statusByte,
-            dataByte1: controlChange,
-            dataByte2: value
-        } = payload;
-        
-        if (statusByte === 176 && controlChange === controlChangeNumber) {
-            setValue(value);
+        if (payload.controlChangeNumber === controlChangeNumber) {
+            setValue(payload.value);
         }
     }
 
     useEffect(() => {
-        const sub = PubSub.subscribe('midiMessage', onMidiMessage);
-        return () => { PubSub.unsubscribe(sub) };
+        const midiControlChangeSubscription = 
+        new MidiControlChangeSubscriber(onMidiControlChange)
+        
+        return () => { 
+            midiControlChangeSubscription.unsubscribe()
+        };
+
     }, [isFocused])
 
     return (
