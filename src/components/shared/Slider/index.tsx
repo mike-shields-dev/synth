@@ -1,6 +1,5 @@
-import PubSub from "pubsub-js";
 import { useEffect, useState } from "react";
-import { MidiControlChange, MidiControlChangeSubscriber } from "../../../../PubsNSubs";
+import { MidiControlChange, MidiControlChangeSubscriber, publishMidiControlChange } from "../../../../PubsNSubs";
 import { camelCaseToTitleCase } from "../../../utils/camelCaseToTitleCase";
 interface Props {
     controlChangeNumber: number;
@@ -12,7 +11,7 @@ interface Props {
         in: (n: number) => number;
         out: (n: number) => number;
     };
-}
+};
 
 function Slider({
     controlChangeNumber,
@@ -26,33 +25,32 @@ function Slider({
     const outputValue = scalers.out(value);
 
     useEffect(() => {
-        PubSub.publish('uiControlChange', {
-            group,
-            parameter,
+        publishMidiControlChange({
+            controlChangeNumber,
             value: outputValue,
-        })
+        });
     }, [value]);
 
     function onMidiControlChange(
-        message: string, 
+        message: string,
         payload: MidiControlChange
     ) {
         if (!isFocused) return;
-        
+
         if (payload.controlChangeNumber === controlChangeNumber) {
             setValue(payload.value);
         }
-    }
+    };
 
     useEffect(() => {
-        const midiControlChangeSubscription = 
-        new MidiControlChangeSubscriber(onMidiControlChange)
-        
-        return () => { 
+        const midiControlChangeSubscription =
+            new MidiControlChangeSubscriber(onMidiControlChange)
+
+        return () => {
             midiControlChangeSubscription.unsubscribe()
         };
 
-    }, [isFocused])
+    }, [isFocused]);
 
     return (
         <div>
@@ -69,14 +67,14 @@ function Slider({
                 type="range"
                 value={value}
             />
-            <output 
+            <output
                 aria-label={`${camelCaseToTitleCase(group)} ${parameter}`}
                 htmlFor={`${group}-${parameter}`}
             >
                 {scalers.out(value)}
             </output>
         </div>
-    )
+    );
 };
 
 export { Slider };
