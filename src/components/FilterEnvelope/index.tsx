@@ -1,7 +1,7 @@
-import { SynthParameterGroup } from "../shared/SynthParameterGroup";
-import { Slider } from "../shared/Slider";
 import { synthConfig } from "../../config";
 import * as scalers from "../../utils/Scalers";
+import { Slider } from "../_shared/Slider";
+import { SynthParameterGroup } from "../_shared/SynthParameterGroup";
 
 interface Props {
     focus: string;
