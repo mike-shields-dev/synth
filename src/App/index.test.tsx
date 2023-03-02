@@ -1,10 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './index';
-import WMT from 'web-midi-test';
 
 describe('App', () => {
     beforeEach(() => {
-        global.navigator.requestMIDIAccess = WMT.requestMIDIAccess; 
         render(<App />)
     });
 
