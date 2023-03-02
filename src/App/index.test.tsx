@@ -15,7 +15,6 @@ describe('App', () => {
     });
 
     it('renders the SynthUI', () => {
-        console.log(screen.getAllByRole('form'));
         expect(screen.getByRole('form', {name: 'synth user interface'})).toBeInTheDocument();
     });
 
