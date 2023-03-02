@@ -1,8 +1,9 @@
 import PubSub from "pubsub-js";
+import { MIDI_NOTE_ON } from "../topics";
 import { MidiNoteOn, MidiNoteOnHandler } from "./types";
 
 function publishMidiNoteOn(payload: MidiNoteOn) {
-    PubSub.publish('midiNoteOn', payload)
+    PubSub.publish(MIDI_NOTE_ON, payload)
 }
 
 class MidiNoteOnSubscriber {
@@ -10,7 +11,7 @@ class MidiNoteOnSubscriber {
 
     constructor(noteOnHandler: MidiNoteOnHandler) {
         this.subscription = PubSub.subscribe(
-            'midiNoteOn',
+            MIDI_NOTE_ON,
             noteOnHandler,
         )
     }

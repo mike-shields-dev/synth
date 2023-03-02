@@ -10,7 +10,7 @@ interface Props {
 }
 
 function SynthParameterGroup({
-  children = (isFocused: boolean) => <></>,
+  children,
   group,
   isFocused,
   updateFocus,
@@ -39,3 +39,4 @@ function SynthParameterGroup({
 }
 
 export { SynthParameterGroup };
+  
