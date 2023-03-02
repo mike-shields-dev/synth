@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "test": "vitest",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "d3-scale": "^4.0.2",
@@ -30,11 +31,13 @@
     "@types/testing-library__jest-dom": "^5.14.5",
     "@types/webmidi": "^2.0.6",
     "@vitejs/plugin-react": "^3.0.0",
+    "@vitest/coverage-c8": "^0.29.2",
+    "@vitest/coverage-istanbul": "^0.29.2",
     "jsdom": "^21.0.0",
     "matchers": "link:@testing-library/jest-dom/matchers",
     "typescript": "^4.9.3",
     "vite": "^4.0.0",
-    "vitest": "^0.27.0",
+    "vitest": "^0.29.0",
     "web-midi-test": "^1.2.3"
   }
 }
