@@ -11,17 +11,27 @@ function useMidiAccess() {
     const [midiOutputs, setMidiOutputs] = useState<WebMidi.MIDIOutputMap>();
 
     useEffect(() => {
-        navigator
-            .requestMIDIAccess()
-            .then(setMidiAccess)
-            .then(() => setIsRequesting(false))
-            .catch(setMidiAccessError);
+        try {
+            navigator
+                .requestMIDIAccess()
+                .then(setMidiAccess)
+                .then(() => setIsRequesting(false))
+                .catch(setMidiAccessError);
+        } catch (err) {
+            console.log(err);
+        }
     }, []);
 
     useEffect(() => {
         if (midiAccess) {
             setMidiPorts(midiAccess);
-            midiAccess.addEventListener('statechange', () => setMidiPorts(midiAccess));
+
+            try {
+                midiAccess.addEventListener('statechange', () => setMidiPorts(midiAccess));
+            }
+            catch (err) {
+                console.error(err);
+            }
         }
     }, [midiAccess]);
 
