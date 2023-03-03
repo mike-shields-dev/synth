@@ -8,6 +8,7 @@ expect.extend(matchers);
 
 beforeEach(() => {
   global.navigator.requestMIDIAccess = WMT.requestMIDIAccess; 
+  vi.mock("pubsub-js", async (module) => await module());
 });
 
 // runs a cleanup after each test case (e.g. clearing jsdom)
