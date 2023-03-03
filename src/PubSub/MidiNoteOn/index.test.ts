@@ -5,9 +5,7 @@ import { vi } from 'vitest';
 describe('MidiNoteOffSubscriber', () => {
     it('correctly invokes the provided handler function when the subscribed topic is published', async () => {
         const handler = vi.fn(() => null);
-
         const payload = { noteNumber: 65, velocity: 65 };
-        
         new MidiNoteOnSubscriber(handler);
         
         expect(handler).not.toHaveBeenCalled();
@@ -21,9 +19,7 @@ describe('MidiNoteOffSubscriber', () => {
 
     it('correctly unsubscribes', () => {
         const handler = vi.fn(() => null);
-        
         const payload = { noteNumber: 65 };
-        
         const midiNoteOffSubscriber = new MidiNoteOnSubscriber(handler);
 
         midiNoteOffSubscriber.unsubscribe();
@@ -39,7 +35,6 @@ describe('MidiNoteOffSubscriber', () => {
 describe('publishMidiNoteOn', () => {
     it('publishes to the correct topic with the correct payload', () => {
         const handler = vi.fn(() => null);
-
         const payload = {
             noteNumber: 65,
             velocity: 65,
@@ -50,7 +45,7 @@ describe('publishMidiNoteOn', () => {
         publishMidiNoteOn(payload);
 
         setTimeout(() => {
-            expect(handler).toHaveBeenCalled();
+            expect(handler).toHaveBeenCalledWith(MIDI_NOTE_ON, payload);
         }, 0)
     });
 });
