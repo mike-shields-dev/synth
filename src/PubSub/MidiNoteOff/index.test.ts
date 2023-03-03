@@ -42,7 +42,7 @@ describe('publishMidiNoteOff', () => {
         publishMidiNoteOff(payload);
 
         setTimeout(() => {
-            expect(handler).toHaveBeenCalled();
+            expect(handler).toHaveBeenCalledWith(MIDI_NOTE_OFF, payload);
         }, 0);
     });
 });
