@@ -40,13 +40,13 @@ exports[`App > matches snapshot 1`] = `
           min="0"
           step="0.05"
           type="range"
-          value="71.25595213027319"
+          value="2000"
         />
         <output
           aria-label="Filter frequency"
           for="filter-frequency"
         >
-          1999.9999999999998
+          1228854855.414426
         </output>
       </div>
       <div>
@@ -61,13 +61,13 @@ exports[`App > matches snapshot 1`] = `
           min="0"
           step="0.05"
           type="range"
-          value="31.75"
+          value="6"
         />
         <output
           aria-label="Filter resonance"
           for="filter-resonance"
         >
-          6
+          1.1338582677165354
         </output>
       </div>
     </section>
@@ -93,13 +93,13 @@ exports[`App > matches snapshot 1`] = `
           min="0"
           step="0.05"
           type="range"
-          value="63.5"
+          value="0.5"
         />
         <output
           aria-label="Filter Envelope attack"
           for="filterEnvelope-attack"
         >
-          0.5
+          0.000031000062000124
         </output>
       </div>
       <div>
@@ -114,13 +114,13 @@ exports[`App > matches snapshot 1`] = `
           min="0"
           step="0.05"
           type="range"
-          value="31.75"
+          value="0.5"
         />
         <output
           aria-label="Filter Envelope decay"
           for="filterEnvelope-decay"
         >
-          0.5
+          0.007874015748031496
         </output>
       </div>
       <div>
@@ -135,13 +135,13 @@ exports[`App > matches snapshot 1`] = `
           min="0"
           step="0.05"
           type="range"
-          value="127"
+          value="1"
         />
         <output
           aria-label="Filter Envelope sustain"
           for="filterEnvelope-sustain"
         >
-          1
+          0.007874015748031496
         </output>
       </div>
       <div>
@@ -156,13 +156,13 @@ exports[`App > matches snapshot 1`] = `
           min="0"
           step="0.05"
           type="range"
-          value="25.397967959359185"
+          value="1"
         />
         <output
           aria-label="Filter Envelope release"
           for="filterEnvelope-release"
         >
-          0.9999999999999999
+          0.03946929133858268
         </output>
       </div>
       <div>
@@ -177,13 +177,13 @@ exports[`App > matches snapshot 1`] = `
           min="0"
           step="0.05"
           type="range"
-          value="25.400000000000002"
+          value="2"
         />
         <output
           aria-label="Filter Envelope amount"
           for="filterEnvelope-amount"
         >
-          2
+          0.15748031496062992
         </output>
       </div>
     </section>
@@ -209,13 +209,13 @@ exports[`App > matches snapshot 1`] = `
           min="0"
           step="0.05"
           type="range"
-          value="0.8980256121069153"
+          value="0.0001"
         />
         <output
           aria-label="Envelope attack"
           for="envelope-attack"
         >
-          0.0001
+          1.24000248000496e-12
         </output>
       </div>
       <div>
@@ -230,13 +230,13 @@ exports[`App > matches snapshot 1`] = `
           min="0"
           step="0.05"
           type="range"
-          value="31.75"
+          value="0.5"
         />
         <output
           aria-label="Envelope decay"
           for="envelope-decay"
         >
-          0.5
+          0.007874015748031496
         </output>
       </div>
       <div>
@@ -251,13 +251,13 @@ exports[`App > matches snapshot 1`] = `
           min="0"
           step="0.05"
           type="range"
-          value="127"
+          value="1"
         />
         <output
           aria-label="Envelope sustain"
           for="envelope-sustain"
         >
-          1
+          0.007874015748031496
         </output>
       </div>
       <div>
@@ -272,13 +272,13 @@ exports[`App > matches snapshot 1`] = `
           min="0"
           step="0.05"
           type="range"
-          value="25.397967959359185"
+          value="1"
         />
         <output
           aria-label="Envelope release"
           for="envelope-release"
         >
-          0.9999999999999999
+          0.03946929133858268
         </output>
       </div>
     </section>
