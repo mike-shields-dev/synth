@@ -3,9 +3,9 @@ import { MIDI_NOTE_ON } from "../../topics";
 import { waitFor } from "@testing-library/react";
 import { vi } from 'vitest';
 
-describe('MidiNoteOffSubscriber', () => {
+describe('MidiNoteOnSubscriber', () => {
     it('correctly invokes the provided handler function when the subscribed topic is published', async () => {
-        const handler = vi.fn(() => null);
+        const handler = vi.fn();
         const payload = { noteNumber: 65, velocity: 65 };
         new MidiNoteOnSubscriber(handler);
         
@@ -19,7 +19,7 @@ describe('MidiNoteOffSubscriber', () => {
     });
 
     it('correctly unsubscribes', async () => {
-        const handler = vi.fn(() => null);
+        const handler = vi.fn();
         const payload = { noteNumber: 65 };
         const midiNoteOffSubscriber = new MidiNoteOnSubscriber(handler);
 
@@ -34,8 +34,8 @@ describe('MidiNoteOffSubscriber', () => {
 });
 
 describe('publishMidiNoteOn', () => {
-    it('publishes to the correct topic with the correct payload', async () => {
-        const handler = vi.fn(() => null);
+    it('publishes to the MIDI_NOTE_ON topic with the correct payload', async () => {
+        const handler = vi.fn();
         const payload = {
             noteNumber: 65,
             velocity: 65,
