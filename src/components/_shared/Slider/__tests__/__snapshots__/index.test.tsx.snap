@@ -19,7 +19,7 @@ exports[`Slider > matches snapshot 1`] = `
     aria-label="Group Name parameter"
     for="groupName-parameter"
   >
-    130
+    130.00
   </output>
 </div>
 `;

@@ -1,7 +1,8 @@
-import { render, screen, waitFor, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import { Slider } from '..';
 import { MIDI_CC } from '../../../../PubSub/topics';
+import { formatNumber } from '../../../../utils/formatNumber';
 
 const validProps = {
     controlChangeNumber: 70,
@@ -80,7 +81,7 @@ describe('Slider', () => {
     });
 
     it('the output displays the scaled value of the slider', async () => {        
-        expect(screen.getByRole('status')).toHaveValue(`${validProps.scaler(validProps.initVal)}`);
+        expect(screen.getByRole('status')).toHaveValue(`${formatNumber(validProps.scaler(validProps.initVal))}`);
     });
 
     it('the output value updates when a MIDI Control Change is published with the correct payload', async () => {
@@ -93,7 +94,7 @@ describe('Slider', () => {
         PubSub.publish(MIDI_CC, payload);
 
         await waitFor(() => {
-            expect(outputDisplay).toHaveValue(`${validProps.scaler(validProps.initVal)}`);
+            expect(outputDisplay).toHaveValue(`${formatNumber(validProps.scaler(validProps.initVal))}`);
         });
     });
 
@@ -105,7 +106,7 @@ describe('Slider', () => {
         fireEvent.change(slider, { target: { value: 55 } });
 
         await waitFor(() => {
-            expect(outputDisplay).toHaveValue(`${validProps.scaler(newVal)}`);
+            expect(outputDisplay).toHaveValue(`${formatNumber(validProps.scaler(newVal))}`);
         });
     });
 });

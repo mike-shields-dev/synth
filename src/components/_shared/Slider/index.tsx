@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { MidiControlChange, MidiControlChangeSubscriber, publishUiChange } from "../../../PubSub";
 import { camelCaseToTitleCase } from "../../../utils/camelCaseToTitleCase";
+import { formatNumber } from "../../../utils/formatNumber";
+
 
 interface Props {
     controlChangeNumber: number;
@@ -20,13 +22,13 @@ function Slider({
     scaler,
 }: Props) {
     const [value, setValue] = useState(initVal);
-    const outputValue = scaler(value);
+    const outputValue = formatNumber(scaler(value));
 
     useEffect(() => {
         publishUiChange({
             group, 
             parameter,
-            value: outputValue,
+            value: Number(outputValue),
         });
     }, [value]);
 
