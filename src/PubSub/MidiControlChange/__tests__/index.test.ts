@@ -1,5 +1,6 @@
-import { MidiControlChangeSubscriber, publishMidiControlChange } from ".";
-import { MIDI_CC } from "../topics";
+import { MidiControlChangeSubscriber, publishMidiControlChange } from "..";
+import { MIDI_CC } from "../../topics";
+import { waitFor } from "@testing-library/react";
 import { vi } from 'vitest';
 
 describe('MidiControlChangeSubscriber', () => {
@@ -12,9 +13,9 @@ describe('MidiControlChangeSubscriber', () => {
 
         PubSub.publish(MIDI_CC, payload);
 
-        setTimeout(() => {
+        await waitFor(() => {
             expect(handler).toHaveBeenCalledWith(MIDI_CC, payload);
-        }, 0);
+        });
     });
 
     it('correctly unsubscribes', () => {
@@ -32,15 +33,15 @@ describe('MidiControlChangeSubscriber', () => {
 });
 
 describe('publishMidiControlChange', () => {
-    it('publishes to the correct topic with the correct payload', () => {
+    it('publishes to the correct topic with the correct payload', async () => {
         const handler = vi.fn(() => null);
         const payload = { controlChangeNumber: 65, value: 65 };
         PubSub.subscribe(MIDI_CC, handler);
 
         publishMidiControlChange(payload);
 
-        setTimeout(() => {
+        await waitFor(() => {
             expect(handler).toHaveBeenCalledWith(MIDI_CC, payload);
-        }, 0)
+        });
     });
 });

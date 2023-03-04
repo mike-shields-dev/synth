@@ -1,5 +1,6 @@
-import { MidiNoteOnSubscriber, publishMidiNoteOn } from ".";
-import { MIDI_NOTE_ON } from "../topics";
+import { MidiNoteOnSubscriber, publishMidiNoteOn } from "..";
+import { MIDI_NOTE_ON } from "../../topics";
+import { waitFor } from "@testing-library/react";
 import { vi } from 'vitest';
 
 describe('MidiNoteOffSubscriber', () => {
@@ -12,12 +13,12 @@ describe('MidiNoteOffSubscriber', () => {
 
         PubSub.publish(MIDI_NOTE_ON, payload);
 
-        setTimeout(() => {
+        await waitFor(() => {
             expect(handler).toHaveBeenCalledWith(MIDI_NOTE_ON, payload);
-        }, 0);
+        });
     });
 
-    it('correctly unsubscribes', () => {
+    it('correctly unsubscribes', async () => {
         const handler = vi.fn(() => null);
         const payload = { noteNumber: 65 };
         const midiNoteOffSubscriber = new MidiNoteOnSubscriber(handler);
@@ -26,14 +27,14 @@ describe('MidiNoteOffSubscriber', () => {
 
         PubSub.publish(MIDI_NOTE_ON, payload);
 
-        setTimeout(() => {
+        await waitFor(() => {
             expect(handler).not.toHaveBeenCalled();
-        }, 0)
+        });
     });
 });
 
 describe('publishMidiNoteOn', () => {
-    it('publishes to the correct topic with the correct payload', () => {
+    it('publishes to the correct topic with the correct payload', async () => {
         const handler = vi.fn(() => null);
         const payload = {
             noteNumber: 65,
@@ -44,8 +45,8 @@ describe('publishMidiNoteOn', () => {
 
         publishMidiNoteOn(payload);
 
-        setTimeout(() => {
+        await waitFor(() => {
             expect(handler).toHaveBeenCalledWith(MIDI_NOTE_ON, payload);
-        }, 0)
+        });
     });
 });
