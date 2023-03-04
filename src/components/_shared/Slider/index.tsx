@@ -25,11 +25,12 @@ function Slider({
     scalers,
 }: Props) {
     const [value, setValue] = useState(scalers.in(initVal));
-    const outputValue = formatNumber(scalers.out(value));
+    const outputValue: string = formatNumber(scalers.out(value)) || "";
+    const [integers, decimals]: string[] = outputValue?.split(".");
 
     useEffect(() => {
         publishUiChange({
-            group, 
+            group,
             parameter,
             value: Number(outputValue),
         });
@@ -74,7 +75,11 @@ function Slider({
                 aria-label={`${camelCaseToTitleCase(group)} ${parameter}`}
                 htmlFor={`${group}-${parameter}`}
             >
-                {outputValue}
+                <span>
+                    <span>{integers}</span>
+                    <span style={{ color: "yellow" }}>{integers && decimals ? "." : ""}</span>
+                    <span style={{ opacity: 0.6 }}>{decimals}</span>
+                </span>
             </output>
         </div>
     );

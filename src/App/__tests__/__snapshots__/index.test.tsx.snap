@@ -46,7 +46,21 @@ exports[`App > matches snapshot 1`] = `
           aria-label="Filter frequency"
           for="filter-frequency"
         >
-          2000.0
+          <span>
+            <span>
+              2000
+            </span>
+            <span
+              style="color: yellow;"
+            >
+              .
+            </span>
+            <span
+              style="opacity: 0.6;"
+            >
+              0
+            </span>
+          </span>
         </output>
       </div>
       <div>
@@ -67,7 +81,21 @@ exports[`App > matches snapshot 1`] = `
           aria-label="Filter resonance"
           for="filter-resonance"
         >
-          6.0000
+          <span>
+            <span>
+              6
+            </span>
+            <span
+              style="color: yellow;"
+            >
+              .
+            </span>
+            <span
+              style="opacity: 0.6;"
+            >
+              0000
+            </span>
+          </span>
         </output>
       </div>
     </section>
@@ -99,7 +127,21 @@ exports[`App > matches snapshot 1`] = `
           aria-label="Filter Envelope attack"
           for="filterEnvelope-attack"
         >
-          0.5000
+          <span>
+            <span>
+              0
+            </span>
+            <span
+              style="color: yellow;"
+            >
+              .
+            </span>
+            <span
+              style="opacity: 0.6;"
+            >
+              5000
+            </span>
+          </span>
         </output>
       </div>
       <div>
@@ -120,7 +162,21 @@ exports[`App > matches snapshot 1`] = `
           aria-label="Filter Envelope decay"
           for="filterEnvelope-decay"
         >
-          0.5000
+          <span>
+            <span>
+              0
+            </span>
+            <span
+              style="color: yellow;"
+            >
+              .
+            </span>
+            <span
+              style="opacity: 0.6;"
+            >
+              5000
+            </span>
+          </span>
         </output>
       </div>
       <div>
@@ -141,7 +197,21 @@ exports[`App > matches snapshot 1`] = `
           aria-label="Filter Envelope sustain"
           for="filterEnvelope-sustain"
         >
-          1.0000
+          <span>
+            <span>
+              1
+            </span>
+            <span
+              style="color: yellow;"
+            >
+              .
+            </span>
+            <span
+              style="opacity: 0.6;"
+            >
+              0000
+            </span>
+          </span>
         </output>
       </div>
       <div>
@@ -162,7 +232,21 @@ exports[`App > matches snapshot 1`] = `
           aria-label="Filter Envelope release"
           for="filterEnvelope-release"
         >
-          1.0000
+          <span>
+            <span>
+              1
+            </span>
+            <span
+              style="color: yellow;"
+            >
+              .
+            </span>
+            <span
+              style="opacity: 0.6;"
+            >
+              0000
+            </span>
+          </span>
         </output>
       </div>
       <div>
@@ -183,7 +267,21 @@ exports[`App > matches snapshot 1`] = `
           aria-label="Filter Envelope amount"
           for="filterEnvelope-amount"
         >
-          2.0000
+          <span>
+            <span>
+              2
+            </span>
+            <span
+              style="color: yellow;"
+            >
+              .
+            </span>
+            <span
+              style="opacity: 0.6;"
+            >
+              0000
+            </span>
+          </span>
         </output>
       </div>
     </section>
@@ -215,7 +313,21 @@ exports[`App > matches snapshot 1`] = `
           aria-label="Envelope attack"
           for="envelope-attack"
         >
-          0.0001
+          <span>
+            <span>
+              0
+            </span>
+            <span
+              style="color: yellow;"
+            >
+              .
+            </span>
+            <span
+              style="opacity: 0.6;"
+            >
+              0001
+            </span>
+          </span>
         </output>
       </div>
       <div>
@@ -236,7 +348,21 @@ exports[`App > matches snapshot 1`] = `
           aria-label="Envelope decay"
           for="envelope-decay"
         >
-          0.5000
+          <span>
+            <span>
+              0
+            </span>
+            <span
+              style="color: yellow;"
+            >
+              .
+            </span>
+            <span
+              style="opacity: 0.6;"
+            >
+              5000
+            </span>
+          </span>
         </output>
       </div>
       <div>
@@ -257,7 +383,21 @@ exports[`App > matches snapshot 1`] = `
           aria-label="Envelope sustain"
           for="envelope-sustain"
         >
-          1.0000
+          <span>
+            <span>
+              1
+            </span>
+            <span
+              style="color: yellow;"
+            >
+              .
+            </span>
+            <span
+              style="opacity: 0.6;"
+            >
+              0000
+            </span>
+          </span>
         </output>
       </div>
       <div>
@@ -278,7 +418,21 @@ exports[`App > matches snapshot 1`] = `
           aria-label="Envelope release"
           for="envelope-release"
         >
-          1.0000
+          <span>
+            <span>
+              1
+            </span>
+            <span
+              style="color: yellow;"
+            >
+              .
+            </span>
+            <span
+              style="opacity: 0.6;"
+            >
+              0000
+            </span>
+          </span>
         </output>
       </div>
     </section>

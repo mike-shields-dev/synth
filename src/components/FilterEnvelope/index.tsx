@@ -73,7 +73,6 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
           />
         </>}
       </SynthParameterGroup>
-
     )
 }
 
