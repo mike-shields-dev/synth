@@ -1,0 +1,42 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Keyboard > matches snapshot 1`] = `
+<div>
+  <button
+    name="C"
+  />
+  <button
+    name="D"
+  />
+  <button
+    name="E"
+  />
+  <button
+    name="F"
+  />
+  <button
+    name="G"
+  />
+  <button
+    name="A"
+  />
+  <button
+    name="B"
+  />
+  <button
+    name="Db"
+  />
+  <button
+    name="Eb"
+  />
+  <button
+    name="Gb"
+  />
+  <button
+    name="Ab"
+  />
+  <button
+    name="Bb"
+  />
+</div>
+`;
