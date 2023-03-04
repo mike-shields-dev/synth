@@ -1,16 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { MidiControlChange, MidiControlChangeSubscriber, publishUiChange } from "../../../PubSub";
 import { camelCaseToTitleCase } from "../../../utils/camelCaseToTitleCase";
+
 interface Props {
     controlChangeNumber: number;
     group: string;
     initVal: number;
     isFocused: boolean;
     parameter: string;
-    scalers: {
-        in: (n: number) => number;
-        out: (n: number) => number;
-    };
+    scaler: (n: number) => number;
 };
 
 function Slider({
@@ -19,10 +17,10 @@ function Slider({
     group,
     isFocused,
     parameter,
-    scalers,
+    scaler,
 }: Props) {
-    const [value, setValue] = useState(scalers.in(initVal));
-    const outputValue = scalers.out(value);
+    const [value, setValue] = useState(initVal);
+    const outputValue = scaler(value);
 
     useEffect(() => {
         publishUiChange({
@@ -45,10 +43,10 @@ function Slider({
         if (!isFocused) return;
 
         const midiControlChangeSubscription =
-            new MidiControlChangeSubscriber(onMidiControlChange)
+            new MidiControlChangeSubscriber(onMidiControlChange);
 
         return () => {
-            midiControlChangeSubscription.unsubscribe()
+            midiControlChangeSubscription.unsubscribe();
         };
     }, [isFocused]);
 

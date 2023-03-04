@@ -22,10 +22,7 @@ function Filter({ focus, updateFocus }: Props) {
               group="filter"
               initVal={+synthConfig.filterEnvelope.baseFrequency}
               parameter='frequency'
-              scalers={{
-                out: scalers.controlChangeToFilterFrequency,
-                in: scalers.filterFrequencyToControlChange,
-              }}
+              scaler={scalers.controlChangeToFilterFrequency}
             />
             <Slider
               isFocused={isFocused}
@@ -33,10 +30,7 @@ function Filter({ focus, updateFocus }: Props) {
               group="filter"
               initVal={+synthConfig.filter.Q}
               parameter="resonance"
-              scalers={{
-                out: scalers.controlChangeToFilterQ,
-                in: scalers.filterQToControlChange,
-              }}
+              scaler={scalers.controlChangeToFilterQ}
             />
           </>}
         </SynthParameterGroup>

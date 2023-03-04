@@ -9,9 +9,7 @@ const validProps = {
     initVal: 65,
     isFocused: true,
     parameter: 'parameter',
-    scalers: {
-        out: vi.fn((n) => n * 2),
-    }
+    scaler: vi.fn((n) => n * 2),
 }
 
 describe('Slider', () => {
@@ -24,18 +22,13 @@ describe('Slider', () => {
     beforeEach(() => render(< Slider {...validProps} />));
     afterEach(() => vi.resetAllMocks());
 
-    it('renders a slider with the give parameter name', () => {
+    it('renders a single slider with the give parameter name', () => {
+        expect(screen.getAllByRole('slider')).toHaveLength(1);
         expect(screen.getByRole('slider', { name: /parameter/i })).toBeInTheDocument();
     });
 
     it('renders a slider with the given initial value', () => {
         expect(screen.getByRole('slider', { name: /Parameter/i })).toHaveValue(`${validProps.initVal}`);
-
-
-    })
-
-    it('renders a single range input', () => {
-        expect(screen.getAllByRole('slider')).toHaveLength(1);
     });
 
     it('renders a range input with a min value of 0', () => {
@@ -50,19 +43,19 @@ describe('Slider', () => {
             .toEqual('127');
     });
 
-    it('renders an output element', () => {
-        expect(screen.getByRole('status')).toBeInTheDocument();
-    });
-
-    it('renders an output element associated with the input element', ()=> {
-        expect(screen.getByRole('status')
-            .getAttribute('for'))
-            .toBe(`${validProps.group}-${validProps.parameter}`);
-    });
-
-    it(`updates slider's value when a MIDI Control Change is published with the correct payload`, async () => {
+    it(`the slider value updates on user input via the GUI`, async () => {
         const slider = screen.getByRole('slider', { name: /Parameter/i });
-        
+        const newVal = 99;
+
+        fireEvent.change(slider, { target: { value: newVal } });
+
+        await waitFor(() => {
+            expect(slider).toHaveValue(`${newVal}`);
+        });
+    });
+
+    it(`the slider value updates when a MIDI Control Change is published with the correct payload`, async () => {
+        const slider = screen.getByRole('slider', { name: /Parameter/i });
         const payload = {
             controlChangeNumber: validProps.controlChangeNumber,
             value: 99,
@@ -75,24 +68,22 @@ describe('Slider', () => {
         });
     });
 
-    it(`updates sliders value on user input via the GUI`, async () => {
-        const slider = screen.getByRole('slider', { name: /Parameter/i });
-        const newVal = 99;
-
-        fireEvent.change(slider, { target: { value: newVal } });
-
-        await waitFor(() => {
-            expect(slider).toHaveValue(`${newVal}`);
-        });
+    it('renders a single output', () => {
+        expect(screen.getAllByRole('status')).toHaveLength(1);
+        expect(screen.getByRole('status')).toBeInTheDocument();
     });
 
-    it('displays the scaled value of the slider', async () => {
-        const outputDisplay = screen.getByRole('status');
-        
-        expect(outputDisplay).toHaveValue(`${validProps.scalers.out(validProps.initVal)}`);
+    it('the output is associated with the slider', ()=> {
+        expect(screen.getByRole('status')
+            .getAttribute('for'))
+            .toBe(`${validProps.group}-${validProps.parameter}`);
     });
 
-    it('updates the displayed scaled value when a MIDI Control Change is published with the correct payload', async () => {
+    it('the output displays the scaled value of the slider', async () => {        
+        expect(screen.getByRole('status')).toHaveValue(`${validProps.scaler(validProps.initVal)}`);
+    });
+
+    it('the output value updates when a MIDI Control Change is published with the correct payload', async () => {
         const outputDisplay = screen.getByRole('status');
         const payload = {
             controlChangeNumber: validProps.controlChangeNumber,
@@ -102,7 +93,19 @@ describe('Slider', () => {
         PubSub.publish(MIDI_CC, payload);
 
         await waitFor(() => {
-            expect(outputDisplay).toHaveValue(`${validProps.scalers.out(validProps.initVal)}`);
+            expect(outputDisplay).toHaveValue(`${validProps.scaler(validProps.initVal)}`);
+        });
+    });
+
+    it('the output value updates on user input via the GUI', async () => {
+        const outputDisplay = screen.getByRole('status');
+        const slider = screen.getByRole('slider');
+        const newVal = 55;
+
+        fireEvent.change(slider, { target: { value: 55 } });
+
+        await waitFor(() => {
+            expect(outputDisplay).toHaveValue(`${validProps.scaler(newVal)}`);
         });
     });
 });

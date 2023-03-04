@@ -22,10 +22,7 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
             group="filterEnvelope"
             initVal={+synthConfig.filterEnvelope.attack}
             parameter="attack"
-            scalers={{
-              out: scalers.controlChangeToEnvelopeAttack,
-              in: scalers.envelopeAttackToControlChange,
-            }}
+            scaler={scalers.controlChangeToEnvelopeAttack}
           />
           <Slider
             controlChangeNumber={71}
@@ -33,10 +30,7 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
             initVal={+synthConfig.filterEnvelope.decay}
             isFocused={isFocused}
             parameter="decay"
-            scalers={{
-              out: scalers.controlChangeToEnvelopeDecay,
-              in: scalers.envelopeDecayToControlChange,
-            }}
+            scaler={scalers.controlChangeToEnvelopeDecay}
           />
           <Slider
             controlChangeNumber={72}
@@ -44,10 +38,7 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
             isFocused={isFocused}
             initVal={+synthConfig.filterEnvelope.sustain}
             parameter="sustain"
-            scalers={{
-              out: scalers.controlChangeToEnvelopeSustain,
-              in: scalers.envelopeSustainToControlChange,
-            }}
+            scaler={scalers.controlChangeToEnvelopeSustain}
           />
           <Slider
             controlChangeNumber={73}
@@ -55,10 +46,7 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
             initVal={+synthConfig.filterEnvelope.release}
             isFocused={isFocused}
             parameter="release"
-            scalers={{
-              out: scalers.controlChangeToEnvelopeRelease,
-              in: scalers.envelopeReleaseToControlChange,
-            }}
+            scaler={scalers.controlChangeToEnvelopeRelease}
           />
           <Slider
             controlChangeNumber={74}
@@ -66,10 +54,7 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
             initVal={+synthConfig.filterEnvelope.octaves}
             isFocused={isFocused}
             parameter="amount"
-            scalers={{
-              out: scalers.controlChangeToEnvelopeAmount,
-              in: scalers.envelopeAmountToControlChange,
-            }}
+            scaler={scalers.controlChangeToEnvelopeAmount}
           />
         </>}
       </SynthParameterGroup>
