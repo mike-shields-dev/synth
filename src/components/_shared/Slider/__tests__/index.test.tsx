@@ -7,10 +7,13 @@ import { formatNumber } from '../../../../utils/formatNumber';
 const validProps = {
     controlChangeNumber: 70,
     group: 'groupName',
-    initVal: 65,
+    initVal: 63,
     isFocused: true,
     parameter: 'parameter',
-    scaler: vi.fn((n) => n * 2),
+    scalers: {
+        in: vi.fn((n) => n * 2),
+        out: vi.fn((n) => n / 2),
+    }
 }
 
 describe('Slider', () => {
@@ -23,13 +26,13 @@ describe('Slider', () => {
     beforeEach(() => render(< Slider {...validProps} />));
     afterEach(() => vi.resetAllMocks());
 
-    it('renders a single slider with the give parameter name', () => {
+    it('renders a single slider with the given parameter name', () => {
         expect(screen.getAllByRole('slider')).toHaveLength(1);
         expect(screen.getByRole('slider', { name: /parameter/i })).toBeInTheDocument();
     });
 
-    it('renders a slider with the given initial value', () => {
-        expect(screen.getByRole('slider', { name: /Parameter/i })).toHaveValue(`${validProps.initVal}`);
+    it('the sliders initial value is the given initVal scaled', () => {
+        expect(screen.getByRole('slider', { name: /Parameter/i })).toHaveValue(`${validProps.scalers.in(validProps.initVal)}`);
     });
 
     it('renders a range input with a min value of 0', () => {
@@ -80,8 +83,10 @@ describe('Slider', () => {
             .toBe(`${validProps.group}-${validProps.parameter}`);
     });
 
-    it('the output displays the scaled value of the slider', async () => {        
-        expect(screen.getByRole('status')).toHaveValue(`${formatNumber(validProps.scaler(validProps.initVal))}`);
+    it('the output displays the scaled value of the slider', async () => {
+        const sliderValue = screen.getByRole('slider').getAttribute('value');
+        
+        expect(screen.getByRole('status')).toHaveValue(`${formatNumber(validProps.scalers.out(sliderValue))}`);
     });
 
     it('the output value updates when a MIDI Control Change is published with the correct payload', async () => {
@@ -94,7 +99,7 @@ describe('Slider', () => {
         PubSub.publish(MIDI_CC, payload);
 
         await waitFor(() => {
-            expect(outputDisplay).toHaveValue(`${formatNumber(validProps.scaler(validProps.initVal))}`);
+            expect(outputDisplay).toHaveValue(`${formatNumber(validProps.scalers.out(payload.value))}`);
         });
     });
 
@@ -106,7 +111,7 @@ describe('Slider', () => {
         fireEvent.change(slider, { target: { value: 55 } });
 
         await waitFor(() => {
-            expect(outputDisplay).toHaveValue(`${formatNumber(validProps.scaler(newVal))}`);
+            expect(outputDisplay).toHaveValue(`${formatNumber(validProps.scalers.out(newVal))}`);
         });
     });
 });

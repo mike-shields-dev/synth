@@ -10,7 +10,10 @@ interface Props {
     initVal: number;
     isFocused: boolean;
     parameter: string;
-    scaler: (n: number) => number;
+    scalers: {
+        in: (n: number) => number;
+        out: (n: number) => number;
+    };
 };
 
 function Slider({
@@ -19,10 +22,10 @@ function Slider({
     group,
     isFocused,
     parameter,
-    scaler,
+    scalers,
 }: Props) {
-    const [value, setValue] = useState(initVal);
-    const outputValue = formatNumber(scaler(value));
+    const [value, setValue] = useState(scalers.in(initVal));
+    const outputValue = formatNumber(scalers.out(value));
 
     useEffect(() => {
         publishUiChange({

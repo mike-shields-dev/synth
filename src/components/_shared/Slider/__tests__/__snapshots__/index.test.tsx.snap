@@ -13,13 +13,13 @@ exports[`Slider > matches snapshot 1`] = `
     min="0"
     step="0.05"
     type="range"
-    value="65"
+    value="126"
   />
   <output
     aria-label="Group Name parameter"
     for="groupName-parameter"
   >
-    130.00
+    63.000
   </output>
 </div>
 `;
