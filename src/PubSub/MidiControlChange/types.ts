@@ -3,7 +3,7 @@ interface MidiControlChange {
     value: number;
 }
 
-type MidiControlChangeHandler = (message: string, payload: MidiControlChange) => void;
+type MidiControlChangeHandler = (message: string, data: MidiControlChange) => void;
 
 export type {
     MidiControlChange,

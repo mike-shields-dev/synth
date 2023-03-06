@@ -35,10 +35,10 @@ function Slider({
 
     function onMidiControlChange(
         message: string,
-        payload: MidiControlChange
+        data: MidiControlChange
     ) {
-        if (payload.controlChangeNumber === controlChangeNumber) {
-            setValue(payload.value);
+        if (data.controlChangeNumber === controlChangeNumber) {
+            setValue(data.value);
         }
     };
 

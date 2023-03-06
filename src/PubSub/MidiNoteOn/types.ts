@@ -3,6 +3,6 @@ interface MidiNoteOn {
     velocity: number;
 }
 
-type MidiNoteOnHandler = (message: string, payload: MidiNoteOn) => void;
+type MidiNoteOnHandler = (message: string, data: MidiNoteOn) => void;
 
 export type { MidiNoteOn, MidiNoteOnHandler };

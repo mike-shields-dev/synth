@@ -4,7 +4,7 @@ interface UiChange {
     value: number;
 }
 
-type UiChangeHandler = (message: string, payload: UiChange) => void;
+type UiChangeHandler = (message: string, data: UiChange) => void;
 
 export type {
     UiChange,

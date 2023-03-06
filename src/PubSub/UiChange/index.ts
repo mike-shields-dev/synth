@@ -1,9 +1,9 @@
 import PubSub from 'pubsub-js';
-import { UiChange, UiChangeHandler } from './types';
 import { UI_CHANGE } from '../topics';
+import { UiChange, UiChangeHandler } from './types';
 
-function publishUiChange(payload: UiChange) {
-  PubSub.publish(UI_CHANGE, payload);
+function publishUiChange(data: UiChange) {
+  PubSub.publish(UI_CHANGE, data);
 }
 
 class UiChangeSubscriber {
@@ -25,3 +25,4 @@ export {
   publishUiChange,
   UiChangeSubscriber
 };
+
