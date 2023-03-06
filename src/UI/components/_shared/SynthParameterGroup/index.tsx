@@ -1,6 +1,6 @@
 import { useRef, ReactNode } from "react";
 import css from './index.module.css';
-import { camelCaseToTitleCase } from "../../../utils/camelCaseToTitleCase";
+import { camelCaseToTitleCase } from "../../../../utils/camelCaseToTitleCase";
 
 interface Props {
   children: (isFocused: boolean) => ReactNode;

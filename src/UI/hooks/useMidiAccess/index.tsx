@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { publishMidiControlChange } from "../../PubSub/MidiControlChange";
-import { publishMidiNoteOff } from "../../PubSub/MidiNoteOff";
-import { publishMidiNoteOn } from "../../PubSub/MidiNoteOn";
+import { publishMidiControlChange } from "../../../PubSub/MidiControlChange";
+import { publishMidiNoteOff } from "../../../PubSub/MidiNoteOff";
+import { publishMidiNoteOn } from "../../../PubSub/MidiNoteOn";
 
 function useMidiAccess() {
     const [isRequesting, setIsRequesting] = useState(true);

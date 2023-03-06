@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import { MidiControlChange, MidiControlChangeSubscriber, publishUiChange } from "../../../PubSub";
-import { camelCaseToTitleCase } from "../../../utils/camelCaseToTitleCase";
-import { formatNumber } from "../../../utils/formatNumber";
-
+import { MidiControlChange, MidiControlChangeSubscriber, publishUiChange } from "../../../../PubSub";
+import { camelCaseToTitleCase } from "../../../../utils/camelCaseToTitleCase";
 
 interface Props {
     controlChangeNumber: number;
@@ -25,14 +23,13 @@ function Slider({
     scalers,
 }: Props) {
     const [value, setValue] = useState(scalers.in(initVal));
-    const outputValue: string = formatNumber(scalers.out(value)) || "";
-    const [integers, decimals]: string[] = outputValue?.split(".");
+    const outputValue = scalers.out(value);
 
     useEffect(() => {
         publishUiChange({
-            group,
+            group, 
             parameter,
-            value: Number(outputValue),
+            value: outputValue,
         });
     }, [value]);
 
@@ -49,10 +46,10 @@ function Slider({
         if (!isFocused) return;
 
         const midiControlChangeSubscription =
-            new MidiControlChangeSubscriber(onMidiControlChange);
+            new MidiControlChangeSubscriber(onMidiControlChange)
 
         return () => {
-            midiControlChangeSubscription.unsubscribe();
+            midiControlChangeSubscription.unsubscribe()
         };
     }, [isFocused]);
 
@@ -75,11 +72,7 @@ function Slider({
                 aria-label={`${camelCaseToTitleCase(group)} ${parameter}`}
                 htmlFor={`${group}-${parameter}`}
             >
-                <span>
-                    <span>{integers}</span>
-                    <span style={{ color: "yellow" }}>{integers && decimals ? "." : ""}</span>
-                    <span style={{ opacity: 0.6 }}>{decimals}</span>
-                </span>
+                {outputValue}
             </output>
         </div>
     );
