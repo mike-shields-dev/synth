@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { publishMidiControlChange } from "../../../PubSub/MidiControlChange";
-import { publishMidiNoteOff } from "../../../PubSub/MidiNoteOff";
-import { publishMidiNoteOn } from "../../../PubSub/MidiNoteOn";
+import { publishMidiControlChange, publishMidiNoteOff, publishMidiNoteOn } from "../../../PubSub";
+import { synth } from "../../../Synth";
 
 function useMidiAccess() {
     const [isRequesting, setIsRequesting] = useState(true);
@@ -53,21 +52,24 @@ function useMidiAccess() {
         const [statusByte, dataByte1, dataByte2] = midiMessage.data;
 
         if (statusByte >= 176 && statusByte <= 191) {
-            publishMidiControlChange({
-                controlChangeNumber: dataByte1,
-                value: dataByte2,
-            })
+            const data = { controlChangeNumber: dataByte1, value: dataByte2 };
+
+            synth.onMidiControlChange(data);
+            publishMidiControlChange(data);
         }
 
         if (statusByte >= 144 && statusByte <= 159) {
-            publishMidiNoteOn({
-                noteNumber: dataByte1,
-                velocity: dataByte2,
-            });
+            const data = { noteNumber: dataByte1, velocity: dataByte2 }
+
+            synth.onNoteOn(data);
+            publishMidiNoteOn(data);
         }
 
         if (statusByte >= 128 && statusByte <= 143) {
-            publishMidiNoteOff({ noteNumber: dataByte1 })
+            const data = { noteNumber: dataByte1 };
+
+            synth.onNoteOff(data);
+            publishMidiNoteOff(data);
         }
     }
 

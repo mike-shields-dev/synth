@@ -4,5 +4,3 @@ export { MidiNoteOffSubscriber, publishMidiNoteOff } from './MidiNoteOff';
 export type { MidiNoteOff } from './MidiNoteOff/types';
 export { MidiNoteOnSubscriber, publishMidiNoteOn } from './MidiNoteOn';
 export type { MidiNoteOn } from './MidiNoteOn/types';
-export { publishUiChange, UiChangeSubscriber } from './UiChange';
-export type { UiChange } from './UiChange/types';

@@ -4,6 +4,7 @@ interface SliderProps {
     initVal: number;
     isFocused: boolean;
     parameter: string;
+    updateSynth: (value: number) => void;
     scalers: {
         in: (n: number) => number;
         out: (n: number) => number;

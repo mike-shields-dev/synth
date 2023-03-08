@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MidiControlChange, MidiControlChangeSubscriber, publishUiChange } from "../../../../PubSub";
+import { MidiControlChange, MidiControlChangeSubscriber } from "../../../../PubSub";
 import { camelCaseToTitleCase } from "../../../../utils/camelCaseToTitleCase";
 import { SliderProps } from "./types";
 
@@ -9,8 +9,9 @@ function Slider({
     group,
     isFocused,
     parameter,
+    updateSynth,
     scalers,
-}: SliderProps) {
+}: SliderProps) { 
     const [value, setValue] = useState(scalers.in(initVal));
     const outputValue = scalers.out(value);
 
@@ -19,16 +20,15 @@ function Slider({
         data: MidiControlChange
     ) {
         if (data.controlChangeNumber === controlChangeNumber) {
-            
             setValue(data.value);
-
-            publishUiChange({
-                group, 
-                parameter,
-                value: outputValue,
-            });
         }
     };
+
+    function onSliderChange(e: React.FormEvent<HTMLInputElement>) {
+        const { value } = e.currentTarget;
+        setValue(+value);
+        updateSynth(+value);
+    }
 
     useEffect(() => {
         if (!isFocused) return;
@@ -50,8 +50,7 @@ function Slider({
                 id={`${group}-${parameter}`}
                 max={127}
                 min={0}
-                onChange={(e) => setValue(+e.currentTarget.value)}
-                onInput={(e) => setValue(+e.currentTarget.value)}
+                onChange={onSliderChange}
                 step={0.05}
                 type="range"
                 value={value}
