@@ -22,7 +22,7 @@ function Filter({ focus, updateFocus }: Props) {
           controlChangeNumber={70}
           group="filter"
           initVal={+synth.config.filterEnvelope.baseFrequency}
-          updateSynth={synth.updateFilterFrequency}
+          updateSynth={synth.updateFilterFrequency.bind(synth)}
           parameter='frequency'
           scalers={{
             out: scalers.controlChangeToFilterFrequency,
@@ -34,7 +34,7 @@ function Filter({ focus, updateFocus }: Props) {
           controlChangeNumber={71}
           group="filter"
           initVal={+synth.config.filter.Q}
-          updateSynth={synth.updateFilterResonance}
+          updateSynth={synth.updateFilterResonance.bind(synth)}
           parameter="resonance"
           scalers={{
             out: scalers.controlChangeToFilterQ,
