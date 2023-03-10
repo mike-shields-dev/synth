@@ -1,13 +1,12 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import { Slider } from '../..';
-import { MIDI_CC } from '../../../../../../PubSub/topics';
+import { UI_CC } from '../../../../../../PubSub/topics';
 
 const validProps = {
     controlChangeNumber: 70,
     group: 'groupName',
-    initVal: 240,
-    updateSynth: vi.fn(),
+    initVal: 63,
     isFocused: true,
     parameter: 'parameter',
     scalers: {
@@ -74,20 +73,24 @@ describe('Slider', () => {
     });
 
     describe("when provided isFocused prop is equal to true", () => {
-        it('invokes the provided updateSynth function when the user moves the slider', async () => {
+        it('publishes a UI Control Change message when the user moves the slider', async () => {
             const slider = screen.getByRole('slider', { name: 'Parameter' });
             const newValue = 64;
+            const subscriptionHandlerSpy = vi.fn();
+
+            PubSub.subscribe(UI_CC, subscriptionHandlerSpy);
             
             fireEvent.change(slider, { target: { value: newValue } });
     
-            expect(validProps.updateSynth).toHaveBeenCalledTimes(1);
-            expect(validProps.updateSynth).toHaveBeenCalledWith(newValue);
+            await waitFor(() => {
+                expect(subscriptionHandlerSpy).toHaveBeenCalled()
+            });
         });
     
         it('updates the slider value when a MIDI control change is received', async () => {
             const newValue = 88;
     
-            PubSub.publish(MIDI_CC, {
+            PubSub.publish(UI_CC, {
                 controlChangeNumber: validProps.controlChangeNumber,
                 value: newValue,
             });
@@ -104,13 +107,9 @@ describe('Slider', () => {
             const initValue = `${validProps.scalers.in(validProps.initVal)}`;
             const newValue = 88;
     
-            PubSub.publish(MIDI_CC, {
+            PubSub.publish(UI_CC, {
                 controlChangeNumber: validProps.controlChangeNumber,
                 value: newValue,
-            });
-
-            await waitFor(() => {
-                expect(validProps.updateSynth).toHaveBeenCalledTimes(0);
             });
     
             await waitFor(() => {

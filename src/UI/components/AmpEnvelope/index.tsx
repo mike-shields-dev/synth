@@ -2,7 +2,6 @@ import { synthConfig } from "../../../config";
 import * as scalers from "../../../utils/Scalers";
 import { Slider } from "../_shared/Slider";
 import { SynthParameterGroup } from "../_shared/SynthParameterGroup";
-import { synth } from '../../../Synth';
 
 interface Props {
     focus: string;
@@ -22,7 +21,6 @@ function AmpEnvelope({ focus, updateFocus }: Props) {
             controlChangeNumber={70}
             group="envelope"
             initVal={+synthConfig.envelope.attack}
-            updateSynth={synth.updateAmpEnvelopeAttack.bind(synth)}
             parameter="attack"
             scalers={{
               out: scalers.controlChangeToEnvelopeAttack,
@@ -34,7 +32,6 @@ function AmpEnvelope({ focus, updateFocus }: Props) {
             controlChangeNumber={71}
             group="envelope"
             initVal={+synthConfig.envelope.decay}
-            updateSynth={synth.updateAmpEnvelopeDecay.bind(synth)}
             parameter="decay"
             scalers={{
               out: scalers.controlChangeToEnvelopeDecay,
@@ -46,7 +43,6 @@ function AmpEnvelope({ focus, updateFocus }: Props) {
             controlChangeNumber={72}
             group="envelope"
             initVal={+synthConfig.envelope.sustain}
-            updateSynth={synth.updateAmpEnvelopeSustain.bind(synth)}
             parameter="sustain"
             scalers={{
               out: scalers.controlChangeToEnvelopeSustain,
@@ -58,7 +54,6 @@ function AmpEnvelope({ focus, updateFocus }: Props) {
             controlChangeNumber={73}
             group="envelope"
             initVal={+synthConfig.envelope.release}
-            updateSynth={synth.updateAmpEnvelopeRelease.bind(synth)}
             parameter="release"
             scalers={{
               out: scalers.controlChangeToEnvelopeRelease,

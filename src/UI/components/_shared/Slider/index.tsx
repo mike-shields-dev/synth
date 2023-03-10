@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MidiControlChange, MidiControlChangeSubscriber } from "../../../../PubSub";
+import { MidiControlChange, MidiControlChangeSubscriber, publishUiControlChange } from "../../../../PubSub";
 import { camelCaseToTitleCase } from "../../../../utils/camelCaseToTitleCase";
 import { SliderProps } from "./types";
 
@@ -9,7 +9,6 @@ function Slider({
     group,
     isFocused,
     parameter,
-    updateSynth,
     scalers,
 }: SliderProps) { 
     const [value, setValue] = useState(scalers.in(initVal));
@@ -27,7 +26,10 @@ function Slider({
     function onSliderChange(e: React.FormEvent<HTMLInputElement>) {
         const { value } = e.currentTarget;
         setValue(+value);
-        updateSynth(+value);
+        publishUiControlChange({
+            controlChangeNumber, 
+            value: +value,
+        })
     }
 
     useEffect(() => {
