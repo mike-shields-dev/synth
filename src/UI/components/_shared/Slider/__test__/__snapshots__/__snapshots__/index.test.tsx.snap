@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Slider > matches snapshot 1`] = `
+<div>
+  <label
+    for="groupName-parameter"
+  >
+    Parameter
+  </label>
+  <input
+    id="groupName-parameter"
+    max="127"
+    min="0"
+    step="0.05"
+    type="range"
+    value="120"
+  />
+  <output
+    aria-label="Group Name parameter"
+    for="groupName-parameter"
+  >
+    240
+  </output>
+</div>
+`;

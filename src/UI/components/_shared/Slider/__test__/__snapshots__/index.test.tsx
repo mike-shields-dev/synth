@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
-import { Slider } from '.';
-import { MIDI_CC } from '../../../../PubSub/topics';
+import { Slider } from '../..';
+import { MIDI_CC } from '../../../../../../PubSub/topics';
 
 const validProps = {
     controlChangeNumber: 70,
@@ -73,26 +73,49 @@ describe('Slider', () => {
         expect(await screen.findByText(scaledValue)).toBeInTheDocument();
     });
 
-    it('invokes the provided updateSynth function when the user moves the slider', async () => {
-        const slider = screen.getByRole('slider', { name: 'Parameter' });
-        const newValue = 64;
-        
-        fireEvent.change(slider, { target: { value: newValue } });
-
-        expect(validProps.updateSynth).toHaveBeenCalledTimes(1);
-        expect(validProps.updateSynth).toHaveBeenCalledWith(newValue);
+    describe("when provided isFocused prop is equal to true", () => {
+        it('invokes the provided updateSynth function when the user moves the slider', async () => {
+            const slider = screen.getByRole('slider', { name: 'Parameter' });
+            const newValue = 64;
+            
+            fireEvent.change(slider, { target: { value: newValue } });
+    
+            expect(validProps.updateSynth).toHaveBeenCalledTimes(1);
+            expect(validProps.updateSynth).toHaveBeenCalledWith(newValue);
+        });
+    
+        it('updates the slider value when a MIDI control change is received', async () => {
+            const newValue = 88;
+    
+            PubSub.publish(MIDI_CC, {
+                controlChangeNumber: validProps.controlChangeNumber,
+                value: newValue,
+            });
+    
+            await waitFor(() => {
+                expect(screen.getByRole('slider')).not.toHaveValue(`${newValue}`);
+            });
+        });
     });
 
-    it('updates the slider value when a MIDI control change is received', async () => {
-        const newValue = 88;
+    describe("when provided isFocused prop is equal to false", () => {
+        it('does not updates the slider value when a MIDI control change is received', async () => {
+            validProps.isFocused = false;
+            const initValue = `${validProps.scalers.in(validProps.initVal)}`;
+            const newValue = 88;
+    
+            PubSub.publish(MIDI_CC, {
+                controlChangeNumber: validProps.controlChangeNumber,
+                value: newValue,
+            });
 
-        PubSub.publish(MIDI_CC, {
-            controlChangeNumber: validProps.controlChangeNumber,
-            value: newValue,
-        });
-
-        await waitFor(() => {
-            expect(screen.getByRole('slider')).toHaveValue(`${newValue}`);
+            await waitFor(() => {
+                expect(validProps.updateSynth).toHaveBeenCalledTimes(0);
+            });
+    
+            await waitFor(() => {
+                expect(screen.getByRole('slider')).toHaveValue(initValue);
+            });
         });
     });
 });
