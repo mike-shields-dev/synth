@@ -16,7 +16,8 @@
     "pubsub-js": "^1.9.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tone": "^14.7.77"
+    "tone": "^14.7.77",
+    "web-audio-test-api": "^0.5.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",

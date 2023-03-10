@@ -24,6 +24,7 @@ specifiers:
   typescript: ^4.9.3
   vite: ^4.0.0
   vitest: ^0.29.0
+  web-audio-test-api: ^0.5.2
   web-midi-test: ^1.2.3
 
 dependencies:
@@ -32,6 +33,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   tone: 14.7.77
+  web-audio-test-api: 0.5.2
 
 devDependencies:
   '@testing-library/jest-dom': 5.16.5
@@ -2837,6 +2839,10 @@ packages:
     dependencies:
       xml-name-validator: 4.0.0
     dev: true
+
+  /web-audio-test-api/0.5.2:
+    resolution: {integrity: sha512-RevLfVjp+wwe/dBPe361IpmNpeXXW6JVmlp8dk0YIxLwAh7evn6JpEQQalVgX4PH/jA8tpLpjD/8tFNUYTf88w==}
+    dev: false
 
   /web-midi-test/1.2.3:
     resolution: {integrity: sha512-BqM3Ndl7fFxw+IFds8dc8XMbnnXBUzqTGSOo8eZ2OC3pkMqAvih+cqThFHoPKlxNhYa5lSPr+m+MktTBwEmh3g==}
