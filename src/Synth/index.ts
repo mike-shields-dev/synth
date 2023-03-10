@@ -1,5 +1,5 @@
 import * as Tone from 'tone';
-import { MidiControlChange, MidiControlChangeSubscriber, MidiNoteOff, MidiNoteOn } from '../PubSub';
+import { MidiControlChange, MidiNoteOff, MidiNoteOn } from '../PubSub';
 import * as scalers from '../utils/Scalers'
 
 class Synth {
