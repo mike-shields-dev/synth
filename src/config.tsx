@@ -1,4 +1,4 @@
-const synthConfig = {
+const config = {
     oscillator: {
       type: "sawtooth",
       volume: 1,
@@ -41,4 +41,4 @@ const synthConfig = {
     volume: 0,
 }
   
-export { synthConfig };
+export default config;

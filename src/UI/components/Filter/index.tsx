@@ -1,7 +1,7 @@
 import * as scalers from "../../../utils/Scalers";
 import { Slider } from "../_shared/Slider";
 import { SynthParameterGroup } from "../_shared/SynthParameterGroup";
-
+import config from "../../../config";
 interface Props {
   focus: string;
   updateFocus: (id: string) => void;
@@ -19,7 +19,7 @@ function Filter({ focus, updateFocus }: Props) {
           isFocused={isFocused}
           controlChangeNumber={70}
           group="filter"
-          initVal={0}
+          initVal={+config.filterEnvelope.baseFrequency}
           parameter='frequency'
           scalers={{
             out: scalers.controlChangeToFilterFrequency,
@@ -30,11 +30,11 @@ function Filter({ focus, updateFocus }: Props) {
           isFocused={isFocused}
           controlChangeNumber={71}
           group="filter"
-          initVal={0}
+          initVal={+config.filter.Q}
           parameter="resonance"
           scalers={{
-            out: scalers.controlChangeToFilterQ,
-            in: scalers.filterQToControlChange,
+            out: scalers.controlChangeToFilterResonance,
+            in: scalers.filterResonanceToControlChange,
           }}
         />
       </>}

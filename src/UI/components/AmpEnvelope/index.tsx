@@ -1,4 +1,4 @@
-import { synthConfig } from "../../../config";
+import config from "../../../config";
 import * as scalers from "../../../utils/Scalers";
 import { Slider } from "../_shared/Slider";
 import { SynthParameterGroup } from "../_shared/SynthParameterGroup";
@@ -20,10 +20,10 @@ function AmpEnvelope({ focus, updateFocus }: Props) {
             isFocused={isFocused}
             controlChangeNumber={70}
             group="envelope"
-            initVal={+synthConfig.envelope.attack}
+            initVal={+config.envelope.attack}
             parameter="attack"
             scalers={{
-              out: scalers.controlChangeToEnvelopeAttack,
+              out: scalers.controlChangeToAmpEnvelopeAttack,
               in: scalers.envelopeAttackToControlChange,
             }}
           />
@@ -31,10 +31,10 @@ function AmpEnvelope({ focus, updateFocus }: Props) {
             isFocused={isFocused}
             controlChangeNumber={71}
             group="envelope"
-            initVal={+synthConfig.envelope.decay}
+            initVal={+config.envelope.decay}
             parameter="decay"
             scalers={{
-              out: scalers.controlChangeToEnvelopeDecay,
+              out: scalers.controlChangeToAmpEnvelopeDecay,
               in: scalers.envelopeDecayToControlChange,
             }}
           />
@@ -42,10 +42,10 @@ function AmpEnvelope({ focus, updateFocus }: Props) {
             isFocused={isFocused}
             controlChangeNumber={72}
             group="envelope"
-            initVal={+synthConfig.envelope.sustain}
+            initVal={+config.envelope.sustain}
             parameter="sustain"
             scalers={{
-              out: scalers.controlChangeToEnvelopeSustain,
+              out: scalers.controlChangeToAmpEnvelopeSustain,
               in: scalers.envelopeSustainToControlChange,
             }}
           />
@@ -53,10 +53,10 @@ function AmpEnvelope({ focus, updateFocus }: Props) {
             isFocused={isFocused}
             controlChangeNumber={73}
             group="envelope"
-            initVal={+synthConfig.envelope.release}
+            initVal={+config.envelope.release}
             parameter="release"
             scalers={{
-              out: scalers.controlChangeToEnvelopeRelease,
+              out: scalers.controlChangeToAmpEnvelopeRelease,
               in: scalers.envelopeReleaseToControlChange,
             }}
           />
