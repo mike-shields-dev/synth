@@ -1,65 +1,108 @@
-import { scalePow, scaleLinear } from "d3-scale";
+import { scaleLinear, scalePow } from "d3-scale";
+
+const C_CHANGE = [0, 127];
+
+const FREQUENCY = [20, 20_000]
+const RESONANCE = [0, 24];
+const OCTAVES = [0, 10];
+
+const ATTACK = [0.0001, 10];
+const DECAY = [0.0001, 10];
+const SUSTAIN = [0.0001, 1];
+const RELEASE = [0.0001, 10];
+
+// Filter
 
 const controlChangeToFilterFrequency =
-    scalePow().exponent(4).domain([0, 127]).range([20, 20000]);
+    scalePow().exponent(4).domain(C_CHANGE).range(FREQUENCY);
 
 const filterFrequencyToControlChange =
     controlChangeToFilterFrequency.invert;
 
+const controlChangeToFilterResonance =
+    scalePow().exponent(1).domain(C_CHANGE).range(RESONANCE);
 
-const controlChangeToFilterQ =
-    scalePow().exponent(1).domain([0, 127]).range([0, 24]);
+const filterResonanceToControlChange =
+    controlChangeToFilterResonance.invert;
 
-const filterQToControlChange =
-    controlChangeToFilterQ.invert;
+const controlChangeToFilterEnvelopeAttack =
+    scalePow().exponent(1).domain(C_CHANGE).range(ATTACK);
 
+const filterEnvelopeAttackToControlChange =
+    controlChangeToFilterEnvelopeAttack.invert;
 
-const controlChangeToEnvelopeAttack =
-    scalePow().exponent(2).domain([0, 127]).range([0, 2]);
+const controlChangeToFilterEnvelopeDecay =
+    scalePow().exponent(1).domain(C_CHANGE).range(DECAY);
+
+const filterEnvelopeDecayToControlChange =
+    controlChangeToFilterEnvelopeDecay.invert;
+
+const controlChangeToFilterEnvelopeSustain =
+    scaleLinear().domain(C_CHANGE).range(SUSTAIN);
+
+const filterEnvelopeSustainToControlChange =
+    controlChangeToFilterEnvelopeSustain.invert;
+
+const controlChangeToFilterEnvelopeRelease =
+    scalePow().exponent(1).domain(C_CHANGE).range(RELEASE);
+
+const filterEnvelopeReleaseToControlChange =
+    controlChangeToFilterEnvelopeRelease.invert;
+
+const controlChangeToFilterEnvelopeAmount =
+    scaleLinear().domain(C_CHANGE).range(OCTAVES);
+
+const filterEnvelopeAmountToControlChange =
+    controlChangeToFilterEnvelopeAmount.invert;
+
+// Amp Envelope
+
+const controlChangeToAmpEnvelopeAttack =
+    scalePow().exponent(2).domain(C_CHANGE).range(ATTACK);
 
 const envelopeAttackToControlChange =
-    controlChangeToEnvelopeAttack.invert;
+    controlChangeToAmpEnvelopeAttack.invert;
 
+const controlChangeToAmpEnvelopeDecay =
+    scaleLinear().domain(C_CHANGE).range(DECAY);
 
-const controlChangeToEnvelopeDecay =
-    scaleLinear().domain([0, 127]).range([0, 2]);
+const envelopeDecayToControlChange = controlChangeToAmpEnvelopeDecay.invert;
 
-const envelopeDecayToControlChange = controlChangeToEnvelopeDecay.invert;
-
-
-const controlChangeToEnvelopeSustain =
-    scaleLinear().domain([0, 127]).range([0, 1]);
+const controlChangeToAmpEnvelopeSustain =
+    scaleLinear().domain(C_CHANGE).range(SUSTAIN);
 
 const envelopeSustainToControlChange =
-    controlChangeToEnvelopeSustain.invert;
+    controlChangeToAmpEnvelopeSustain.invert;
 
-
-const controlChangeToEnvelopeRelease =
-    scaleLinear().domain([0, 127]).range([0.0001, 5]);
+const controlChangeToAmpEnvelopeRelease =
+    scaleLinear().domain(C_CHANGE).range(RELEASE);
 
 const envelopeReleaseToControlChange =
-    controlChangeToEnvelopeRelease.invert;
-
-
-const controlChangeToEnvelopeAmount =
-    scaleLinear().domain([0, 127]).range([0, 10]);
-
-const envelopeAmountToControlChange = controlChangeToEnvelopeAmount.invert;
-
+    controlChangeToAmpEnvelopeRelease.invert;
 
 export {
     controlChangeToFilterFrequency,
     filterFrequencyToControlChange,
-    controlChangeToFilterQ,
-    filterQToControlChange,
-    controlChangeToEnvelopeAttack,
+    controlChangeToFilterResonance,
+    filterResonanceToControlChange,
+    controlChangeToFilterEnvelopeAttack,
+    filterEnvelopeAttackToControlChange,
+    controlChangeToFilterEnvelopeDecay,
+    filterEnvelopeDecayToControlChange,
+    controlChangeToFilterEnvelopeRelease,
+    filterEnvelopeReleaseToControlChange,
+    controlChangeToFilterEnvelopeSustain,
+    filterEnvelopeSustainToControlChange,
+    controlChangeToFilterEnvelopeAmount,
+    filterEnvelopeAmountToControlChange,
+    controlChangeToAmpEnvelopeAttack,
     envelopeAttackToControlChange,
-    controlChangeToEnvelopeDecay,
+    controlChangeToAmpEnvelopeDecay,
     envelopeDecayToControlChange,
-    controlChangeToEnvelopeSustain,
+    controlChangeToAmpEnvelopeSustain,
     envelopeSustainToControlChange,
-    controlChangeToEnvelopeRelease,
+    controlChangeToAmpEnvelopeRelease,
     envelopeReleaseToControlChange,
-    controlChangeToEnvelopeAmount,
+    controlChangeToAmpEnvelopeAmount,
     envelopeAmountToControlChange,
-}
+};
