@@ -19,7 +19,7 @@ describe('UIKeyboard', () => {
         expect(screen.getAllByRole('button')).toHaveLength(12);
     });
 
-    it('publishes a note on message with the correct noteNumber', async () => {
+    it('each key publishes a note on message with the correct noteNumber', async () => {
         const spy = vi.fn();
         const keys = screen.getAllByRole('button', { name: 'key' });
         const subscriber = PubSub.subscribe(MIDI_NOTE_ON, spy);
@@ -39,7 +39,7 @@ describe('UIKeyboard', () => {
         PubSub.unsubscribe(subscriber);
     });
 
-    it('publishes a note off message with the correct note number', async () => {
+    it('each key publishes a note off message with the correct note number', async () => {
         const spy = vi.fn();
         const keys = screen.getAllByRole('button', { name: 'key' });
         const subscriber = PubSub.subscribe(MIDI_NOTE_OFF, spy);
