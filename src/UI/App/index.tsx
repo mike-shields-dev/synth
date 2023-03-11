@@ -4,6 +4,7 @@ import { Filter } from '../components/Filter';
 import { useMidiAccess } from '../hooks/useMidiAccess';
 import './index.module.css';
 import { publishFocusChange } from '../../PubSub/FocusChange';
+import { UIKeyboard } from '../components/UIKeyboard';
 
 
 function App() {
@@ -17,14 +18,15 @@ function App() {
 
   return (
     <>
-    <div className="App">
+      <div className="App">
         <SynthUI>
-        <Oscillator {...{ focus, updateFocus }} />
-        <Filter {...{ focus, updateFocus }} />
-        <FilterEnvelope {...{ focus, updateFocus }} />
-        <AmpEnvelope {...{ focus, updateFocus }} />
-      </SynthUI>
-    </div>
+          <Oscillator {...{ focus, updateFocus }} />
+          <Filter {...{ focus, updateFocus }} />
+          <FilterEnvelope {...{ focus, updateFocus }} />
+          <AmpEnvelope {...{ focus, updateFocus }} />
+          <UIKeyboard />
+        </SynthUI>
+      </div>
     </>
   )
 }
