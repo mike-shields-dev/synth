@@ -27,9 +27,9 @@ function Slider({
         const { value } = e.currentTarget;
         setValue(+value);
         publishUiControlChange({
-            controlChangeNumber, 
+            controlChangeNumber,
             value: +value,
-        })
+        });
     }
 
     useEffect(() => {
