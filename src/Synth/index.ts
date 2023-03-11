@@ -6,16 +6,14 @@ import {
     UiControlChangeSubscriber
 } from '../PubSub';
 import { FocusChangeSubscriber } from '../PubSub/FocusChange';
-import * as scalers from '../utils/Scalers';
+import * as scaler from '../utils/Scalers';
 
-interface ScaleIndex { 
+interface ScaleIndex {
     [key: string]: (value: number) => void;
 }
 
-const synth = new Tone.PolySynth(Tone.MonoSynth);
-localStorage.setItem('synth', JSON.stringify(synth.get()));
-
-synth.toDestination();
+const SYNTH = new Tone.PolySynth(Tone.MonoSynth);
+SYNTH.toDestination();
 
 let activeNotes: number[] = [];
 let focus = "";
@@ -30,28 +28,27 @@ function onFocusChange(topic: string, data: string) {
     focus = data;
 }
 
-function onControlChange(topic: string, data: MidiControlChange) {
-    if (focus === "filter") return updateFilter(data);
-    if (focus === "filterEnvelope") return updateFilterEnvelope(data);
-    if (focus === "envelope") return updateAmpEnvelope(data);
-}
-
 function onNoteOn(topic: string, data: MidiNoteOn) {
     if (activeNotes.includes(data.noteNumber)) return;
 
     activeNotes = [data.noteNumber, ...activeNotes];
 
-    synth.triggerAttack(Tone.Frequency(data.noteNumber, 'midi').toNote());
+    SYNTH.triggerAttack(Tone.Frequency(data.noteNumber, 'midi').toNote());
 }
 
 function onNoteOff(topic: string, data: MidiNoteOff) {
     if (!activeNotes.includes(data.noteNumber)) return;
-    
+
     activeNotes = activeNotes.filter(note => note !== data.noteNumber);
 
-    synth.triggerRelease(Tone.Frequency(data.noteNumber, 'midi').toNote());
+    SYNTH.triggerRelease(Tone.Frequency(data.noteNumber, 'midi').toNote());
 }
 
+function onControlChange(topic: string, data: MidiControlChange) {
+    if (focus === "filter") return updateFilter(data);
+    if (focus === "filterEnvelope") return updateFilterEnvelope(data);
+    if (focus === "ampEnvelope") return updateAmpEnvelope(data);
+}
 
 function updateFilter(data: MidiControlChange) {
     const { controlChangeNumber: cc, value } = data;
@@ -61,17 +58,17 @@ function updateFilter(data: MidiControlChange) {
 }
 
 function updateFilterFrequency(value: number) {
-    synth.set({
+    SYNTH.set({
         filterEnvelope: {
-            baseFrequency: scalers.controlChangeToFilterFrequency(value)
+            baseFrequency: scaler.controlChangeToFilterFrequency(value)
         }
-    })
+    });
 }
 
 function updateFilterResonance(value: number) {
-    synth.set({
+    SYNTH.set({
         filter: {
-            Q: scalers.controlChangeToFilterQ(value)
+            Q: scaler.controlChangeToFilterResonance(value)
         }
     })
 }
@@ -87,17 +84,17 @@ function updateFilterEnvelope(data: MidiControlChange) {
 }
 
 function updateFilterEnvelopeParam(param: string, value: number) {
-    const scale: ScaleIndex = {
-        attack: scalers.controlChangeToEnvelopeAttack,
-        decay: scalers.controlChangeToEnvelopeDecay,
-        sustain: scalers.controlChangeToEnvelopeSustain,
-        release: scalers.controlChangeToEnvelopeRelease,
-        amount: scalers.controlChangeToEnvelopeAmount,
+    const scalers: ScaleIndex = {
+        attack: scaler.controlChangeToFilterEnvelopeAttack,
+        decay: scaler.controlChangeToFilterEnvelopeDecay,
+        sustain: scaler.controlChangeToFilterEnvelopeSustain,
+        release: scaler.controlChangeToAmpEnvelopeRelease,
+        amount: scaler.controlChangeToFilterEnvelopeAmount,
     }
 
-    synth.set({
+    SYNTH.set({
         filterEnvelope: {
-            [param]: scale[param](value)
+            [param]: scalers[param](value)
         }
     });
 }
@@ -113,16 +110,16 @@ function updateAmpEnvelope(data: MidiControlChange) {
 
 function updateAmpEnvelopeParam(param: string, value: number) {
 
-    const scale: ScaleIndex = {
-        attack: scalers.controlChangeToEnvelopeAttack,
-        decay: scalers.controlChangeToEnvelopeDecay,
-        sustain: scalers.controlChangeToEnvelopeSustain,
-        release: scalers.controlChangeToEnvelopeRelease
+    const scalers: ScaleIndex = {
+        attack: scaler.controlChangeToAmpEnvelopeAttack,
+        decay: scaler.controlChangeToAmpEnvelopeDecay,
+        sustain: scaler.controlChangeToAmpEnvelopeSustain,
+        release: scaler.controlChangeToAmpEnvelopeRelease
     };
-    
-    synth.set({
+
+    SYNTH.set({
         envelope: {
-            [param]: scale[param](value)
+            [param]: scalers[param](value)
         }
     });
 }
