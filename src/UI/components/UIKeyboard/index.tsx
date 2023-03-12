@@ -100,7 +100,8 @@ function UIKeyboard() {
                             onMouseDown={onNote}
                             onMouseUp={onNote}
                             onMouseLeave={onNote}
-                            className={isActive ? css[`key--active`] : ""}
+                            style={{ left: `calc(100% * ${leftOffset / 7}` }}
+                            className={`${css.key} ${isActive ? css[`key--active`] : ""} ${css[className]}`}
                             data-testid={isActive ? `key--active` : ''}
                         >
                             {name}

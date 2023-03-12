@@ -5,6 +5,7 @@ import { useMidiAccess } from '../hooks/useMidiAccess';
 import './index.module.css';
 import { publishFocusChange } from '../../PubSub/FocusChange';
 import { UIKeyboard } from '../components/UIKeyboard';
+import css from './index.module.css';
 
 function App() {
   const [focus, setFocus] = useState('oscillator');
@@ -17,7 +18,7 @@ function App() {
 
   return (
     <>
-      <div className="App">
+      <div className={css.App}>
         <SynthUI>
           <Oscillator {...{ focus, updateFocus }} />
           <Filter {...{ focus, updateFocus }} />

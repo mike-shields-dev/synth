@@ -18,7 +18,7 @@ exports[`UIKeyboard > matches snapshot 1`] = `
     <div>
       <button
         aria-label="key"
-        class=""
+        class="_key_e6b5de  _MajorKey_e6b5de"
         data-testid=""
         type="button"
         value="60"
@@ -27,7 +27,7 @@ exports[`UIKeyboard > matches snapshot 1`] = `
       </button>
       <button
         aria-label="key"
-        class=""
+        class="_key_e6b5de  _MinorKey_e6b5de"
         data-testid=""
         type="button"
         value="61"
@@ -36,7 +36,7 @@ exports[`UIKeyboard > matches snapshot 1`] = `
       </button>
       <button
         aria-label="key"
-        class=""
+        class="_key_e6b5de  _MajorKey_e6b5de"
         data-testid=""
         type="button"
         value="62"
@@ -45,7 +45,7 @@ exports[`UIKeyboard > matches snapshot 1`] = `
       </button>
       <button
         aria-label="key"
-        class=""
+        class="_key_e6b5de  _MinorKey_e6b5de"
         data-testid=""
         type="button"
         value="63"
@@ -54,7 +54,7 @@ exports[`UIKeyboard > matches snapshot 1`] = `
       </button>
       <button
         aria-label="key"
-        class=""
+        class="_key_e6b5de  _MajorKey_e6b5de"
         data-testid=""
         type="button"
         value="64"
@@ -63,7 +63,7 @@ exports[`UIKeyboard > matches snapshot 1`] = `
       </button>
       <button
         aria-label="key"
-        class=""
+        class="_key_e6b5de  _MajorKey_e6b5de"
         data-testid=""
         type="button"
         value="65"
@@ -72,7 +72,7 @@ exports[`UIKeyboard > matches snapshot 1`] = `
       </button>
       <button
         aria-label="key"
-        class=""
+        class="_key_e6b5de  _MinorKey_e6b5de"
         data-testid=""
         type="button"
         value="66"
@@ -81,7 +81,7 @@ exports[`UIKeyboard > matches snapshot 1`] = `
       </button>
       <button
         aria-label="key"
-        class=""
+        class="_key_e6b5de  _MajorKey_e6b5de"
         data-testid=""
         type="button"
         value="67"
@@ -90,7 +90,7 @@ exports[`UIKeyboard > matches snapshot 1`] = `
       </button>
       <button
         aria-label="key"
-        class=""
+        class="_key_e6b5de  _MinorKey_e6b5de"
         data-testid=""
         type="button"
         value="68"
@@ -99,7 +99,7 @@ exports[`UIKeyboard > matches snapshot 1`] = `
       </button>
       <button
         aria-label="key"
-        class=""
+        class="_key_e6b5de  _MajorKey_e6b5de"
         data-testid=""
         type="button"
         value="69"
@@ -108,7 +108,7 @@ exports[`UIKeyboard > matches snapshot 1`] = `
       </button>
       <button
         aria-label="key"
-        class=""
+        class="_key_e6b5de  _MinorKey_e6b5de"
         data-testid=""
         type="button"
         value="70"
@@ -117,7 +117,7 @@ exports[`UIKeyboard > matches snapshot 1`] = `
       </button>
       <button
         aria-label="key"
-        class=""
+        class="_key_e6b5de  _MajorKey_e6b5de"
         data-testid=""
         type="button"
         value="71"

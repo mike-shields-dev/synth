@@ -2,7 +2,7 @@
 
 exports[`App > matches snapshot 1`] = `
 <div
-  class="App"
+  class="_App_099074"
 >
   <form
     aria-label="synth user interface"
@@ -298,7 +298,7 @@ exports[`App > matches snapshot 1`] = `
       <div>
         <button
           aria-label="key"
-          class=""
+          class="_key_e6b5de  _MajorKey_e6b5de"
           data-testid=""
           type="button"
           value="60"
@@ -307,7 +307,7 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
-          class=""
+          class="_key_e6b5de  _MinorKey_e6b5de"
           data-testid=""
           type="button"
           value="61"
@@ -316,7 +316,7 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
-          class=""
+          class="_key_e6b5de  _MajorKey_e6b5de"
           data-testid=""
           type="button"
           value="62"
@@ -325,7 +325,7 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
-          class=""
+          class="_key_e6b5de  _MinorKey_e6b5de"
           data-testid=""
           type="button"
           value="63"
@@ -334,7 +334,7 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
-          class=""
+          class="_key_e6b5de  _MajorKey_e6b5de"
           data-testid=""
           type="button"
           value="64"
@@ -343,7 +343,7 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
-          class=""
+          class="_key_e6b5de  _MajorKey_e6b5de"
           data-testid=""
           type="button"
           value="65"
@@ -352,7 +352,7 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
-          class=""
+          class="_key_e6b5de  _MinorKey_e6b5de"
           data-testid=""
           type="button"
           value="66"
@@ -361,7 +361,7 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
-          class=""
+          class="_key_e6b5de  _MajorKey_e6b5de"
           data-testid=""
           type="button"
           value="67"
@@ -370,7 +370,7 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
-          class=""
+          class="_key_e6b5de  _MinorKey_e6b5de"
           data-testid=""
           type="button"
           value="68"
@@ -379,7 +379,7 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
-          class=""
+          class="_key_e6b5de  _MajorKey_e6b5de"
           data-testid=""
           type="button"
           value="69"
@@ -388,7 +388,7 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
-          class=""
+          class="_key_e6b5de  _MinorKey_e6b5de"
           data-testid=""
           type="button"
           value="70"
@@ -397,7 +397,7 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
-          class=""
+          class="_key_e6b5de  _MajorKey_e6b5de"
           data-testid=""
           type="button"
           value="71"

@@ -1,3 +1,40 @@
+.keys {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    min-height: 100px;
+    margin: 0 auto;
+}
+
+.MajorKey {
+    background: #fff;
+    height: 100%;
+    min-width: calc(100% / 7);
+    box-shadow: 0 0 0 0.5px #888 inset;
+}
+
+.MinorKey {
+    height: 60%;
+    color: #fff;
+    background: #000;
+    max-width: calc(100% / 14);
+    z-index: 1;
+    box-shadow: 0 0 0 1px #888 inset;
+}
+
+.key {
+    padding-top: 0.25rem;
+    font-size: 0.5em;
+    font-weight: bold;
+    display: grid;
+    align-items: start;
+    justify-content: center;
+    position: absolute;
+    border: none;
+    border-radius: 0px 0px 4px 4px;
+    width: calc(100% / 12);
+}
+
 .key--active {
-    background-color: red;
+    background-color: rgb(255, 167, 45);
 }
