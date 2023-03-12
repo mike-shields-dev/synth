@@ -9,10 +9,10 @@ function publishMidiNoteOn(data: MidiNoteOn) {
 class MidiNoteOnSubscriber {
     private subscription: any;
 
-    constructor(noteOnHandler: MidiNoteOnHandler) {
+    constructor(handler: MidiNoteOnHandler) {
         this.subscription = PubSub.subscribe(
             MIDI_NOTE_ON,
-            noteOnHandler,
+            handler,
         )
     }
 

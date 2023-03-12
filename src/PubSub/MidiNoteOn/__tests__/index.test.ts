@@ -4,7 +4,7 @@ import { MidiNoteOnSubscriber, publishMidiNoteOn } from "..";
 import { MIDI_NOTE_ON } from "../../topics";
 
 describe('MidiNoteOnSubscriber', () => {
-    it('correctly invokes the provided handler function when the subscribed topic is published', async () => {
+    it('subscribes to the correct TOPIC and invokes the handler function providing the correct data', async () => {
         const handler = vi.fn();
         const data = { noteNumber: 65, velocity: 65 };
         new MidiNoteOnSubscriber(handler);
@@ -19,34 +19,34 @@ describe('MidiNoteOnSubscriber', () => {
     });
 
     it('correctly unsubscribes', async () => {
-        const handler = vi.fn();
+        const spy = vi.fn();
         const data = { noteNumber: 65 };
-        const midiNoteOffSubscriber = new MidiNoteOnSubscriber(handler);
+        const subscriber = new MidiNoteOnSubscriber(spy);
 
-        midiNoteOffSubscriber.unsubscribe();
+        subscriber.unsubscribe();
 
         PubSub.publish(MIDI_NOTE_ON, data);
 
         await waitFor(() => {
-            expect(handler).not.toHaveBeenCalled();
+            expect(spy).not.toHaveBeenCalled();
         });
     });
 });
 
 describe('publishMidiNoteOn', () => {
-    it('publishes to the MIDI_NOTE_ON topic with the correct data', async () => {
-        const handler = vi.fn();
+    it('publishes to the correct TOPIC with the correct data', async () => {
+        const spy = vi.fn();
         const data = {
             noteNumber: 65,
             velocity: 65,
         }
 
-        PubSub.subscribe(MIDI_NOTE_ON, handler);
+        PubSub.subscribe(MIDI_NOTE_ON, spy);
 
         publishMidiNoteOn(data);
 
         await waitFor(() => {
-            expect(handler).toHaveBeenCalledWith(MIDI_NOTE_ON, data);
+            expect(spy).toHaveBeenCalledWith(MIDI_NOTE_ON, data);
         });
     });
 });
