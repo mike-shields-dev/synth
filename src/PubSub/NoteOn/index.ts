@@ -7,7 +7,7 @@ function publishNoteOn(data: NoteOn) {
 }
 
 class NoteOnSubscriber {
-    private subscription: any;
+    private subscription: string;
 
     constructor(handler: NoteOnHandler) {
         this.subscription = PubSub.subscribe(

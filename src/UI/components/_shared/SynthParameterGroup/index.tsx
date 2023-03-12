@@ -18,12 +18,11 @@ function SynthParameterGroup({
   const formRef = useRef<HTMLFormElement>(null);
 
   return (
-      <section
-        className={
-          css[`SynthParameterGroup${
-            isFocused ? "--focus" : ""
-          }`
-        ]}
+    <section
+      className={`
+        ${css.SynthParameterGroup}
+        ${css[`SynthParameterGroup${isFocused ? "--focus" : ""}`]}`
+      }
         aria-label={camelCaseToTitleCase(group)}
         id={group}
         onFocus={(e) => updateFocus(e.currentTarget.id)}

@@ -15,6 +15,13 @@ exports[`UIKeyboard > matches snapshot 1`] = `
       type="number"
       value="0"
     />
+    <input
+      id="pitchBend"
+      max="16383"
+      min="0"
+      type="range"
+      value="8192"
+    />
     <div
       class="_keys_e6b5de"
     >

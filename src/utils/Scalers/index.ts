@@ -13,6 +13,10 @@ const RELEASE = [0.0001, 10];
 
 const octaveToNoteOffset = (octave: number) => octave * 12; 
 
+// Pitch
+
+const pitchBendToDetune = (pitchBend: number, detune: number) => (pitchBend - 8192) / 8192 * detune;
+
 // Filter
 
 const controlChangeToFilterFrequency =
@@ -83,6 +87,7 @@ const envelopeReleaseToControlChange =
     controlChangeToAmpEnvelopeRelease.invert;
 
 export {
+    pitchBendToDetune,
     octaveToNoteOffset,
     controlChangeToFilterFrequency,
     filterFrequencyToControlChange,

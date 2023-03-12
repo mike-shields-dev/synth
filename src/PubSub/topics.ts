@@ -4,7 +4,8 @@ const
     NOTE_ON = 'note.on',
     NOTE_OFF = 'note.off',
     FOCUS = 'focus',
-    OCTAVE_CHANGE = 'transpose';
+    OCTAVE_CHANGE = 'octave',
+    PITCH_BEND = 'pitchBend'
 
 export {
     MIDI,
@@ -13,4 +14,5 @@ export {
     NOTE_OFF,
     FOCUS,
     OCTAVE_CHANGE,
-};
+    PITCH_BEND,
+}

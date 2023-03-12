@@ -4,6 +4,7 @@ import {
 } from '../PubSub';
 import { FocusChangeSubscriber } from '../PubSub/FocusChange';
 import { OctaveChangeSubscriber } from '../PubSub/OctaveChange';
+import { PitchBendSubscriber } from '../PubSub/PitchBend';
 import * as scaler from '../utils/Scalers';
 
 interface ScaleIndex {
@@ -12,6 +13,7 @@ interface ScaleIndex {
 
 const SYNTH = new Tone.PolySynth(Tone.MonoSynth);
 SYNTH.toDestination();
+console.log(SYNTH.get());
 
 let activeNotes: number[] = [];
 let focus = "";
@@ -19,9 +21,10 @@ let octave = 0;
 
 new NoteOnSubscriber(onNoteOn);
 new NoteOffSubscriber(onNoteOff);
-new FocusChangeSubscriber(onFocusChange)
+new FocusChangeSubscriber(onFocusChange);
 new ControlChangeSubscriber(onControlChange);
 new OctaveChangeSubscriber(onOctaveChange);
+new PitchBendSubscriber(onPitchBend);
 
 function onNoteOn(topic: string, data: NoteOn) {
     if (activeNotes.includes(data.noteNumber)) return;
@@ -133,4 +136,14 @@ function updateAmpEnvelopeParam(param: string, value: number) {
 
 function onOctaveChange(topic: string, data: number) {
     octave = data;
+}
+
+function onPitchBend(topic: string, data: number) {
+    const pitchBend = data;
+
+    const detune = scaler.pitchBendToDetune(data, 1200);
+
+    SYNTH.set({
+        detune: detune,
+    })
 }

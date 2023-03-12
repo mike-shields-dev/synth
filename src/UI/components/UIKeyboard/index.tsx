@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import {
-    NoteOff, NoteOffSubscriber, NoteOn, NoteOnSubscriber, publishNoteOff, publishNoteOn
+    NoteOff, NoteOffSubscriber, NoteOn, NoteOnSubscriber, PitchBendSubscriber, publishNoteOff, publishNoteOn, publishPitchBend
 } from "../../../PubSub";
 import { publishOctaveChange } from '../../../PubSub/OctaveChange';
 import { octaveToNoteOffset } from '../../../utils/Scalers';
@@ -24,6 +24,8 @@ const keys: Key[] = [
 ];
 
 function UIKeyboard() {
+    const defaultPitchBend = 8192;
+    const [pitchBend, setPitchBend] = useState(defaultPitchBend);
     const [octave, setOctave] = useState(0);
     const [activeNotes, setActiveNotes] = useState<number[]>([]);
 
@@ -44,6 +46,20 @@ function UIKeyboard() {
         }
     }
 
+    function onPitchBend(e: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLInputElement>) {
+        const { value } = e.currentTarget;
+        
+        if (e.type === 'change') {
+            publishPitchBend(+value);
+            setPitchBend(+value);
+        }
+
+        if (e.type === 'mouseup') {
+            publishPitchBend(defaultPitchBend);
+            setPitchBend(defaultPitchBend);
+        }
+    }
+
     function onPublishedNoteOn(TOPIC: string, data: NoteOn) {
         const noteNumber = data.noteNumber;
 
@@ -58,13 +74,19 @@ function UIKeyboard() {
         );
     }
 
+    function onPublishedPitchBend(TOPIC: string, data: number) {
+        setPitchBend(data);
+    }
+
     useEffect(() => {
         const noteOnSubscriber = new NoteOnSubscriber(onPublishedNoteOn);
         const noteOffSubscriber = new NoteOffSubscriber(onPublishedNoteOff);
+        const pitchBendSubscriber = new PitchBendSubscriber(onPublishedPitchBend);
 
         return () => {
             noteOnSubscriber.unsubscribe();
             noteOffSubscriber.unsubscribe();
+            pitchBendSubscriber.unsubscribe();
         }
     }, []);
 
@@ -85,6 +107,16 @@ function UIKeyboard() {
                 max="5"
                 value={octave}
                 onChange={onOctave}
+            />
+
+            <input
+                id="pitchBend"
+                type="range"
+                min={0} max={16383}
+                value={pitchBend}
+                onChange={onPitchBend}
+                onMouseUp={onPitchBend}
+                onContextMenu={e => e.preventDefault()}
             />
             
             <div className={css.keys}>

@@ -1,5 +1,13 @@
-.SynthParameterGroup > form:focus-within, 
+.SynthParameterGroup { 
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.125);
+    margin: 0.5rem auto;
+    color: #c9c9c9;
+}
+
 .SynthParameterGroup--focus {
-    border: 1px solid red;
+    background: rgba(255, 255, 255, 0.125);
+    color: #fff;
 }
 
