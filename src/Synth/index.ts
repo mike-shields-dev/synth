@@ -30,9 +30,14 @@ new OctaveChangeSubscriber(onOctaveChange);
 function onNoteOn(topic: string, data: MidiNoteOn) {
     if (activeNotes.includes(data.noteNumber)) return;
 
+    const volume = (1 / 127) * data.velocity; 
     activeNotes = [data.noteNumber, ...activeNotes];
 
-    SYNTH.triggerAttack(Tone.Frequency(data.noteNumber + (octave * 12), 'midi').toNote());
+    SYNTH.triggerAttack(
+        Tone.Frequency(data.noteNumber + (octave * 12), 'midi').toNote(),
+        Tone.now(),
+        volume
+    );
 }
 
 function onNoteOff(topic: string, data: MidiNoteOff) {
