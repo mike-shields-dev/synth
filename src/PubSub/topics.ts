@@ -4,13 +4,15 @@ const
     MIDI_NOTE_ON = 'midi.note.on',
     MIDI_NOTE_OFF = 'midi.note.off',
     UI_CC = 'ui.controlChange',
-    FOCUS = 'focus';
+    FOCUS = 'focus',
+    OCTAVE_CHANGE = 'transpose';
 
 export {
-    MIDI, 
-    MIDI_CC, 
+    MIDI,
+    MIDI_CC,
     MIDI_NOTE_ON,
     MIDI_NOTE_OFF,
     UI_CC,
     FOCUS,
-}
+    OCTAVE_CHANGE,
+};

@@ -6,6 +6,7 @@ import {
     UiControlChangeSubscriber
 } from '../PubSub';
 import { FocusChangeSubscriber } from '../PubSub/FocusChange';
+import { OctaveChangeSubscriber } from '../PubSub/OctaveChange';
 import * as scaler from '../utils/Scalers';
 
 interface ScaleIndex {
@@ -17,23 +18,21 @@ SYNTH.toDestination();
 
 let activeNotes: number[] = [];
 let focus = "";
+let octave = 0;
 
-new MidiControlChangeSubscriber(onControlChange);
-new MidiNoteOffSubscriber(onNoteOff);
 new MidiNoteOnSubscriber(onNoteOn);
-new UiControlChangeSubscriber(onControlChange);
+new MidiNoteOffSubscriber(onNoteOff);
 new FocusChangeSubscriber(onFocusChange)
-
-function onFocusChange(topic: string, data: string) {
-    focus = data;
-}
+new MidiControlChangeSubscriber(onControlChange);
+new UiControlChangeSubscriber(onControlChange);
+new OctaveChangeSubscriber(onOctaveChange);
 
 function onNoteOn(topic: string, data: MidiNoteOn) {
     if (activeNotes.includes(data.noteNumber)) return;
 
     activeNotes = [data.noteNumber, ...activeNotes];
 
-    SYNTH.triggerAttack(Tone.Frequency(data.noteNumber, 'midi').toNote());
+    SYNTH.triggerAttack(Tone.Frequency(data.noteNumber + (octave * 12), 'midi').toNote());
 }
 
 function onNoteOff(topic: string, data: MidiNoteOff) {
@@ -41,8 +40,13 @@ function onNoteOff(topic: string, data: MidiNoteOff) {
 
     activeNotes = activeNotes.filter(note => note !== data.noteNumber);
 
-    SYNTH.triggerRelease(Tone.Frequency(data.noteNumber, 'midi').toNote());
+    SYNTH.triggerRelease(Tone.Frequency(data.noteNumber + (octave * 12), 'midi').toNote());
 }
+
+function onFocusChange(topic: string, data: string) {
+    focus = data;
+}
+
 
 function onControlChange(topic: string, data: MidiControlChange) {
     if (focus === "filter") return updateFilter(data);
@@ -122,4 +126,8 @@ function updateAmpEnvelopeParam(param: string, value: number) {
             [param]: scalers[param](value)
         }
     });
+}
+
+function onOctaveChange(topic: string, data: number) {
+    octave = data;
 }
