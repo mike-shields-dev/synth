@@ -15,115 +15,93 @@ exports[`UIKeyboard > matches snapshot 1`] = `
       type="number"
       value="0"
     />
-    <div>
+    <div
+      class="_keys_e6b5de"
+    >
       <button
-        aria-label="key"
+        aria-label="key-C"
         class="_key_e6b5de  _MajorKey_e6b5de"
         data-testid=""
         type="button"
         value="60"
-      >
-        C
-      </button>
+      />
       <button
-        aria-label="key"
+        aria-label="key-Db"
         class="_key_e6b5de  _MinorKey_e6b5de"
         data-testid=""
         type="button"
         value="61"
-      >
-        Db
-      </button>
+      />
       <button
-        aria-label="key"
+        aria-label="key-D"
         class="_key_e6b5de  _MajorKey_e6b5de"
         data-testid=""
         type="button"
         value="62"
-      >
-        D
-      </button>
+      />
       <button
-        aria-label="key"
+        aria-label="key-Eb"
         class="_key_e6b5de  _MinorKey_e6b5de"
         data-testid=""
         type="button"
         value="63"
-      >
-        Eb
-      </button>
+      />
       <button
-        aria-label="key"
+        aria-label="key-E"
         class="_key_e6b5de  _MajorKey_e6b5de"
         data-testid=""
         type="button"
         value="64"
-      >
-        E
-      </button>
+      />
       <button
-        aria-label="key"
+        aria-label="key-F"
         class="_key_e6b5de  _MajorKey_e6b5de"
         data-testid=""
         type="button"
         value="65"
-      >
-        F
-      </button>
+      />
       <button
-        aria-label="key"
+        aria-label="key-Gb"
         class="_key_e6b5de  _MinorKey_e6b5de"
         data-testid=""
         type="button"
         value="66"
-      >
-        Gb
-      </button>
+      />
       <button
-        aria-label="key"
+        aria-label="key-G"
         class="_key_e6b5de  _MajorKey_e6b5de"
         data-testid=""
         type="button"
         value="67"
-      >
-        G
-      </button>
+      />
       <button
-        aria-label="key"
+        aria-label="key-Ab"
         class="_key_e6b5de  _MinorKey_e6b5de"
         data-testid=""
         type="button"
         value="68"
-      >
-        Ab
-      </button>
+      />
       <button
-        aria-label="key"
+        aria-label="key-A"
         class="_key_e6b5de  _MajorKey_e6b5de"
         data-testid=""
         type="button"
         value="69"
-      >
-        A
-      </button>
+      />
       <button
-        aria-label="key"
+        aria-label="key-Bb"
         class="_key_e6b5de  _MinorKey_e6b5de"
         data-testid=""
         type="button"
         value="70"
-      >
-        Bb
-      </button>
+      />
       <button
-        aria-label="key"
+        aria-label="key-B"
         class="_key_e6b5de  _MajorKey_e6b5de"
         data-testid=""
         type="button"
         value="71"
-      >
-        B
-      </button>
+      />
     </div>
   </div>
 </div>

@@ -36,5 +36,15 @@
 }
 
 .key--active {
-    background-color: rgb(255, 167, 45);
+    background-color: #e39443;
+}
+
+@media (prefers-color-scheme: dark) {
+    .MajorKey {
+        background-color: white;
+    }
+    
+    .MinorKey {
+        background-color: black;
+    }
 }

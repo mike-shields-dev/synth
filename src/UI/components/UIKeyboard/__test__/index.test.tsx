@@ -22,7 +22,7 @@ describe('UIKeyboard', () => {
 
     it('each key publishes a note on message with the correct noteNumber', async () => {
         const spy = vi.fn();
-        const keys = screen.getAllByRole('button', { name: 'key' });
+        const keys = screen.getAllByRole('button').filter(key => key.getAttribute("aria-label")?.includes("key"));
         const subscriber = PubSub.subscribe(NOTE_ON, spy);
 
         for (const key of keys) {
@@ -45,7 +45,7 @@ describe('UIKeyboard', () => {
 
     it('each key publishes a note off message with the correct note number', async () => {
         const spy = vi.fn();
-        const keys = screen.getAllByRole('button', { name: 'key' });
+        const keys = screen.getAllByRole('button').filter(key => key.getAttribute("aria-label")?.includes("key"));
         const subscriber = PubSub.subscribe(NOTE_OFF, spy);
 
         for (const key of keys) {
@@ -67,7 +67,7 @@ describe('UIKeyboard', () => {
 
     it('each key publishes the correct note number according to the octave value', async () => {
         const spy = vi.fn();
-        const keys = screen.getAllByRole('button', { name: 'key' });
+        const keys = screen.getAllByRole('button').filter(key => key.getAttribute("aria-label")?.includes("key"));
         const octaveInput = screen.getByRole('spinbutton', { name: /octave/i });
         const octaves = [-5, -4, -3, -2, -1, 0, 1, 2, 4, 5];
 

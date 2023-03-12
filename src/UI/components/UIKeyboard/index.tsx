@@ -86,15 +86,16 @@ function UIKeyboard() {
                 value={octave}
                 onChange={onOctave}
             />
-            <div>
-                {keys.map(({ name, value }) => {
+            
+            <div className={css.keys}>
+                {keys.map(({ name, value, className, leftOffset }) => {
                     const isActive =
                         activeNotes.includes(value + octaveToNoteOffset(octave));
 
                     return (
                         <button
                             type="button"
-                            aria-label="key"
+                            aria-label={`key-${name}`}
                             value={value}
                             key={`key-${name}`}
                             onMouseDown={onNote}
@@ -104,7 +105,6 @@ function UIKeyboard() {
                             className={`${css.key} ${isActive ? css[`key--active`] : ""} ${css[className]}`}
                             data-testid={isActive ? `key--active` : ''}
                         >
-                            {name}
                         </button>
                     )
                 })}
