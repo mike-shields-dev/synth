@@ -1,7 +1,7 @@
-import { UIKeyboard } from "..";
-import { fireEvent, render, screen, waitFor, act} from '@testing-library/react';
-import { MIDI_NOTE_OFF, MIDI_NOTE_ON } from "../../../../PubSub/topics";
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
+import { UIKeyboard } from "..";
+import { NOTE_OFF, NOTE_ON } from "../../../../PubSub/topics";
 
 
 describe('UIKeyboard', () => {
@@ -22,14 +22,14 @@ describe('UIKeyboard', () => {
     it('each key publishes a note on message with the correct noteNumber', async () => {
         const spy = vi.fn();
         const keys = screen.getAllByRole('button', { name: 'key' });
-        const subscriber = PubSub.subscribe(MIDI_NOTE_ON, spy);
+        const subscriber = PubSub.subscribe(NOTE_ON, spy);
 
         for(const key of keys) {
             const keyValue = Number(key.getAttribute('value'));
             await act(() => fireEvent.mouseDown(key))
 
             await waitFor(() => {
-                expect(spy).toHaveBeenCalledWith(MIDI_NOTE_ON, {
+                expect(spy).toHaveBeenCalledWith(NOTE_ON, {
                     noteNumber: keyValue,
                     velocity: 80,
                 });
@@ -42,14 +42,14 @@ describe('UIKeyboard', () => {
     it('each key publishes a note off message with the correct note number', async () => {
         const spy = vi.fn();
         const keys = screen.getAllByRole('button', { name: 'key' });
-        const subscriber = PubSub.subscribe(MIDI_NOTE_OFF, spy);
+        const subscriber = PubSub.subscribe(NOTE_OFF, spy);
 
         for(const key of keys) {
             const keyValue = Number(key.getAttribute('value'));
             await act(() => fireEvent.mouseUp(key))
 
             await waitFor(() => {
-                expect(spy).toHaveBeenCalledWith(MIDI_NOTE_OFF, {
+                expect(spy).toHaveBeenCalledWith(NOTE_OFF, {
                     noteNumber: keyValue,
                 });
             });

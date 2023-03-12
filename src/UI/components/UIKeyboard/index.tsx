@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { publishMidiNoteOn, publishNoteOff } from "../../../PubSub";
+import { publishNoteOff, publishNoteOn } from "../../../PubSub";
 import { publishOctaveChange } from '../../../PubSub/OctaveChange';
 
 type Key = { name: string, leftOffset: number, value: number, className: string }
@@ -27,7 +27,7 @@ function UIKeyboard() {
         const noteNumber = +e.currentTarget.value;
 
         if (['click', 'mousedown'].includes(e.type)) {
-            return publishMidiNoteOn({
+            return publishNoteOn({
                 noteNumber: noteNumber,
                 velocity: 80,
             })

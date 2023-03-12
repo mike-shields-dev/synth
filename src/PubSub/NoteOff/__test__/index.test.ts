@@ -1,7 +1,7 @@
 import { waitFor } from "@testing-library/react";
 import { vi } from 'vitest';
 import { NoteOffSubscriber, publishNoteOff } from "..";
-import { MIDI_NOTE_OFF } from "../../topics";
+import { NOTE_OFF } from "../../topics";
 
 describe('NoteOffSubscriber', () => {
     it('correctly invokes the provided handler function when the subscribed topic is published', async () => {
@@ -11,10 +11,10 @@ describe('NoteOffSubscriber', () => {
 
         expect(handler).not.toHaveBeenCalled();
 
-        PubSub.publish(MIDI_NOTE_OFF, data);
+        PubSub.publish(NOTE_OFF, data);
 
         await waitFor(() => {
-            expect(handler).toHaveBeenCalledWith(MIDI_NOTE_OFF, data);
+            expect(handler).toHaveBeenCalledWith(NOTE_OFF, data);
         });
     });
 
@@ -25,7 +25,7 @@ describe('NoteOffSubscriber', () => {
 
         midiNoteOffSubscriber.unsubscribe();
 
-        PubSub.publish(MIDI_NOTE_OFF, data);
+        PubSub.publish(NOTE_OFF, data);
 
         await waitFor(() => {
             expect(handler).not.toHaveBeenCalled();
@@ -38,12 +38,12 @@ describe('publishNoteOff', () => {
         const handler = vi.fn(() => null);
         const data = { noteNumber: 65 };
 
-        PubSub.subscribe(MIDI_NOTE_OFF, handler);
+        PubSub.subscribe(NOTE_OFF, handler);
 
         publishNoteOff(data);
 
         await waitFor(() => {
-            expect(handler).toHaveBeenCalledWith(MIDI_NOTE_OFF, data);
+            expect(handler).toHaveBeenCalledWith(NOTE_OFF, data);
         });
     });
 });

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { publishControlChange, publishMidiNoteOn, publishNoteOff } from "../../../PubSub";
+import { publishControlChange, publishNoteOff, publishNoteOn } from "../../../PubSub";
 
 function useMidiAccess() {
     const [isRequesting, setIsRequesting] = useState(true);
@@ -59,7 +59,7 @@ function useMidiAccess() {
         if (statusByte >= 144 && statusByte <= 159) {
             const data = { noteNumber: dataByte1, velocity: dataByte2 }
 
-            publishMidiNoteOn(data);
+            publishNoteOn(data);
         }
 
         if (statusByte >= 128 && statusByte <= 143) {

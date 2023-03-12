@@ -1,9 +1,9 @@
 import PubSub from "pubsub-js";
-import { MIDI_NOTE_OFF } from "../topics";
+import { NOTE_OFF } from "../topics";
 import { NoteOff, NoteOffHandler } from './types';
 
 function publishNoteOff(data: NoteOff) {
-    PubSub.publish(MIDI_NOTE_OFF, data)
+    PubSub.publish(NOTE_OFF, data)
 }
 
 class NoteOffSubscriber {
@@ -11,7 +11,7 @@ class NoteOffSubscriber {
 
     constructor(noteOffHandler: NoteOffHandler) {
         this.subscription = PubSub.subscribe(
-            MIDI_NOTE_OFF,
+            NOTE_OFF,
             noteOffHandler,
         )
     }

@@ -1,6 +1,6 @@
 import * as Tone from 'tone';
 import {
-    ControlChange, ControlChangeSubscriber, MidiNoteOn, MidiNoteOnSubscriber, NoteOff, NoteOffSubscriber
+    ControlChange, ControlChangeSubscriber, NoteOff, NoteOffSubscriber, NoteOn, NoteOnSubscriber
 } from '../PubSub';
 import { FocusChangeSubscriber } from '../PubSub/FocusChange';
 import { OctaveChangeSubscriber } from '../PubSub/OctaveChange';
@@ -17,13 +17,13 @@ let activeNotes: number[] = [];
 let focus = "";
 let octave = 0;
 
-new MidiNoteOnSubscriber(onNoteOn);
+new NoteOnSubscriber(onNoteOn);
 new NoteOffSubscriber(onNoteOff);
 new FocusChangeSubscriber(onFocusChange)
 new ControlChangeSubscriber(onControlChange);
 new OctaveChangeSubscriber(onOctaveChange);
 
-function onNoteOn(topic: string, data: MidiNoteOn) {
+function onNoteOn(topic: string, data: NoteOn) {
     if (activeNotes.includes(data.noteNumber)) return;
 
     const volume = (1 / 127) * data.velocity;
