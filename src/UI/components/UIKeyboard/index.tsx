@@ -1,6 +1,10 @@
-import { useState } from 'react';
-import { publishNoteOff, publishNoteOn } from "../../../PubSub";
+import { useEffect, useState } from 'react';
+import {
+    NoteOff, NoteOffSubscriber, NoteOn, NoteOnSubscriber, publishNoteOff, publishNoteOn
+} from "../../../PubSub";
 import { publishOctaveChange } from '../../../PubSub/OctaveChange';
+import { octaveToNoteOffset } from '../../../utils/Scalers';
+import css from './index.module.css';
 
 type Key = { name: string, leftOffset: number, value: number, className: string }
 
@@ -20,7 +24,8 @@ const keys: Key[] = [
 ];
 
 function UIKeyboard() {
-    const [transpose, setOctave] = useState(0);
+    const [octave, setOctave] = useState(0);
+    const [activeNotes, setActiveNotes] = useState<number[]>([]);
 
     function onNote(e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
@@ -28,16 +33,40 @@ function UIKeyboard() {
 
         if (['click', 'mousedown'].includes(e.type)) {
             return publishNoteOn({
-                noteNumber: noteNumber,
+                noteNumber: noteNumber + octaveToNoteOffset(octave),
                 velocity: 80,
             })
         }
         if (['mouseup', 'mouseleave'].includes(e.type)) {
             return publishNoteOff({
-                noteNumber: noteNumber,
+                noteNumber: noteNumber + octaveToNoteOffset(octave),
             })
         }
     }
+
+    function onPublishedNoteOn(TOPIC: string, data: NoteOn) {
+        const noteNumber = data.noteNumber;
+
+        setActiveNotes((prevActiveNotes) => [...new Set([noteNumber, ...prevActiveNotes])]);
+    }
+
+    function onPublishedNoteOff(TOPIC: string, data: NoteOff) {
+        const noteNumber = data.noteNumber;
+
+        setActiveNotes(prevActiveNotes =>
+            prevActiveNotes.filter(activeNote => activeNote !== noteNumber)
+        );
+    }
+
+    useEffect(() => {
+        const noteOnSubscriber = new NoteOnSubscriber(onPublishedNoteOn);
+        const noteOffSubscriber = new NoteOffSubscriber(onPublishedNoteOff);
+
+        return () => {
+            noteOnSubscriber.unsubscribe();
+            noteOffSubscriber.unsubscribe();
+        }
+    }, []);
 
     function onOctave(e: React.ChangeEvent<HTMLInputElement>) {
         const { value } = e.target;
@@ -48,29 +77,36 @@ function UIKeyboard() {
 
     return (
         <div>
-            <label htmlFor="transpose">Octave: </label>
+            <label htmlFor="octave">Octave: </label>
             <input
                 type="number"
-                id="transpose"
+                id="octave"
                 min="-5"
                 max="5"
-                value={transpose}
+                value={octave}
                 onChange={onOctave}
             />
             <div>
-                {keys.map(({ name, value }) =>
-                    <button
-                        type="button"
-                        aria-label="key"
-                        value={value}
-                        key={`key-${name}`}
-                        onMouseDown={onNote}
-                        onMouseUp={onNote}
-                        onMouseLeave={onNote}
-                    >
-                        {name}
-                    </button>
-                )}
+                {keys.map(({ name, value }) => {
+                    const isActive =
+                        activeNotes.includes(value + octaveToNoteOffset(octave));
+
+                    return (
+                        <button
+                            type="button"
+                            aria-label="key"
+                            value={value}
+                            key={`key-${name}`}
+                            onMouseDown={onNote}
+                            onMouseUp={onNote}
+                            onMouseLeave={onNote}
+                            className={isActive ? css[`key--active`] : ""}
+                            data-testid={isActive ? `key--active` : ''}
+                        >
+                            {name}
+                        </button>
+                    )
+                })}
             </div>
         </div>
     )

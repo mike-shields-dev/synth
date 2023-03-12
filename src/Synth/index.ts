@@ -29,8 +29,9 @@ function onNoteOn(topic: string, data: NoteOn) {
     const volume = (1 / 127) * data.velocity;
     activeNotes = [data.noteNumber, ...activeNotes];
 
+
     SYNTH.triggerAttack(
-        Tone.Frequency(data.noteNumber + (octave * 12), 'midi').toNote(),
+        Tone.Frequency(data.noteNumber, 'midi').toNote(),
         Tone.now(),
         volume
     );
@@ -41,7 +42,8 @@ function onNoteOff(topic: string, data: NoteOff) {
 
     activeNotes = activeNotes.filter(note => note !== data.noteNumber);
 
-    SYNTH.triggerRelease(Tone.Frequency(data.noteNumber + (octave * 12), 'midi').toNote());
+
+    SYNTH.triggerRelease(Tone.Frequency(data.noteNumber, 'midi').toNote());
 }
 
 function onFocusChange(topic: string, data: string) {

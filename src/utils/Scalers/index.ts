@@ -4,12 +4,14 @@ const C_CHANGE = [0, 127];
 
 const FREQUENCY = [20, 20_000]
 const RESONANCE = [0, 24];
-const OCTAVES = [0, 10];
+const FILTER_ENV_OCTAVES = [0, 10];
 
 const ATTACK = [0.0001, 10];
 const DECAY = [0.0001, 10];
 const SUSTAIN = [0.0001, 1];
 const RELEASE = [0.0001, 10];
+
+const octaveToNoteOffset = (octave: number) => octave * 12; 
 
 // Filter
 
@@ -50,7 +52,7 @@ const filterEnvelopeReleaseToControlChange =
     controlChangeToFilterEnvelopeRelease.invert;
 
 const controlChangeToFilterEnvelopeAmount =
-    scaleLinear().domain(C_CHANGE).range(OCTAVES);
+    scaleLinear().domain(C_CHANGE).range(FILTER_ENV_OCTAVES);
 
 const filterEnvelopeAmountToControlChange =
     controlChangeToFilterEnvelopeAmount.invert;
@@ -81,6 +83,7 @@ const envelopeReleaseToControlChange =
     controlChangeToAmpEnvelopeRelease.invert;
 
 export {
+    octaveToNoteOffset,
     controlChangeToFilterFrequency,
     filterFrequencyToControlChange,
     controlChangeToFilterResonance,
@@ -103,6 +106,4 @@ export {
     envelopeSustainToControlChange,
     controlChangeToAmpEnvelopeRelease,
     envelopeReleaseToControlChange,
-    controlChangeToAmpEnvelopeAmount,
-    envelopeAmountToControlChange,
 };

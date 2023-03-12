@@ -284,12 +284,12 @@ exports[`App > matches snapshot 1`] = `
     </section>
     <div>
       <label
-        for="transpose"
+        for="octave"
       >
         Octave: 
       </label>
       <input
-        id="transpose"
+        id="octave"
         max="5"
         min="-5"
         type="number"
@@ -298,6 +298,8 @@ exports[`App > matches snapshot 1`] = `
       <div>
         <button
           aria-label="key"
+          class=""
+          data-testid=""
           type="button"
           value="60"
         >
@@ -305,6 +307,8 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
+          class=""
+          data-testid=""
           type="button"
           value="61"
         >
@@ -312,6 +316,8 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
+          class=""
+          data-testid=""
           type="button"
           value="62"
         >
@@ -319,6 +325,8 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
+          class=""
+          data-testid=""
           type="button"
           value="63"
         >
@@ -326,6 +334,8 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
+          class=""
+          data-testid=""
           type="button"
           value="64"
         >
@@ -333,6 +343,8 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
+          class=""
+          data-testid=""
           type="button"
           value="65"
         >
@@ -340,6 +352,8 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
+          class=""
+          data-testid=""
           type="button"
           value="66"
         >
@@ -347,6 +361,8 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
+          class=""
+          data-testid=""
           type="button"
           value="67"
         >
@@ -354,6 +370,8 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
+          class=""
+          data-testid=""
           type="button"
           value="68"
         >
@@ -361,6 +379,8 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
+          class=""
+          data-testid=""
           type="button"
           value="69"
         >
@@ -368,6 +388,8 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
+          class=""
+          data-testid=""
           type="button"
           value="70"
         >
@@ -375,6 +397,8 @@ exports[`App > matches snapshot 1`] = `
         </button>
         <button
           aria-label="key"
+          class=""
+          data-testid=""
           type="button"
           value="71"
         >
