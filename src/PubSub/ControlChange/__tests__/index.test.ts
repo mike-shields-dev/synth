@@ -1,30 +1,30 @@
 import { waitFor } from "@testing-library/react";
 import { vi } from 'vitest';
-import { MidiControlChangeSubscriber, publishMidiControlChange } from "..";
-import { MIDI_CC } from "../../topics";
+import { ControlChangeSubscriber, publishControlChange } from "..";
+import { CONTROL } from "../../topics";
 
-describe('MidiControlChangeSubscriber', () => {
+describe('ControlChangeSubscriber', () => {
     it('correctly invokes the provided handler function when the subscribed topic is published', async () => {
         const handler = vi.fn(() => null);
         const data = { controlChangeNumber: 65, value: 65 };
-        new MidiControlChangeSubscriber(handler);
+        new ControlChangeSubscriber(handler);
 
         expect(handler).not.toHaveBeenCalled();
 
-        PubSub.publish(MIDI_CC, data);
+        PubSub.publish(CONTROL, data);
 
         await waitFor(() => {
-            expect(handler).toHaveBeenCalledWith(MIDI_CC, data);
+            expect(handler).toHaveBeenCalledWith(CONTROL, data);
         });
     });
 
     it('correctly unsubscribes', () => {
         const handler = vi.fn(() => null);
         const data = { controlChangeNumber: 65, value: 65 }
-        const midiControlChangeSubscriber = new MidiControlChangeSubscriber(handler);
+        const midiControlChangeSubscriber = new ControlChangeSubscriber(handler);
         midiControlChangeSubscriber.unsubscribe();
 
-        PubSub.publish(MIDI_CC, data);
+        PubSub.publish(CONTROL, data);
 
         setTimeout(() => {
             expect(handler).not.toHaveBeenCalled();
@@ -32,16 +32,16 @@ describe('MidiControlChangeSubscriber', () => {
     });
 });
 
-describe('publishMidiControlChange', () => {
+describe('publishControlChange', () => {
     it('publishes to the correct topic with the correct data', async () => {
         const handler = vi.fn(() => null);
         const data = { controlChangeNumber: 65, value: 65 };
-        PubSub.subscribe(MIDI_CC, handler);
+        PubSub.subscribe(CONTROL, handler);
 
-        publishMidiControlChange(data);
+        publishControlChange(data);
 
         await waitFor(() => {
-            expect(handler).toHaveBeenCalledWith(MIDI_CC, data);
+            expect(handler).toHaveBeenCalledWith(CONTROL, data);
         });
     });
 });

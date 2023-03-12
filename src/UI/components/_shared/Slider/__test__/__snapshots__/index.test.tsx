@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import { Slider } from '../..';
-import { UI_CC } from '../../../../../../PubSub/topics';
+import { CONTROL } from '../../../../../../PubSub/topics';
 
 const validProps = {
     controlChangeNumber: 70,
@@ -76,21 +76,21 @@ describe('Slider', () => {
         it('publishes a UI Control Change message when the user moves the slider', async () => {
             const slider = screen.getByRole('slider', { name: 'Parameter' });
             const newValue = 64;
-            const subscriptionHandlerSpy = vi.fn();
+            const spy = vi.fn();
 
-            PubSub.subscribe(UI_CC, subscriptionHandlerSpy);
+            PubSub.subscribe(CONTROL, spy);
             
             fireEvent.change(slider, { target: { value: newValue } });
     
             await waitFor(() => {
-                expect(subscriptionHandlerSpy).toHaveBeenCalled()
+                expect(spy).toHaveBeenCalled()
             });
         });
     
         it('updates the slider value when a MIDI control change is received', async () => {
             const newValue = 88;
     
-            PubSub.publish(UI_CC, {
+            PubSub.publish(CONTROL, {
                 controlChangeNumber: validProps.controlChangeNumber,
                 value: newValue,
             });
@@ -107,7 +107,7 @@ describe('Slider', () => {
             const initValue = `${validProps.scalers.in(validProps.initVal)}`;
             const newValue = 88;
     
-            PubSub.publish(UI_CC, {
+            PubSub.publish(CONTROL, {
                 controlChangeNumber: validProps.controlChangeNumber,
                 value: newValue,
             });

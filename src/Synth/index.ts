@@ -1,9 +1,8 @@
 import * as Tone from 'tone';
 import {
-    MidiControlChange, MidiControlChangeSubscriber,
+    ControlChange, ControlChangeSubscriber,
     MidiNoteOff, MidiNoteOffSubscriber,
     MidiNoteOn, MidiNoteOnSubscriber,
-    UiControlChangeSubscriber
 } from '../PubSub';
 import { FocusChangeSubscriber } from '../PubSub/FocusChange';
 import { OctaveChangeSubscriber } from '../PubSub/OctaveChange';
@@ -23,14 +22,13 @@ let octave = 0;
 new MidiNoteOnSubscriber(onNoteOn);
 new MidiNoteOffSubscriber(onNoteOff);
 new FocusChangeSubscriber(onFocusChange)
-new MidiControlChangeSubscriber(onControlChange);
-new UiControlChangeSubscriber(onControlChange);
+new ControlChangeSubscriber(onControlChange);
 new OctaveChangeSubscriber(onOctaveChange);
 
 function onNoteOn(topic: string, data: MidiNoteOn) {
     if (activeNotes.includes(data.noteNumber)) return;
 
-    const volume = (1 / 127) * data.velocity; 
+    const volume = (1 / 127) * data.velocity;
     activeNotes = [data.noteNumber, ...activeNotes];
 
     SYNTH.triggerAttack(
@@ -53,13 +51,13 @@ function onFocusChange(topic: string, data: string) {
 }
 
 
-function onControlChange(topic: string, data: MidiControlChange) {
+function onControlChange(topic: string, data: ControlChange) {
     if (focus === "filter") return updateFilter(data);
     if (focus === "filterEnvelope") return updateFilterEnvelope(data);
     if (focus === "ampEnvelope") return updateAmpEnvelope(data);
 }
 
-function updateFilter(data: MidiControlChange) {
+function updateFilter(data: ControlChange) {
     const { controlChangeNumber: cc, value } = data;
 
     if (cc === 70) return updateFilterFrequency(value);
@@ -82,7 +80,7 @@ function updateFilterResonance(value: number) {
     })
 }
 
-function updateFilterEnvelope(data: MidiControlChange) {
+function updateFilterEnvelope(data: ControlChange) {
     const { controlChangeNumber: cc, value } = data;
 
     if (cc === 70) return updateFilterEnvelopeParam("attack", value);
@@ -108,7 +106,7 @@ function updateFilterEnvelopeParam(param: string, value: number) {
     });
 }
 
-function updateAmpEnvelope(data: MidiControlChange) {
+function updateAmpEnvelope(data: ControlChange) {
     const { controlChangeNumber: cc, value } = data;
 
     if (cc === 70) return updateAmpEnvelopeParam("attack", value);

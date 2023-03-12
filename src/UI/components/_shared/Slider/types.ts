@@ -1,4 +1,3 @@
-import { MidiControlChange } from "../../../../PubSub";
 
 interface SliderProps {
     controlChangeNumber: number;
