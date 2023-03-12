@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { publishMidiNoteOff, publishMidiNoteOn } from "../../../PubSub";
+import { useState } from 'react';
+import { publishMidiNoteOn, publishNoteOff } from "../../../PubSub";
 import { publishOctaveChange } from '../../../PubSub/OctaveChange';
 
 type Key = { name: string, leftOffset: number, value: number, className: string }
@@ -33,7 +33,7 @@ function UIKeyboard() {
             })
         }
         if (['mouseup', 'mouseleave'].includes(e.type)) {
-            return publishMidiNoteOff({
+            return publishNoteOff({
                 noteNumber: noteNumber,
             })
         }

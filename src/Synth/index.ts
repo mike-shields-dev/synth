@@ -1,8 +1,6 @@
 import * as Tone from 'tone';
 import {
-    ControlChange, ControlChangeSubscriber,
-    MidiNoteOff, MidiNoteOffSubscriber,
-    MidiNoteOn, MidiNoteOnSubscriber,
+    ControlChange, ControlChangeSubscriber, MidiNoteOn, MidiNoteOnSubscriber, NoteOff, NoteOffSubscriber
 } from '../PubSub';
 import { FocusChangeSubscriber } from '../PubSub/FocusChange';
 import { OctaveChangeSubscriber } from '../PubSub/OctaveChange';
@@ -20,7 +18,7 @@ let focus = "";
 let octave = 0;
 
 new MidiNoteOnSubscriber(onNoteOn);
-new MidiNoteOffSubscriber(onNoteOff);
+new NoteOffSubscriber(onNoteOff);
 new FocusChangeSubscriber(onFocusChange)
 new ControlChangeSubscriber(onControlChange);
 new OctaveChangeSubscriber(onOctaveChange);
@@ -38,7 +36,7 @@ function onNoteOn(topic: string, data: MidiNoteOn) {
     );
 }
 
-function onNoteOff(topic: string, data: MidiNoteOff) {
+function onNoteOff(topic: string, data: NoteOff) {
     if (!activeNotes.includes(data.noteNumber)) return;
 
     activeNotes = activeNotes.filter(note => note !== data.noteNumber);

@@ -1,15 +1,15 @@
 import PubSub from "pubsub-js";
 import { MIDI_NOTE_OFF } from "../topics";
-import { MidiNoteOff, MidiNoteOffHandler } from './types';
+import { NoteOff, NoteOffHandler } from './types';
 
-function publishMidiNoteOff(data: MidiNoteOff) {
+function publishNoteOff(data: NoteOff) {
     PubSub.publish(MIDI_NOTE_OFF, data)
 }
 
-class MidiNoteOffSubscriber {
+class NoteOffSubscriber {
     private subscription: string;
 
-    constructor(noteOffHandler: MidiNoteOffHandler) {
+    constructor(noteOffHandler: NoteOffHandler) {
         this.subscription = PubSub.subscribe(
             MIDI_NOTE_OFF,
             noteOffHandler,
@@ -21,4 +21,4 @@ class MidiNoteOffSubscriber {
     };
 }
 
-export { publishMidiNoteOff, MidiNoteOffSubscriber };
+export { publishNoteOff, NoteOffSubscriber };
