@@ -19,20 +19,22 @@ function SynthParameterGroup({
 
   return (
     <section
+      id={group}
       className={`
         ${css.SynthParameterGroup}
         ${css[`SynthParameterGroup${isFocused ? "--focus" : ""}`]}`
       }
         aria-label={camelCaseToTitleCase(group)}
-        id={group}
         onFocus={(e) => updateFocus(e.currentTarget.id)}
         onClick={(e => updateFocus(e.currentTarget.id))}
         ref={formRef}
       >
         <header>
           <h2>{camelCaseToTitleCase(group)}</h2>
-        </header>
+      </header>
+      <div className={css.SynthParameterGroup__controls}>
         { children && children(isFocused) }
+      </div>
       </section>
   )
 }

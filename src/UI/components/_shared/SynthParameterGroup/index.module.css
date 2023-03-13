@@ -1,9 +1,12 @@
-.SynthParameterGroup { 
+.SynthParameterGroup {
+    display: grid;
+    gap: 1rem;
     border-radius: 4px;
     padding: 0.5rem 1rem;
     background: rgba(0, 0, 0, 0.125);
-    margin: 0.5rem auto;
+    margin: 1rem auto;
     color: #c9c9c9;
+    transition: background 0.5s;
 }
 
 .SynthParameterGroup--focus {
@@ -11,3 +14,7 @@
     color: #fff;
 }
 
+.SynthParameterGroup__controls {
+    display: flex;
+    justify-content: space-around;
+}
