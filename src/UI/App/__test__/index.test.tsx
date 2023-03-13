@@ -13,7 +13,7 @@ describe('App', () => {
     });
 
     it('renders the SynthUI', () => {
-        expect(screen.getByRole('form', {name: 'synth user interface'})).toBeInTheDocument();
+        expect(screen.getByRole('form', {name: 'synth controls'})).toBeInTheDocument();
     });
 
     it('renders a SynthParameterGroup for the oscillator', () => {
