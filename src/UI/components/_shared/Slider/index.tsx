@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { ControlChange, ControlChangeSubscriber, publishControlChange } from "../../../../PubSub";
 import { camelCaseToTitleCase } from "../../../../utils/camelCaseToTitleCase";
 import { SliderProps } from "./types";
+import css from './index.module.css';
+
 
 function Slider({
     controlChangeNumber,
@@ -25,6 +27,7 @@ function Slider({
 
     function onSliderChange(e: React.FormEvent<HTMLInputElement>) {
         const { value } = e.currentTarget;
+        
         setValue(+value);
         publishControlChange({
             controlChangeNumber,
@@ -44,7 +47,7 @@ function Slider({
     }, [isFocused]);
 
     return (
-        <div>
+        <div className={css.Slider}>
             <label htmlFor={`${group}-${parameter}`}>
                 {camelCaseToTitleCase(parameter)}
             </label>
