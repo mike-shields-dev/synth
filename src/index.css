@@ -7,6 +7,10 @@
 }
 
 body {
+  position: fixed;
+  inset: 0 0 0 0;
   background: #0e365f;
   color: #fff;
+  padding: 1rem;
+  max-height: 100vh;
 }
