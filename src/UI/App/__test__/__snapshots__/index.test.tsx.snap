@@ -10,11 +10,9 @@ exports[`App > matches snapshot 1`] = `
   <div
     class="_App__Main_099074"
   >
-    <div
-      class="_SynthUI_136ead"
-    >
+    <div>
       <form
-        aria-label="synth user interface"
+        aria-label="synth controls"
       >
         <section
           aria-label="Oscillator"

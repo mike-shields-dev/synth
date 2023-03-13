@@ -1,14 +1,19 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
+import css from './index.module.css'; 
 
 interface Props {
-  children: ReactNode;
+  children?: React.ReactNode;
 }
 
-function SynthUI({ children }: Props) {
+function SynthUI({ children }: Props) {  
   return (
-    <form aria-label="synth user interface">
-      { children }
-    </form>
+    <div className={css.SynthUI}>
+      <form
+        aria-label="synth controls"
+      >
+        { children }
+      </form>
+    </div>
   )
 }
 
