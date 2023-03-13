@@ -19,13 +19,22 @@ function App() {
   return (
     <>
       <div className={css.App}>
-        <SynthUI>
-          <Oscillator {...{ focus, updateFocus }} />
-          <Filter {...{ focus, updateFocus }} />
-          <FilterEnvelope {...{ focus, updateFocus }} />
-          <AmpEnvelope {...{ focus, updateFocus }} />
+
+        <div className={css.App__Header}>
+        </div>
+
+        <div className={css.App__Main}>
+          <SynthUI>
+            <Oscillator {...{ focus, updateFocus }} />
+            <Filter {...{ focus, updateFocus }} />
+            <FilterEnvelope {...{ focus, updateFocus }} />
+            <AmpEnvelope {...{ focus, updateFocus }} />
+          </SynthUI>
+        </div>
+
+        <div className={css.App__Footer}>
           <UIKeyboard />
-        </SynthUI>
+        </div>
       </div>
     </>
   )
