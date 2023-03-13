@@ -26,6 +26,7 @@ function Slider({
     };
 
     function onSliderChange(e: React.FormEvent<HTMLInputElement>) {
+        if (!isFocused) return;
         const { value } = e.currentTarget;
         
         setValue(+value);
