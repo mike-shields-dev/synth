@@ -2,7 +2,9 @@
 
 exports[`UIKeyboard > matches snapshot 1`] = `
 <div>
-  <div>
+  <div
+    class="_UIKeyboard_e6b5de"
+  >
     <label
       for="octave"
     >

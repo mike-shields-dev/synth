@@ -1,7 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Slider > matches snapshot 1`] = `
-<div>
+<div
+  class="_Slider_79b390"
+>
   <label
     for="groupName-parameter"
   >
