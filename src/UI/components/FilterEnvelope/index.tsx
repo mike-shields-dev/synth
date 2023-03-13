@@ -21,7 +21,7 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
             controlChangeNumber={70}
             group="filterEnvelope"
             initVal={+config.filterEnvelope.attack}
-            parameter="attack"
+            parameter="A"
             scalers={{
               out: scalers.controlChangeToFilterEnvelopeAttack,
               in: scalers.filterEnvelopeAttackToControlChange,
@@ -32,7 +32,7 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
             group="filterEnvelope"
             initVal={+config.filterEnvelope.decay}
             isFocused={isFocused}
-            parameter="decay"
+            parameter="D"
             scalers={{
               out: scalers.controlChangeToFilterEnvelopeDecay,
               in: scalers.filterEnvelopeDecayToControlChange,
@@ -43,7 +43,7 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
             group="filterEnvelope"
             isFocused={isFocused}
             initVal={+config.filterEnvelope.sustain}
-            parameter="sustain"
+            parameter="S"
             scalers={{
               out: scalers.controlChangeToFilterEnvelopeSustain,
               in: scalers.filterEnvelopeSustainToControlChange,
@@ -54,7 +54,7 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
             group="filterEnvelope"
             initVal={+config.filterEnvelope.release}
             isFocused={isFocused}
-            parameter="release"
+            parameter="R"
             scalers={{
               out: scalers.controlChangeToFilterEnvelopeRelease,
               in: scalers.filterEnvelopeReleaseToControlChange,
@@ -65,7 +65,7 @@ function FilterEnvelope({ focus, updateFocus }: Props) {
             group="filterEnvelope"
             initVal={+config.filterEnvelope.octaves}
             isFocused={isFocused}
-            parameter="amount"
+            parameter="Amnt"
             scalers={{
               out: scalers.controlChangeToFilterEnvelopeAmount,
               in: scalers.filterEnvelopeAmountToControlChange,

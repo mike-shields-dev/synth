@@ -20,7 +20,7 @@ function Filter({ focus, updateFocus }: Props) {
           controlChangeNumber={70}
           group="filter"
           initVal={+config.filterEnvelope.baseFrequency}
-          parameter='frequency'
+          parameter='Freq'
           scalers={{
             out: scalers.controlChangeToFilterFrequency,
             in: scalers.filterFrequencyToControlChange,
@@ -31,7 +31,7 @@ function Filter({ focus, updateFocus }: Props) {
           controlChangeNumber={71}
           group="filter"
           initVal={+config.filter.Q}
-          parameter="resonance"
+          parameter="Res"
           scalers={{
             out: scalers.controlChangeToFilterResonance,
             in: scalers.filterResonanceToControlChange,
