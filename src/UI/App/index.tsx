@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Nav from '../components/Nav';
 import { AmpEnvelope, FilterEnvelope, Oscillator, SynthUI } from '../components';
 import { Filter } from '../components/Filter';
 import { useMidiAccess } from '../hooks/useMidiAccess';
@@ -21,6 +22,7 @@ function App() {
       <div className={css.App}>
 
         <div className={css.App__Header}>
+          <Nav {...{ focus, updateFocus }} />
         </div>
 
         <div className={css.App__Main}>

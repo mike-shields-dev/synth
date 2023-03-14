@@ -1,0 +1,34 @@
+.Nav {
+    container-type: inline-size;
+    grid-area: header;
+    background: rgba(0, 0, 0, 0.125);
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0.25rem;
+    justify-content: center;
+}
+
+.Nav a {
+    font-size: 0.75em;
+    display: grid;
+    place-items: center;
+    border: none;
+    border-radius: 0.25em;
+    background: rgba(255, 255, 255, 0.125);
+    padding: 0.125em 0.25em;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0 0.125rem;
+}
+
+.Nav a.active {
+    color: orange;
+}
+
+@container (min-width: 375px) {
+    .Nav a {
+        font-size: 1em;
+    }
+}

@@ -6,7 +6,44 @@ exports[`App > matches snapshot 1`] = `
 >
   <div
     class="_App__Header_099074"
-  />
+  >
+    <nav
+      class="_Nav_0b5b70"
+    >
+      <a
+        aria-label="Go to oscillator section"
+        class="_active_0b5b70"
+        data-focus_id="oscillator"
+        href="#oscillator"
+      >
+        Oscillator
+      </a>
+      <a
+        aria-label="Go to filter section"
+        class="__0b5b70"
+        data-focus_id="filter"
+        href="#filter"
+      >
+        Filter
+      </a>
+      <a
+        aria-label="Go to filterEnvelope section"
+        class="__0b5b70"
+        data-focus_id="filterEnvelope"
+        href="#filterEnvelope"
+      >
+        Filter Env
+      </a>
+      <a
+        aria-label="Go to ampEnvelope section"
+        class="__0b5b70"
+        data-focus_id="ampEnvelope"
+        href="#ampEnvelope"
+      >
+        Amp Env
+      </a>
+    </nav>
+  </div>
   <div
     class="_App__Main_099074"
   >

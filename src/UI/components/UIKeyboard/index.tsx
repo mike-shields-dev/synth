@@ -98,7 +98,7 @@ function UIKeyboard() {
     }
 
     return (
-        <div>
+        <div className={css.UIKeyboard}>
             <label htmlFor="octave">Octave: </label>
             <input
                 type="number"
