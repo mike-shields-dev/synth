@@ -1,0 +1,115 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AmpEnvelope > matches snapshot 1`] = `
+<div>
+  <section
+    aria-label="Amp Envelope"
+    class="
+        _SynthParameterGroup_a92880
+        _SynthParameterGroup--focus_a92880"
+    id="ampEnvelope"
+  >
+    <header>
+      <h2>
+        Amp Envelope
+      </h2>
+    </header>
+    <div
+      class="_SynthParameterGroup__controls_a92880"
+    >
+      <div
+        class="_Slider_79b390"
+      >
+        <label
+          for="envelope-A"
+        >
+          A
+        </label>
+        <input
+          id="envelope-A"
+          max="127"
+          min="0"
+          step="0.05"
+          type="range"
+          value="0"
+        />
+        <output
+          aria-label="Envelope A"
+          for="envelope-A"
+        >
+          0.0001
+        </output>
+      </div>
+      <div
+        class="_Slider_79b390"
+      >
+        <label
+          for="envelope-D"
+        >
+          D
+        </label>
+        <input
+          id="envelope-D"
+          max="127"
+          min="0"
+          step="0.05"
+          type="range"
+          value="6.348793487934879"
+        />
+        <output
+          aria-label="Envelope D"
+          for="envelope-D"
+        >
+          0.5
+        </output>
+      </div>
+      <div
+        class="_Slider_79b390"
+      >
+        <label
+          for="envelope-S"
+        >
+          S
+        </label>
+        <input
+          id="envelope-S"
+          max="127"
+          min="0"
+          step="0.05"
+          type="range"
+          value="127"
+        />
+        <output
+          aria-label="Envelope S"
+          for="envelope-S"
+        >
+          1
+        </output>
+      </div>
+      <div
+        class="_Slider_79b390"
+      >
+        <label
+          for="release-R"
+        >
+          R
+        </label>
+        <input
+          id="release-R"
+          max="127"
+          min="0"
+          step="0.05"
+          type="range"
+          value="12.698856988569887"
+        />
+        <output
+          aria-label="Release R"
+          for="release-R"
+        >
+          1
+        </output>
+      </div>
+    </div>
+  </section>
+</div>
+`;
