@@ -34,7 +34,6 @@
     "@vitest/coverage-c8": "^0.29.2",
     "@vitest/coverage-istanbul": "^0.29.2",
     "jsdom": "^21.0.0",
-    "matchers": "link:@testing-library/jest-dom/matchers",
     "typescript": "^4.9.3",
     "vite": "^4.0.0",
     "vitest": "^0.29.0",
