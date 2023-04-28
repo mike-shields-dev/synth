@@ -1,7 +1,7 @@
 import { vi } from 'vitest';
 import { PITCH_BEND } from '../../topics';
 import PubSub from 'pubsub-js';
-import { PitchBendSubscriber, publishPitchBend } from '..';
+import { PitchBendSubscriber, publishPitchBend } from '../PitchBend';
 import { waitFor } from '@testing-library/react';
 
 describe('pitchBendSubscriber', () => {

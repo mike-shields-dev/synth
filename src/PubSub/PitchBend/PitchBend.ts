@@ -1,5 +1,6 @@
 import { PITCH_BEND } from "../topics";
-import { PitchBendHandler } from "./types";
+
+type PitchBendHandler = (topic: string, data: number) => void; 
 
 function publishPitchBend(data: number) {
     PubSub.publish(PITCH_BEND, data);

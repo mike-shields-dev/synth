@@ -6,10 +6,10 @@ import {
     NoteOffSubscriber, 
     NoteOn, 
     NoteOnSubscriber,
-    OctaveChangeSubscriber 
+    OctaveChangeSubscriber,
+    PitchBendSubscriber,
+    FocusChangeSubscriber
 } from '../PubSub';
-import { FocusChangeSubscriber } from '../PubSub';
-import { PitchBendSubscriber } from '../PubSub/PitchBend';
 import * as scaler from '../utils/Scalers';
 
 interface ScaleIndex {

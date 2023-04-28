@@ -8,7 +8,7 @@ import {
   publishNoteOff,
   publishNoteOn,
   publishPitchBend,
-  publishOctaveChange
+  publishOctaveChange,
 } from "../../../PubSub";
 import { octaveToNoteOffset } from "../../../utils/Scalers";
 import css from "./UIKeyboard.module.css";

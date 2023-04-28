@@ -9,9 +9,12 @@ import {
 } from "./FocusChange/FocusChange";
 import { NoteOffSubscriber, publishNoteOff, NoteOff } from "./NoteOff/NoteOff";
 import { NoteOnSubscriber, publishNoteOn, NoteOn } from "./NoteOn/NoteOn";
-import { OctaveChangeSubscriber, publishOctaveChange } from "./OctaveChange/OctaveChange";
+import {
+  OctaveChangeSubscriber,
+  publishOctaveChange,
+} from "./OctaveChange/OctaveChange";
 
-export { PitchBendSubscriber, publishPitchBend } from "./PitchBend";
+export { PitchBendSubscriber, publishPitchBend } from "./PitchBend/PitchBend";
 
 export {
   ControlChangeSubscriber,
