@@ -2,7 +2,7 @@ import * as Tone from 'tone';
 import {
     ControlChange, ControlChangeSubscriber, NoteOff, NoteOffSubscriber, NoteOn, NoteOnSubscriber
 } from '../PubSub';
-import { FocusChangeSubscriber } from '../PubSub/FocusChange';
+import { FocusChangeSubscriber } from '../PubSub';
 import { OctaveChangeSubscriber } from '../PubSub/OctaveChange';
 import { PitchBendSubscriber } from '../PubSub/PitchBend';
 import * as scaler from '../utils/Scalers';
