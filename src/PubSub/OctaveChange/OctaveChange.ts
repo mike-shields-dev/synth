@@ -1,6 +1,7 @@
 import PubSub from 'pubsub-js';
 import { OCTAVE_CHANGE } from '../topics';
-import { OctaveChangeHandler } from './types';
+
+type OctaveChangeHandler = (topic: string, data: number) => void;
 
 function publishOctaveChange(data: number) {
     PubSub.publish(OCTAVE_CHANGE, data);

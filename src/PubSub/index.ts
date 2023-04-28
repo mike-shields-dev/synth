@@ -9,7 +9,7 @@ import {
 } from "./FocusChange/FocusChange";
 import { NoteOffSubscriber, publishNoteOff, NoteOff } from "./NoteOff/NoteOff";
 import { NoteOnSubscriber, publishNoteOn, NoteOn } from "./NoteOn/NoteOn";
-
+import { OctaveChangeSubscriber, publishOctaveChange } from "./OctaveChange/OctaveChange";
 
 export { PitchBendSubscriber, publishPitchBend } from "./PitchBend";
 
@@ -22,5 +22,8 @@ export {
   publishNoteOff,
   NoteOnSubscriber,
   publishNoteOn,
+  OctaveChangeSubscriber,
+  publishOctaveChange,
 };
+
 export type { ControlChange, NoteOff, NoteOn };

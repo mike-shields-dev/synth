@@ -2,7 +2,7 @@ import { waitFor } from '@testing-library/react';
 import PubSub from 'pubsub-js';
 import { vi } from 'vitest';
 import { OCTAVE_CHANGE } from '../../topics';
-import { OctaveChangeSubscriber, publishOctaveChange } from '..';
+import { OctaveChangeSubscriber, publishOctaveChange } from '../OctaveChange';
 
 describe('octaveChangeSubscriber', () => {
     it('subscribes to the correct TOPIC and invokes the handler function providing the correct data', async () => {
