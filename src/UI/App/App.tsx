@@ -6,7 +6,7 @@ import { useMidiAccess } from '../hooks/useMidiAccess';
 import './index.module.css';
 import { publishFocusChange } from '../../PubSub/FocusChange';
 import { UIKeyboard } from '../components/UIKeyboard';
-import css from './index.module.css';
+import css from './App.module.css';
 
 function App() {
   const [focus, setFocus] = useState('oscillator');
