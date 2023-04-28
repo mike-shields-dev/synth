@@ -22,7 +22,5 @@ describe('AmpEnvelope', () => {
         fireEvent.click(ampEnvelopeEl);
 
         expect(validProps.updateFocus).toHaveBeenCalledWith('ampEnvelope');
-
-        console.log(ampEnvelopeEl);
     });
 });
