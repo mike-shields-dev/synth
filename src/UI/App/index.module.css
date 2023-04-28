@@ -24,4 +24,5 @@
 
 .App__Footer {
     grid-area: footer;
+    position: relative;
 }
