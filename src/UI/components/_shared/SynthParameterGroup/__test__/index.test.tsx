@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { fireEvent, render, screen, within } from "@testing-library/react";
-import { SynthParameterGroup } from '.';
+import { SynthParameterGroup } from '..';
 
 const validProps = {
     group: 'Group Name',
