@@ -83,4 +83,4 @@ function useMidiAccess() {
     };
 }
 
-export { useMidiAccess };
+export default useMidiAccess;

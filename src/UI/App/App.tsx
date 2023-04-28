@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Nav, AmpEnvelope, Filter, FilterEnvelope, Oscillator, SynthUI, UIKeyboard } from '../components';
-import { useMidiAccess } from '../hooks/useMidiAccess/useMidiAccess';
+import useMidiAccess from '../hooks/useMidiAccess/useMidiAccess';
 import { publishFocusChange } from '../../PubSub/FocusChange';
 import css from './App.module.css';
 
