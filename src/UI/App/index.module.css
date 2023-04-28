@@ -1,4 +1,5 @@
 .App {
+    height: calc(100vh - 1rem);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 2rem 1fr 6rem;
