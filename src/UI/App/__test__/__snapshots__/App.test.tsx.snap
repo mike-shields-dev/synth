@@ -8,11 +8,11 @@ exports[`App > matches snapshot 1`] = `
     class="_App__Header_27cc98"
   >
     <nav
-      class="_Nav_0b5b70"
+      class="_Nav_03786e"
     >
       <a
         aria-label="Go to oscillator section"
-        class="_active_0b5b70"
+        class="_active_03786e"
         data-focus_id="oscillator"
         href="#oscillator"
       >
@@ -20,7 +20,7 @@ exports[`App > matches snapshot 1`] = `
       </a>
       <a
         aria-label="Go to filter section"
-        class="__0b5b70"
+        class="__03786e"
         data-focus_id="filter"
         href="#filter"
       >
@@ -28,7 +28,7 @@ exports[`App > matches snapshot 1`] = `
       </a>
       <a
         aria-label="Go to filterEnvelope section"
-        class="__0b5b70"
+        class="__03786e"
         data-focus_id="filterEnvelope"
         href="#filterEnvelope"
       >
@@ -36,7 +36,7 @@ exports[`App > matches snapshot 1`] = `
       </a>
       <a
         aria-label="Go to ampEnvelope section"
-        class="__0b5b70"
+        class="__03786e"
         data-focus_id="ampEnvelope"
         href="#ampEnvelope"
       >

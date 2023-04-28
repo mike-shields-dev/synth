@@ -1,4 +1,4 @@
-import css from './index.module.css';
+import css from './Nav.module.css';
 
 interface Props {
     focus: string;

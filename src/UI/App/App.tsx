@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Nav from '../components/Nav';
+import Nav from '../components/Nav/Nav';
 import { AmpEnvelope, FilterEnvelope, Oscillator, SynthUI } from '../components';
 import { Filter } from '../components/Filter/Filter';
 import { useMidiAccess } from '../hooks/useMidiAccess';
