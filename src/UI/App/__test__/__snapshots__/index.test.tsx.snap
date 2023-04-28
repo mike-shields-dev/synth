@@ -47,332 +47,331 @@ exports[`App > matches snapshot 1`] = `
   <div
     class="_App__Main_099074"
   >
-    <div>
-      <form
-        aria-label="synth controls"
-      >
-        <section
-          aria-label="Oscillator"
-          class="
+    <form
+      aria-label="synth controls"
+      class="_Synth_UI_136ead"
+    >
+      <section
+        aria-label="Oscillator"
+        class="
         _SynthParameterGroup_a92880
         _SynthParameterGroup--focus_a92880"
-          id="oscillator"
-        >
-          <header>
-            <h2>
-              Oscillator
-            </h2>
-          </header>
-          <div
-            class="_SynthParameterGroup__controls_a92880"
-          />
-        </section>
-        <section
-          aria-label="Filter"
-          class="
+        id="oscillator"
+      >
+        <header>
+          <h2>
+            Oscillator
+          </h2>
+        </header>
+        <div
+          class="_SynthParameterGroup__controls_a92880"
+        />
+      </section>
+      <section
+        aria-label="Filter"
+        class="
         _SynthParameterGroup_a92880
         _SynthParameterGroup_a92880"
-          id="filter"
+        id="filter"
+      >
+        <header>
+          <h2>
+            Filter
+          </h2>
+        </header>
+        <div
+          class="_SynthParameterGroup__controls_a92880"
         >
-          <header>
-            <h2>
-              Filter
-            </h2>
-          </header>
           <div
-            class="_SynthParameterGroup__controls_a92880"
+            class="_Slider_79b390"
           >
-            <div
-              class="_Slider_79b390"
+            <label
+              for="filter-Freq"
             >
-              <label
-                for="filter-Freq"
-              >
-                Freq
-              </label>
-              <input
-                id="filter-Freq"
-                max="127"
-                min="0"
-                step="0.05"
-                type="range"
-                value="71.25595213027319"
-              />
-              <output
-                aria-label="Filter Freq"
-                for="filter-Freq"
-              >
-                1999.9999999999998
-              </output>
-            </div>
-            <div
-              class="_Slider_79b390"
+              Freq
+            </label>
+            <input
+              id="filter-Freq"
+              max="127"
+              min="0"
+              step="0.05"
+              type="range"
+              value="71.25595213027319"
+            />
+            <output
+              aria-label="Filter Freq"
+              for="filter-Freq"
             >
-              <label
-                for="filter-Res"
-              >
-                Res
-              </label>
-              <input
-                id="filter-Res"
-                max="127"
-                min="0"
-                step="0.05"
-                type="range"
-                value="31.75"
-              />
-              <output
-                aria-label="Filter Res"
-                for="filter-Res"
-              >
-                6
-              </output>
-            </div>
+              1999.9999999999998
+            </output>
           </div>
-        </section>
-        <section
-          aria-label="Filter Envelope"
-          class="
+          <div
+            class="_Slider_79b390"
+          >
+            <label
+              for="filter-Res"
+            >
+              Res
+            </label>
+            <input
+              id="filter-Res"
+              max="127"
+              min="0"
+              step="0.05"
+              type="range"
+              value="31.75"
+            />
+            <output
+              aria-label="Filter Res"
+              for="filter-Res"
+            >
+              6
+            </output>
+          </div>
+        </div>
+      </section>
+      <section
+        aria-label="Filter Envelope"
+        class="
         _SynthParameterGroup_a92880
         _SynthParameterGroup_a92880"
-          id="filterEnvelope"
+        id="filterEnvelope"
+      >
+        <header>
+          <h2>
+            Filter Envelope
+          </h2>
+        </header>
+        <div
+          class="_SynthParameterGroup__controls_a92880"
         >
-          <header>
-            <h2>
-              Filter Envelope
-            </h2>
-          </header>
           <div
-            class="_SynthParameterGroup__controls_a92880"
+            class="_Slider_79b390"
           >
-            <div
-              class="_Slider_79b390"
+            <label
+              for="filterEnvelope-A"
             >
-              <label
-                for="filterEnvelope-A"
-              >
-                A
-              </label>
-              <input
-                id="filterEnvelope-A"
-                max="127"
-                min="0"
-                step="0.05"
-                type="range"
-                value="6.348793487934879"
-              />
-              <output
-                aria-label="Filter Envelope A"
-                for="filterEnvelope-A"
-              >
-                0.5
-              </output>
-            </div>
-            <div
-              class="_Slider_79b390"
+              A
+            </label>
+            <input
+              id="filterEnvelope-A"
+              max="127"
+              min="0"
+              step="0.05"
+              type="range"
+              value="6.348793487934879"
+            />
+            <output
+              aria-label="Filter Envelope A"
+              for="filterEnvelope-A"
             >
-              <label
-                for="filterEnvelope-D"
-              >
-                D
-              </label>
-              <input
-                id="filterEnvelope-D"
-                max="127"
-                min="0"
-                step="0.05"
-                type="range"
-                value="6.348793487934879"
-              />
-              <output
-                aria-label="Filter Envelope D"
-                for="filterEnvelope-D"
-              >
-                0.5
-              </output>
-            </div>
-            <div
-              class="_Slider_79b390"
-            >
-              <label
-                for="filterEnvelope-S"
-              >
-                S
-              </label>
-              <input
-                id="filterEnvelope-S"
-                max="127"
-                min="0"
-                step="0.05"
-                type="range"
-                value="127"
-              />
-              <output
-                aria-label="Filter Envelope S"
-                for="filterEnvelope-S"
-              >
-                1
-              </output>
-            </div>
-            <div
-              class="_Slider_79b390"
-            >
-              <label
-                for="filterEnvelope-R"
-              >
-                R
-              </label>
-              <input
-                id="filterEnvelope-R"
-                max="127"
-                min="0"
-                step="0.05"
-                type="range"
-                value="12.698856988569887"
-              />
-              <output
-                aria-label="Filter Envelope R"
-                for="filterEnvelope-R"
-              >
-                1
-              </output>
-            </div>
-            <div
-              class="_Slider_79b390"
-            >
-              <label
-                for="filterEnvelope-Amnt"
-              >
-                Amnt
-              </label>
-              <input
-                id="filterEnvelope-Amnt"
-                max="127"
-                min="0"
-                step="0.05"
-                type="range"
-                value="25.400000000000002"
-              />
-              <output
-                aria-label="Filter Envelope Amnt"
-                for="filterEnvelope-Amnt"
-              >
-                2
-              </output>
-            </div>
+              0.5
+            </output>
           </div>
-        </section>
-        <section
-          aria-label="Amp Envelope"
-          class="
+          <div
+            class="_Slider_79b390"
+          >
+            <label
+              for="filterEnvelope-D"
+            >
+              D
+            </label>
+            <input
+              id="filterEnvelope-D"
+              max="127"
+              min="0"
+              step="0.05"
+              type="range"
+              value="6.348793487934879"
+            />
+            <output
+              aria-label="Filter Envelope D"
+              for="filterEnvelope-D"
+            >
+              0.5
+            </output>
+          </div>
+          <div
+            class="_Slider_79b390"
+          >
+            <label
+              for="filterEnvelope-S"
+            >
+              S
+            </label>
+            <input
+              id="filterEnvelope-S"
+              max="127"
+              min="0"
+              step="0.05"
+              type="range"
+              value="127"
+            />
+            <output
+              aria-label="Filter Envelope S"
+              for="filterEnvelope-S"
+            >
+              1
+            </output>
+          </div>
+          <div
+            class="_Slider_79b390"
+          >
+            <label
+              for="filterEnvelope-R"
+            >
+              R
+            </label>
+            <input
+              id="filterEnvelope-R"
+              max="127"
+              min="0"
+              step="0.05"
+              type="range"
+              value="12.698856988569887"
+            />
+            <output
+              aria-label="Filter Envelope R"
+              for="filterEnvelope-R"
+            >
+              1
+            </output>
+          </div>
+          <div
+            class="_Slider_79b390"
+          >
+            <label
+              for="filterEnvelope-Amnt"
+            >
+              Amnt
+            </label>
+            <input
+              id="filterEnvelope-Amnt"
+              max="127"
+              min="0"
+              step="0.05"
+              type="range"
+              value="25.400000000000002"
+            />
+            <output
+              aria-label="Filter Envelope Amnt"
+              for="filterEnvelope-Amnt"
+            >
+              2
+            </output>
+          </div>
+        </div>
+      </section>
+      <section
+        aria-label="Amp Envelope"
+        class="
         _SynthParameterGroup_a92880
         _SynthParameterGroup_a92880"
-          id="ampEnvelope"
+        id="ampEnvelope"
+      >
+        <header>
+          <h2>
+            Amp Envelope
+          </h2>
+        </header>
+        <div
+          class="_SynthParameterGroup__controls_a92880"
         >
-          <header>
-            <h2>
-              Amp Envelope
-            </h2>
-          </header>
           <div
-            class="_SynthParameterGroup__controls_a92880"
+            class="_Slider_79b390"
           >
-            <div
-              class="_Slider_79b390"
+            <label
+              for="envelope-A"
             >
-              <label
-                for="envelope-A"
-              >
-                A
-              </label>
-              <input
-                id="envelope-A"
-                max="127"
-                min="0"
-                step="0.05"
-                type="range"
-                value="0"
-              />
-              <output
-                aria-label="Envelope A"
-                for="envelope-A"
-              >
-                0.0001
-              </output>
-            </div>
-            <div
-              class="_Slider_79b390"
+              A
+            </label>
+            <input
+              id="envelope-A"
+              max="127"
+              min="0"
+              step="0.05"
+              type="range"
+              value="0"
+            />
+            <output
+              aria-label="Envelope A"
+              for="envelope-A"
             >
-              <label
-                for="envelope-D"
-              >
-                D
-              </label>
-              <input
-                id="envelope-D"
-                max="127"
-                min="0"
-                step="0.05"
-                type="range"
-                value="6.348793487934879"
-              />
-              <output
-                aria-label="Envelope D"
-                for="envelope-D"
-              >
-                0.5
-              </output>
-            </div>
-            <div
-              class="_Slider_79b390"
-            >
-              <label
-                for="envelope-S"
-              >
-                S
-              </label>
-              <input
-                id="envelope-S"
-                max="127"
-                min="0"
-                step="0.05"
-                type="range"
-                value="127"
-              />
-              <output
-                aria-label="Envelope S"
-                for="envelope-S"
-              >
-                1
-              </output>
-            </div>
-            <div
-              class="_Slider_79b390"
-            >
-              <label
-                for="release-R"
-              >
-                R
-              </label>
-              <input
-                id="release-R"
-                max="127"
-                min="0"
-                step="0.05"
-                type="range"
-                value="12.698856988569887"
-              />
-              <output
-                aria-label="Release R"
-                for="release-R"
-              >
-                1
-              </output>
-            </div>
+              0.0001
+            </output>
           </div>
-        </section>
-      </form>
-    </div>
+          <div
+            class="_Slider_79b390"
+          >
+            <label
+              for="envelope-D"
+            >
+              D
+            </label>
+            <input
+              id="envelope-D"
+              max="127"
+              min="0"
+              step="0.05"
+              type="range"
+              value="6.348793487934879"
+            />
+            <output
+              aria-label="Envelope D"
+              for="envelope-D"
+            >
+              0.5
+            </output>
+          </div>
+          <div
+            class="_Slider_79b390"
+          >
+            <label
+              for="envelope-S"
+            >
+              S
+            </label>
+            <input
+              id="envelope-S"
+              max="127"
+              min="0"
+              step="0.05"
+              type="range"
+              value="127"
+            />
+            <output
+              aria-label="Envelope S"
+              for="envelope-S"
+            >
+              1
+            </output>
+          </div>
+          <div
+            class="_Slider_79b390"
+          >
+            <label
+              for="release-R"
+            >
+              R
+            </label>
+            <input
+              id="release-R"
+              max="127"
+              min="0"
+              step="0.05"
+              type="range"
+              value="12.698856988569887"
+            />
+            <output
+              aria-label="Release R"
+              for="release-R"
+            >
+              1
+            </output>
+          </div>
+        </div>
+      </section>
+    </form>
   </div>
   <div
     class="_App__Footer_099074"
