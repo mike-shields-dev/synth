@@ -1,11 +1,26 @@
-import { ControlChangeSubscriber, publishControlChange, ControlChange } from './ControlChange/ControlChange';
-import { FocusChangeSubscriber, publishFocusChange } from './FocusChange/FocusChange';
+import {
+  ControlChangeSubscriber,
+  publishControlChange,
+  ControlChange,
+} from "./ControlChange/ControlChange";
+import {
+  FocusChangeSubscriber,
+  publishFocusChange,
+} from "./FocusChange/FocusChange";
+import { NoteOffSubscriber, publishNoteOff, NoteOff } from "./NoteOff/NoteOff";
+import { NoteOnSubscriber, publishNoteOn, NoteOn } from "./NoteOn/NoteOn";
 
-import { NoteOffSubscriber, publishNoteOff, NoteOff } from './NoteOff/NoteOff';
 
-export { NoteOnSubscriber, publishNoteOn } from './NoteOn';
-export type { NoteOn } from './NoteOn/types';
-export { PitchBendSubscriber, publishPitchBend } from './PitchBend';
+export { PitchBendSubscriber, publishPitchBend } from "./PitchBend";
 
-export { ControlChangeSubscriber, publishControlChange, FocusChangeSubscriber, publishFocusChange, NoteOffSubscriber, publishNoteOff };
-export type { ControlChange, NoteOff };
+export {
+  ControlChangeSubscriber,
+  publishControlChange,
+  FocusChangeSubscriber,
+  publishFocusChange,
+  NoteOffSubscriber,
+  publishNoteOff,
+  NoteOnSubscriber,
+  publishNoteOn,
+};
+export type { ControlChange, NoteOff, NoteOn };
