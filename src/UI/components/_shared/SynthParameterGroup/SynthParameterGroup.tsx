@@ -39,5 +39,5 @@ function SynthParameterGroup({
   )
 }
 
-export { SynthParameterGroup };
+export default SynthParameterGroup;
   
