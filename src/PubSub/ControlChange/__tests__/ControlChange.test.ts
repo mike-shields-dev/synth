@@ -1,6 +1,6 @@
 import { waitFor } from "@testing-library/react";
 import { vi } from 'vitest';
-import { ControlChangeSubscriber, publishControlChange } from "..";
+import { ControlChangeSubscriber, publishControlChange } from "../ControlChange";
 import { CONTROL } from "../../topics";
 
 describe('ControlChangeSubscriber', () => {

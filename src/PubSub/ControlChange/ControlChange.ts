@@ -1,6 +1,12 @@
 import PubSub from 'pubsub-js';
 import { CONTROL } from '../topics';
-import { ControlChange, ControlChangeHandler } from './types';
+
+interface ControlChange {
+  controlChangeNumber: number;
+  value: number;
+}
+
+type ControlChangeHandler = (message: string, data: ControlChange) => void;
 
 function publishControlChange(data: ControlChange) {
   PubSub.publish(CONTROL, data);
@@ -25,4 +31,6 @@ export {
   publishControlChange,
   ControlChangeSubscriber
 };
+
+export type { ControlChange };
 
