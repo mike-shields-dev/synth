@@ -1,0 +1,11 @@
+.Synth_UI {
+  display: grid;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 700px) {
+  .Synth_UI {
+    grid-template-columns: 1fr 1fr;
+  }
+};
+
