@@ -1,6 +1,12 @@
 import PubSub from "pubsub-js";
 import { NOTE_OFF } from "../topics";
-import { NoteOff, NoteOffHandler } from './types';
+
+interface NoteOff {
+    noteNumber: number;
+}
+
+type NoteOffHandler = (message: string, data: NoteOff) => void;
+
 
 function publishNoteOff(data: NoteOff) {
     PubSub.publish(NOTE_OFF, data)
@@ -22,3 +28,4 @@ class NoteOffSubscriber {
 }
 
 export { publishNoteOff, NoteOffSubscriber };
+export type { NoteOff };

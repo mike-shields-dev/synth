@@ -1,6 +1,6 @@
 import { waitFor } from "@testing-library/react";
 import { vi } from 'vitest';
-import { NoteOffSubscriber, publishNoteOff } from "..";
+import { NoteOffSubscriber, publishNoteOff } from "../NoteOff";
 import { NOTE_OFF } from "../../topics";
 
 describe('NoteOffSubscriber', () => {
