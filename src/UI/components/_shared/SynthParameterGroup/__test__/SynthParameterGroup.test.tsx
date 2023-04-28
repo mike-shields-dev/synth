@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { fireEvent, render, screen, within } from "@testing-library/react";
-import { SynthParameterGroup } from '..';
+import { SynthParameterGroup } from '../SynthParameterGroup';
 
 const validProps = {
     group: 'Group Name',
@@ -9,6 +9,7 @@ const validProps = {
 }
 
 const ValidChild = () => <div>valid child</div>;
+
 
 describe('SynthParameterGroup', () => {
     beforeEach(() => render(
@@ -19,6 +20,16 @@ describe('SynthParameterGroup', () => {
 
     afterEach(() => vi.restoreAllMocks());
 
+    it('matches snapshot', () => {
+        const { container } = render(
+            <SynthParameterGroup {...validProps}>
+                { (isFocused) => <ValidChild /> }
+            </SynthParameterGroup>
+        );
+
+        expect(container).toMatchSnapshot();
+    });
+    
     it(`renders a form with the name groupName`, () => {
         expect(
             screen.getByRole('region', { name: validProps.group })

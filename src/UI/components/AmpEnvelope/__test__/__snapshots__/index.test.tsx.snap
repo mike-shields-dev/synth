@@ -5,8 +5,8 @@ exports[`AmpEnvelope > matches snapshot 1`] = `
   <section
     aria-label="Amp Envelope"
     class="
-        _SynthParameterGroup_a92880
-        _SynthParameterGroup--focus_a92880"
+        _SynthParameterGroup_541118
+        _SynthParameterGroup--focus_541118"
     id="ampEnvelope"
   >
     <header>
@@ -15,7 +15,7 @@ exports[`AmpEnvelope > matches snapshot 1`] = `
       </h2>
     </header>
     <div
-      class="_SynthParameterGroup__controls_a92880"
+      class="_SynthParameterGroup__controls_541118"
     >
       <div
         class="_Slider_8e0153"

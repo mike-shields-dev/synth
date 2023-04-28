@@ -1,6 +1,6 @@
 import * as scalers from "../../../utils/Scalers";
 import { Slider } from "../_shared/Slider/Slider";
-import { SynthParameterGroup } from "../_shared/SynthParameterGroup";
+import { SynthParameterGroup } from "../_shared/SynthParameterGroup/SynthParameterGroup";
 import config from "../../../config";
 
 interface Props {

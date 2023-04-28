@@ -1,5 +1,5 @@
 import { useRef, ReactNode } from "react";
-import css from './index.module.css';
+import css from './SynthParameterGroup.module.css';
 import { camelCaseToTitleCase } from "../../../../utils/camelCaseToTitleCase";
 
 interface Props {

@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SynthParameterGroup > matches snapshot 1`] = `
+<div>
+  <section
+    aria-label="Group  Name"
+    class="
+        _SynthParameterGroup_541118
+        _SynthParameterGroup--focus_541118"
+    id="Group Name"
+  >
+    <header>
+      <h2>
+        Group  Name
+      </h2>
+    </header>
+    <div
+      class="_SynthParameterGroup__controls_541118"
+    >
+      <div>
+        valid child
+      </div>
+    </div>
+  </section>
+</div>
+`;

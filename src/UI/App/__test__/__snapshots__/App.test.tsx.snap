@@ -54,8 +54,8 @@ exports[`App > matches snapshot 1`] = `
       <section
         aria-label="Oscillator"
         class="
-        _SynthParameterGroup_a92880
-        _SynthParameterGroup--focus_a92880"
+        _SynthParameterGroup_541118
+        _SynthParameterGroup--focus_541118"
         id="oscillator"
       >
         <header>
@@ -64,14 +64,14 @@ exports[`App > matches snapshot 1`] = `
           </h2>
         </header>
         <div
-          class="_SynthParameterGroup__controls_a92880"
+          class="_SynthParameterGroup__controls_541118"
         />
       </section>
       <section
         aria-label="Filter"
         class="
-        _SynthParameterGroup_a92880
-        _SynthParameterGroup_a92880"
+        _SynthParameterGroup_541118
+        _SynthParameterGroup_541118"
         id="filter"
       >
         <header>
@@ -80,7 +80,7 @@ exports[`App > matches snapshot 1`] = `
           </h2>
         </header>
         <div
-          class="_SynthParameterGroup__controls_a92880"
+          class="_SynthParameterGroup__controls_541118"
         >
           <div
             class="_Slider_8e0153"
@@ -133,8 +133,8 @@ exports[`App > matches snapshot 1`] = `
       <section
         aria-label="Filter Envelope"
         class="
-        _SynthParameterGroup_a92880
-        _SynthParameterGroup_a92880"
+        _SynthParameterGroup_541118
+        _SynthParameterGroup_541118"
         id="filterEnvelope"
       >
         <header>
@@ -143,7 +143,7 @@ exports[`App > matches snapshot 1`] = `
           </h2>
         </header>
         <div
-          class="_SynthParameterGroup__controls_a92880"
+          class="_SynthParameterGroup__controls_541118"
         >
           <div
             class="_Slider_8e0153"
@@ -265,8 +265,8 @@ exports[`App > matches snapshot 1`] = `
       <section
         aria-label="Amp Envelope"
         class="
-        _SynthParameterGroup_a92880
-        _SynthParameterGroup_a92880"
+        _SynthParameterGroup_541118
+        _SynthParameterGroup_541118"
         id="ampEnvelope"
       >
         <header>
@@ -275,7 +275,7 @@ exports[`App > matches snapshot 1`] = `
           </h2>
         </header>
         <div
-          class="_SynthParameterGroup__controls_a92880"
+          class="_SynthParameterGroup__controls_541118"
         >
           <div
             class="_Slider_8e0153"
