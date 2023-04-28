@@ -1,4 +1,4 @@
-import Nav from '../Nav';
+import { Nav } from '../Nav';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { vi } from 'vitest';
  
