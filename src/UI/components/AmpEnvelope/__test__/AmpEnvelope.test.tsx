@@ -1,4 +1,4 @@
-import { AmpEnvelope } from '..';
+import { AmpEnvelope } from '../AmpEnvelope';
 import { vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 
