@@ -1,6 +1,6 @@
 import { waitFor } from "@testing-library/react";
 import { vi } from "vitest";
-import { FocusChangeSubscriber, publishFocusChange } from "..";
+import { FocusChangeSubscriber, publishFocusChange } from "../FocusChange";
 import { FOCUS } from "../../topics";
 
 describe("FocusChangeSubscriber", () => {

@@ -1,6 +1,7 @@
 import PubSub from "pubsub-js";
 import { FOCUS } from '../topics';
-import { FocusChangeHandler } from "./types";
+
+type FocusChangeHandler = (message: string, data: string) => void;
 
 function publishFocusChange(data: string) {
     PubSub.publish(FOCUS, data);

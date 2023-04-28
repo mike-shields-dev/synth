@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Nav, AmpEnvelope, Filter, FilterEnvelope, Oscillator, SynthUI, UIKeyboard } from '../components';
 import useMidiAccess from '../hooks/useMidiAccess/useMidiAccess';
-import { publishFocusChange } from '../../PubSub/FocusChange';
+import { publishFocusChange } from '../../PubSub';
 import css from './App.module.css';
 
 function App() {
