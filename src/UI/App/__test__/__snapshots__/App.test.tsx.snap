@@ -49,7 +49,7 @@ exports[`App > matches snapshot 1`] = `
   >
     <form
       aria-label="synth controls"
-      class="_Synth_UI_136ead"
+      class="_Synth_UI_b6addd"
     >
       <section
         aria-label="Oscillator"

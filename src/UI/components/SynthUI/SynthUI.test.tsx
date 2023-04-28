@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { SynthUI } from '.';
+import { SynthUI } from './SynthUI';
 
 const children = [
     <div key={0}>Child1</div>, 

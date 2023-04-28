@@ -1,5 +1,5 @@
 import { ReactNode, useState } from "react";
-import css from "./index.module.css";
+import css from "./SynthUI.module.css";
 
 interface Props {
   children?: React.ReactNode;
