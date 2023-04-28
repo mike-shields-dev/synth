@@ -1,4 +1,4 @@
-import { SynthParameterGroup } from "../_shared/SynthParameterGroup/SynthParameterGroup";
+import { SynthParameterGroup } from "../_shared";
 
 interface Props {
     focus: string;
