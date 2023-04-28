@@ -18,7 +18,7 @@ exports[`AmpEnvelope > matches snapshot 1`] = `
       class="_SynthParameterGroup__controls_a92880"
     >
       <div
-        class="_Slider_79b390"
+        class="_Slider_8e0153"
       >
         <label
           for="envelope-A"
@@ -41,7 +41,7 @@ exports[`AmpEnvelope > matches snapshot 1`] = `
         </output>
       </div>
       <div
-        class="_Slider_79b390"
+        class="_Slider_8e0153"
       >
         <label
           for="envelope-D"
@@ -64,7 +64,7 @@ exports[`AmpEnvelope > matches snapshot 1`] = `
         </output>
       </div>
       <div
-        class="_Slider_79b390"
+        class="_Slider_8e0153"
       >
         <label
           for="envelope-S"
@@ -87,7 +87,7 @@ exports[`AmpEnvelope > matches snapshot 1`] = `
         </output>
       </div>
       <div
-        class="_Slider_79b390"
+        class="_Slider_8e0153"
       >
         <label
           for="release-R"

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
-import { Slider } from '../..';
-import { CONTROL } from '../../../../../../PubSub/topics';
+import { Slider } from '../Slider';
+import { CONTROL } from '../../../../../PubSub/topics';
 
 const validProps = {
     controlChangeNumber: 70,

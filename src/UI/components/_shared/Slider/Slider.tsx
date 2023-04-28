@@ -1,9 +1,19 @@
 import { useEffect, useState } from "react";
 import { ControlChange, ControlChangeSubscriber, publishControlChange } from "../../../../PubSub";
 import { camelCaseToTitleCase } from "../../../../utils/camelCaseToTitleCase";
-import { SliderProps } from "./types";
-import css from './index.module.css';
+import css from './Slider.module.css';
 
+interface SliderProps {
+    controlChangeNumber: number;
+    group: string;
+    initVal: number;
+    isFocused: boolean;
+    parameter: string;
+    scalers: {
+        in: (n: number) => number;
+        out: (n: number) => number;
+    };
+};
 
 function Slider({
     controlChangeNumber,

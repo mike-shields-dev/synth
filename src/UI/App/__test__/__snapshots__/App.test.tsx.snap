@@ -83,7 +83,7 @@ exports[`App > matches snapshot 1`] = `
           class="_SynthParameterGroup__controls_a92880"
         >
           <div
-            class="_Slider_79b390"
+            class="_Slider_8e0153"
           >
             <label
               for="filter-Freq"
@@ -106,7 +106,7 @@ exports[`App > matches snapshot 1`] = `
             </output>
           </div>
           <div
-            class="_Slider_79b390"
+            class="_Slider_8e0153"
           >
             <label
               for="filter-Res"
@@ -146,7 +146,7 @@ exports[`App > matches snapshot 1`] = `
           class="_SynthParameterGroup__controls_a92880"
         >
           <div
-            class="_Slider_79b390"
+            class="_Slider_8e0153"
           >
             <label
               for="filterEnvelope-A"
@@ -169,7 +169,7 @@ exports[`App > matches snapshot 1`] = `
             </output>
           </div>
           <div
-            class="_Slider_79b390"
+            class="_Slider_8e0153"
           >
             <label
               for="filterEnvelope-D"
@@ -192,7 +192,7 @@ exports[`App > matches snapshot 1`] = `
             </output>
           </div>
           <div
-            class="_Slider_79b390"
+            class="_Slider_8e0153"
           >
             <label
               for="filterEnvelope-S"
@@ -215,7 +215,7 @@ exports[`App > matches snapshot 1`] = `
             </output>
           </div>
           <div
-            class="_Slider_79b390"
+            class="_Slider_8e0153"
           >
             <label
               for="filterEnvelope-R"
@@ -238,7 +238,7 @@ exports[`App > matches snapshot 1`] = `
             </output>
           </div>
           <div
-            class="_Slider_79b390"
+            class="_Slider_8e0153"
           >
             <label
               for="filterEnvelope-Amnt"
@@ -278,7 +278,7 @@ exports[`App > matches snapshot 1`] = `
           class="_SynthParameterGroup__controls_a92880"
         >
           <div
-            class="_Slider_79b390"
+            class="_Slider_8e0153"
           >
             <label
               for="envelope-A"
@@ -301,7 +301,7 @@ exports[`App > matches snapshot 1`] = `
             </output>
           </div>
           <div
-            class="_Slider_79b390"
+            class="_Slider_8e0153"
           >
             <label
               for="envelope-D"
@@ -324,7 +324,7 @@ exports[`App > matches snapshot 1`] = `
             </output>
           </div>
           <div
-            class="_Slider_79b390"
+            class="_Slider_8e0153"
           >
             <label
               for="envelope-S"
@@ -347,7 +347,7 @@ exports[`App > matches snapshot 1`] = `
             </output>
           </div>
           <div
-            class="_Slider_79b390"
+            class="_Slider_8e0153"
           >
             <label
               for="release-R"
