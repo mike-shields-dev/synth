@@ -1,3 +1,4 @@
+export { Nav } from './Nav/Nav';
 export { AmpEnvelope } from './AmpEnvelope/AmpEnvelope';
 export { Filter } from './Filter/Filter';
 export { FilterEnvelope } from './FilterEnvelope/FilterEnvelope';

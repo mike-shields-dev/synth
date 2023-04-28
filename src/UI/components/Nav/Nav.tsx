@@ -38,4 +38,4 @@ function Nav({ focus, updateFocus }: Props) {
     )
 }
 
-export default Nav;
+export { Nav };
