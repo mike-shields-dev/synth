@@ -3,7 +3,6 @@ import Nav from '../components/Nav';
 import { AmpEnvelope, FilterEnvelope, Oscillator, SynthUI } from '../components';
 import { Filter } from '../components/Filter';
 import { useMidiAccess } from '../hooks/useMidiAccess';
-import './index.module.css';
 import { publishFocusChange } from '../../PubSub/FocusChange';
 import { UIKeyboard } from '../components/UIKeyboard';
 import css from './App.module.css';
