@@ -4,7 +4,7 @@ import { AmpEnvelope, FilterEnvelope, Oscillator, SynthUI } from '../components'
 import { Filter } from '../components/Filter/Filter';
 import { useMidiAccess } from '../hooks/useMidiAccess';
 import { publishFocusChange } from '../../PubSub/FocusChange';
-import { UIKeyboard } from '../components/UIKeyboard';
+import { UIKeyboard } from '../components/UIKeyboard/UIKeyboard';
 import css from './App.module.css';
 
 function App() {

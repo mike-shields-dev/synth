@@ -1,6 +1,6 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
-import { UIKeyboard } from "..";
+import { UIKeyboard } from "../UIKeyboard";
 import { NOTE_OFF, NOTE_ON } from "../../../../PubSub/topics";
 
 const octaveToNoteOffset = (octave: number) => octave * 12;
