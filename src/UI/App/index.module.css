@@ -17,7 +17,7 @@
 
 .App__Main {
     grid-area: main;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
