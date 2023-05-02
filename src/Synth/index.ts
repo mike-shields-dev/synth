@@ -143,7 +143,7 @@ function updateAmpEnvelopeParam(param: string, value: number) {
 }
 
 function onOctaveChange(topic: string, data: number) {
-  if (data < minOctave || data > maxOctave) return;
+  if (data <= minOctave || data >= maxOctave) return;
   SYNTH.releaseAll()
   octave = data;
 }
