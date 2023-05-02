@@ -9,8 +9,10 @@ import {
   publishNoteOn,
   publishPitchBend,
   publishOctaveChange,
+  OctaveChangeSubscriber,
 } from "../../../PubSub";
 import { octaveToNoteOffset } from "../../../utils/Scalers";
+import { octave, minOctave, maxOctave } from "../../../Synth";
 import css from "./UIKeyboard.module.css";
 
 type Key = {
@@ -45,14 +47,14 @@ function UIKeyboard() {
     const noteNumber = +e.currentTarget.value;
     if (["mousedown"].includes(e.type)) {
       return publishNoteOn({
-        noteNumber: noteNumber + octaveToNoteOffset(octave),
+        noteNumber: noteNumber,
         velocity: 80,
       });
     }
 
     if (["mouseup", "mouseleave"].includes(e.type)) {
       return publishNoteOff({
-        noteNumber: noteNumber + octaveToNoteOffset(octave),
+        noteNumber: noteNumber,
       });
     }
   }
@@ -93,10 +95,15 @@ function UIKeyboard() {
     setPitchBend(data);
   }
 
+  function onPublishedOctaveChange(TOPIC: string, data: number) {
+    setOctave(data);
+  }
+
   useEffect(() => {
     const noteOnSubscriber = new NoteOnSubscriber(onPublishedNoteOn);
     const noteOffSubscriber = new NoteOffSubscriber(onPublishedNoteOff);
     const pitchBendSubscriber = new PitchBendSubscriber(onPublishedPitchBend);
+    const octaveChangeSubscriber = new OctaveChangeSubscriber(onPublishedOctaveChange);
 
     return () => {
       noteOnSubscriber.unsubscribe();
@@ -118,8 +125,8 @@ function UIKeyboard() {
       <input
         type="number"
         id="octave"
-        min="-5"
-        max="5"
+        min={minOctave}
+        max={maxOctave}
         value={octave}
         onChange={onOctave}
       />
